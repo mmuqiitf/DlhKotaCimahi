@@ -365,3 +365,8 @@ h6 {
   background: #f6f6fe;
 }
 /* END CARD */
+
+.form-control {
+  width: 200%;
+  border-radius: 16.25rem;
+}
