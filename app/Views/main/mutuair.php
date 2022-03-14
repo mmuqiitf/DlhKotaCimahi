@@ -57,90 +57,90 @@
                         </div>
                     </div><!-- End Sales Card -->
 
-                   
+
 
                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option selected>NAMA SUNGAI</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                        <option selected>NAMA SUNGAI</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
                     </select>
 
                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option selected>TITIK PANTAU</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                        <option selected>TITIK PANTAU</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
                     </select>
 
 
                     <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="inputPassword6" class="col-form-label">TSS mg/L</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </div>
-                    </div>
-
-                    <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="inputPassword6" class="col-form-label">DO m3/S</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </div>
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">TSS mg/L</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
                     </div>
 
                     <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="inputPassword6" class="col-form-label">BOD m3/S</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </div>
-                    </div>
-
-                    <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="inputPassword6" class="col-form-label">COD m3/S</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </div>
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">DO m3/S</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
                     </div>
 
                     <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="inputPassword6" class="col-form-label">Fosfat m3/S</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </div>
-                    </div>
-
-                    <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="inputPassword6" class="col-form-label">Feral Coli m3/S</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </div>
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">BOD m3/S</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
                     </div>
 
                     <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                        <label for="inputPassword6" class="col-form-label">Total Coliform m3/S</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </div>
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">COD m3/S</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
                     </div>
 
-                      
-  
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">Fosfat m3/S</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">Feral Coli m3/S</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="inputPassword6" class="col-form-label">Total Coliform m3/S</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                    </div>
+
+
+
                 </div>
-            </div>            
+            </div>
         </div>
     </section>
 </main><!-- End #main -->

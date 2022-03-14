@@ -18,35 +18,34 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link collapsed" data-bs-toggle="collapse" href="#">
                 <i class="bx bx-line-chart"></i><span>Beban Pencemaran</span>
             </a>
         </li><!-- End Beban Pencemaran Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="" data-bs-toggle="collapse" href="#">
+            <a class="nav-link collapsed" data-bs-toggle="collapse" href="#">
                 <i class="bx bx-book-reader"></i><span>Informasi Titik Pantau</span>
             </a>
         </li><!-- End Informasi Titik Pantau Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link collapsed" data-bs-toggle="collapse" href="#">
                 <i class="bx bxs-user"></i><span>Titik Pantau</span>
             </a>
         </li><!-- End Titik Pantau Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="">
+            <a class="nav-link collapsed" data-bs-toggle="collapse" href="">
                 <i class="bx bxs-cog"></i><span>Index Kualitas Air</span>
             </a>
         </li><!-- End Index Kualitas Air Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed"  href="/Home/statusair">
+            <a class="nav-link collapsed" href="/Home/statusair">
                 <i class="bx bxs-cog"></i><span>Status Mutu Air </span>
             </a>
         </li><!-- End Status Mutu Air Nav -->
-        <a href="/Home/statusair">nnh</a>
 
 
         <li class="nav-item">
