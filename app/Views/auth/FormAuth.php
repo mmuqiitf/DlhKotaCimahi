@@ -8,8 +8,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text h-100" id="basic-addon1"> <i class="bx bxs-user "></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
 
@@ -17,13 +16,14 @@
             <div class="input-group-prepend">
                 <span class="input-group-text h-100" id="basic-addon1"> <i class="bi bi-lock"></i></span>
             </div>
-            <input type="password" class="form-control" placeholder="password" aria-label="Password"
-                aria-describedby="basic-addon1">
+            <input type="password" class="form-control" placeholder="password" aria-label="Password" aria-describedby="basic-addon1">
         </div>
 
 
         <div class="d-grid gap-2">
-            <button class="custon__button__auth" type="button">Login</button>
+            <a href="/Home/index">
+                <button class="custon__button__auth" type="button">Login</button>
+            </a>
         </div>
 
     </div>

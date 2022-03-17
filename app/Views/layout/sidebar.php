@@ -50,11 +50,10 @@
 
         <li class="nav-item">
             <div class="logout">
-                <a class="nav-link collapsed" href="">
+                <a class="nav-link collapsed" href="/Home/Auth">
                     <i class="bx bx-log-out"></i>
                     <span>Logout</span>
                 </a>
             </div>
         </li><!-- End Logout Page Nav -->
 </aside><!-- End Sidebar-->
-
