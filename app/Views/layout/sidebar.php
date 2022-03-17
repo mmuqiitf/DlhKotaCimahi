@@ -37,9 +37,9 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="/Home/indexair">
-                <a class="nav-link collapsed" data-bs-toggle="collapse" href="">
-                    <i class="bx bxs-cog"></i><span>Index Kualitas Air</span>
-                </a>
+
+                <i class="bx bxs-cog"></i><span>Index Kualitas Air</span>
+            </a>
         </li><!-- End Index Kualitas Air Nav -->
 
         <li class="nav-item">

@@ -83,20 +83,10 @@
                         <option value="1">Hulu</option>
                         <option value="2">Tengah</option>
                         <option value="3">Hilir</option>
-
-                        <option selected>NAMA SUNGAI</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
                     </select>
 
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>TITIK PANTAU</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
 
-                    </select>
+
 
                     <!-- General Form Elements -->
                     ` <form>
