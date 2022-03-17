@@ -1,3 +1,8 @@
+<?= $this->extend('layout/template');  ?>
+
+
+<?= $this->section('content'); ?>
+
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Hi Marco,</h1>
@@ -13,8 +18,7 @@
                         <div class="card info-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bx bxs-user"></i>
                                     </div>
                                     <div class="ps-3">
@@ -30,8 +34,7 @@
                         <div class="card info-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bx bxs-location-plus"></i>
                                     </div>
                                     <div class="ps-3">
@@ -47,8 +50,7 @@
                         <div class="card info-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bx bxs-bar-chart-alt-2"></i>
                                     </div>
                                     <div class="ps-3">
@@ -64,8 +66,7 @@
                         <div class="card info-card ">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bx bxs-layer-plus"></i>
                                     </div>
                                     <div class="ps-3">
@@ -134,3 +135,4 @@
 
     </section><!-- End Services Section -->
 </main><!-- End #main -->
+<?= $this->endSection();  ?>
