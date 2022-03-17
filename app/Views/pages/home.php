@@ -1,3 +1,9 @@
+<?= $this->extend('layout/template');  ?>
+
+
+<?= $this->section('content'); ?>
+
+
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Hi Marco,</h1>
@@ -225,3 +231,8 @@
         </div>
     </section>
 </main><!-- End #main -->
+
+
+
+
+<?= $this->endSection();  ?>

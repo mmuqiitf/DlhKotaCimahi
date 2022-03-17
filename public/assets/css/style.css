@@ -308,6 +308,16 @@ h6 {
 # Dashboard
 --------------------------------------------------------------*/
 /* Card */
+
+.card {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+}
 .dashboard .card {
   margin-bottom: 30px;
   border: none;
@@ -492,4 +502,9 @@ h6 {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+/* GRAFIK */
+.grafik {
+  margin-top: -3%;
 }
