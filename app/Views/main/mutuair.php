@@ -67,123 +67,119 @@
                     </div><!-- End Sales Card -->
 
 
+                    <div class="card">
+                        <div class="card-body">
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
 
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option selected>Nama Sungai</option>
+                                <option value="1"> Sungai Cisangkan</option>
+                                <option value="2">Sungai Cibaligo</option>
+                                <option value="3">Sungai Cibereum</option>
+                                <option value="2">Sungai Cilember</option>
+                                <option value="3">Sungai Cimahi</option>
+                            </select>
 
-                        <option selected>Nama Sungai</option>
-                        <option value="1"> Sungai Cisangkan</option>
-                        <option value="2">Sungai Cibaligo</option>
-                        <option value="3">Sungai Cibereum</option>
-                        <option value="2">Sungai Cilember</option>
-                        <option value="3">Sungai Cimahi</option>
-                    </select>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option selected>Titik Pantau</option>
+                                <option value="1">Hulu</option>
+                                <option value="2">Tengah</option>
+                                <option value="3">Hilir</option>
+                            </select>
 
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>Titik Pantau</option>
-                        <option value="1">Hulu</option>
-                        <option value="2">Tengah</option>
-                        <option value="3">Hilir</option>
-                    </select>
+                            <!-- General Form Elements -->
+                            ` <form>
+                                <div class="row mb-3">
+                                    <label for="inputDate" class="col-sm-2 col-form-label">Tanggal</label>
+                                    <div class="col-sm-4">
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">TSS(mg/L)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">DO(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">BOD(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">COD(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
 
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Fosfat(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
 
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Feral
+                                        Coli(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
 
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Total
+                                        Coliform(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
 
-                    <!-- General Form Elements -->
-                    ` <form>
-                        <div class="row mb-3">
-                            <label for="inputDate" class="col-sm-2 col-form-label">Tanggal</label>
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control">
-                            </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-primary">Cek Hasil</button>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Pencemaran air
+                                        (Pij)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Status Mutu Air</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-primary">Simpan Hasil</button>
+                                    </div>
+                                </div>
+                            </form><!-- End General Form Elements -->`
+
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">TSS(mg/L)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">DO(m3/s)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">BOD(m3/s)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">COD(m3/s)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Fosfat(m3/s)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Feral Coli(m3/s)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Total Coliform(m3/s)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label"></label>
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Cek Hasil</button>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Pencemaran air (Pij)</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Status Mutu Air</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label"></label>
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Simpan Hasil</button>
-                            </div>
-                        </div>
-                    </form><!-- End General Form Elements -->`
-
-
-
-
-
+                    </div>
 
                 </div>
+
+
+
+
+
             </div>
-
-        </div>
-
-
-
-
-
-        </div>
         </div>
 
         </div>
