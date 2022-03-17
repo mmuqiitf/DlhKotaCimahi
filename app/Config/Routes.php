@@ -31,13 +31,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::auth');
+$routes->get('/dashbpard', 'Home::index');
 $routes->get('/mutuair', 'Home::statusair');
-<<<<<<< HEAD
 $routes->get('/indeksair', 'Home::indexair');
-=======
 $routes->get('/login', 'Home::auth');
->>>>>>> 889b1ed8d51d48a51d4d4ac1b82f9c3ff5fa35e1
 
 /*
  * --------------------------------------------------------------------

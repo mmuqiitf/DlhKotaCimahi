@@ -24,10 +24,11 @@ class Home extends BaseController
 
     public function statusair()
     {
-        echo view('layout/header');
-        echo view('layout/sidebar');
-        echo view('main/mutuair');
-        echo view('layout/footer');
+        // echo view('layout/header');
+        // echo view('layout/sidebar');
+        // echo view('main/mutuair');
+        // echo view('layout/footer');
+        return view('/main/mutuair');
     }
 
 
@@ -36,6 +37,4 @@ class Home extends BaseController
     {
         return view('/pages/auth');
     }
-    
-
 }

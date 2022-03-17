@@ -1,3 +1,9 @@
+<?= $this->extend('layout/template');  ?>
+
+
+<?= $this->section('content'); ?>
+
+
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Hi Erick Jomblo,</h1>
@@ -63,7 +69,7 @@
 
 
                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-<<<<<<< HEAD
+
                         <option selected>Nama Sungai</option>
                         <option value="1"> Sungai Cisangkan</option>
                         <option value="2">Sungai Cibaligo</option>
@@ -77,7 +83,7 @@
                         <option value="1">Hulu</option>
                         <option value="2">Tengah</option>
                         <option value="3">Hilir</option>
-=======
+
                         <option selected>NAMA SUNGAI</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -89,7 +95,7 @@
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
->>>>>>> 889b1ed8d51d48a51d4d4ac1b82f9c3ff5fa35e1
+
                     </select>
 
                     <!-- General Form Elements -->
@@ -178,80 +184,22 @@
 
 
 
-<<<<<<< HEAD
                 </div>
             </div>
 
         </div>
-=======
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">TSS mg/L</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                    </div>
-
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">DO m3/S</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                    </div>
-
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">BOD m3/S</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                    </div>
-
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">COD m3/S</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                    </div>
-
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Fosfat m3/S</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                    </div>
-
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Feral Coli m3/S</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                    </div>
-
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Total Coliform m3/S</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                        </div>
-                    </div>
 
 
 
-                </div>
-            </div>
->>>>>>> 889b1ed8d51d48a51d4d4ac1b82f9c3ff5fa35e1
+
+
+        </div>
+        </div>
+
         </div>
     </section>
 </main><!-- End #main -->
+
+
+
+<?= $this->endSection();  ?>
