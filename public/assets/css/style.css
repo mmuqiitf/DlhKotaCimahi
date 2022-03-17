@@ -1,5 +1,23 @@
 :root {
   scroll-behavior: smooth;
+  --dark-body: #4d4c5a;
+  --dark-main: #141529;
+  --dark-second: #79788c;
+  --dark-hover: #323048;
+  --dark-text: #f8fbff;
+
+  --light-body: #f3f8fe;
+  --light-main: #fdfdfd;
+  --light-second: #c3c2c8;
+  --light-hover: #edf0f5;
+  --light-text: #151426;
+
+  --blue: #0000ff;
+  --white: #fff;
+
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  --font-family: cursive;
 }
 
 body {
@@ -35,6 +53,7 @@ h6 {
   padding: 20px 30px;
   transition: all 0.3s;
 }
+
 @media (max-width: 1199px) {
   #main {
     padding: 20px;
@@ -364,9 +383,113 @@ h6 {
   color: #3d6988;
   background: #f6f6fe;
 }
+
 /* END CARD */
 
-.form-control {
-  width: 200%;
-  border-radius: 16.25rem;
+.card-body {
+  margin-bottom: 50px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1b2559;
+  font-family: "Poppins", sans-serif;
+  padding-top: 7px;
+}
+
+.card-img-overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+.services .service-box {
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  height: 100%;
+  padding: 60px 30px;
+  text-align: center;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.services .service-box .icon {
+  font-size: 36px;
+  padding: 40px 20px;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 25px;
+  display: inline-block;
+  line-height: 0;
+  transition: 0.3s;
+}
+.services .service-box h3 {
+  color: #444444;
+  font-weight: 700;
+}
+.services .service-box .read-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 20px;
+}
+.services .service-box .read-more i {
+  line-height: 0;
+  margin-left: 5px;
+  font-size: 18px;
+}
+.services .service-box.blue {
+  border-bottom: 3px solid #3d6988;
+}
+.services .service-box.blue .icon {
+  color: #3d6988;
+  background: #ffffff;
+}
+
+.services .service-box.blue:hover {
+  background: #3d6988;
+}
+.services .service-box.orange {
+  border-bottom: 3px solid #3d6988;
+}
+.services .service-box.orange .icon {
+  color: #3d6988;
+  background: #ffffff;
+}
+
+.services .service-box.orange:hover {
+  background: #3d6988;
+}
+.services .service-box.green {
+  border-bottom: 3px solid #012970;
+}
+.services .service-box.green .icon {
+  color: #012970;
+  background: #ffffff;
+}
+
+.services .service-box.green:hover {
+  background: #3d6988;
+}
+
+.services .service-box:hover h3,
+.services .service-box:hover p,
+.services .service-box:hover .read-more {
+  color: #fff;
+}
+.services .service-box:hover .icon {
+  background: #fff;
+}
+
+@keyframes to-top {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

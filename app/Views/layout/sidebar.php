@@ -36,17 +36,17 @@
         </li><!-- End Titik Pantau Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="">
+            <a class="nav-link collapsed"  href="/Home/indexair">
                 <i class="bx bxs-cog"></i><span>Index Kualitas Air</span>
             </a>
         </li><!-- End Index Kualitas Air Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed"  href="/Home/statusair">
+            <a class="nav-link collapsed" href="/Home/statusair" >
                 <i class="bx bxs-cog"></i><span>Status Mutu Air </span>
             </a>
         </li><!-- End Status Mutu Air Nav -->
-        <a href="/Home/statusair">nnh</a>
+    
 
 
         <li class="nav-item">
