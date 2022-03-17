@@ -14,12 +14,13 @@ class Home extends BaseController
         return view('/pages/home');
     }
 
-     public function indexair()
+    public function indexair()
     {
-        echo view('layout/header');
-        echo view('layout/sidebar');
-        echo view('main/indeksair');
-        echo view('layout/footer');
+        // echo view('layout/header');
+        // echo view('layout/sidebar');
+        // echo view('main/indeksair');
+        // echo view('layout/footer');
+        return view('/main/indeksair');
     }
 
     public function statusair()
