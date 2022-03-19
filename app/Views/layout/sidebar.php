@@ -18,7 +18,7 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-toggle="collapse" href="#">
+            <a class="nav-link collapsed" href="/Home/bnpencemaran">
                 <i class="bx bx-line-chart"></i><span>Beban Pencemaran</span>
             </a>
         </li><!-- End Beban Pencemaran Nav -->
