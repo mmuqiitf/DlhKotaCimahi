@@ -38,7 +38,8 @@ class Home extends BaseController
         // echo view('layout/sidebar');
         // echo view('main/mutuair');
         // echo view('layout/footer');
-        return view('/main/bebanpencemaran');
+
+        return view('/main/bebanpencemaran') ;
     }
 
     public function auth()

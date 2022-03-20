@@ -21,7 +21,7 @@
 
 
         <div class="d-grid gap-2">
-            <a href="/Home/index">
+            <a href="/dashboard">
                 <button class="custon__button__auth" type="button">Login</button>
             </a>
         </div>
