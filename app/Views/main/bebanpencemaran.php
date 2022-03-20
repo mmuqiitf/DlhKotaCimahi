@@ -27,7 +27,7 @@
                                     <div class="beban">
                                         <h2><b>Data Beban <br>Pencemaran <br>TTS Eksisting</h2>
                                         <h5>Masukan Data Pengolahan Air</h5>
-                                        <button class="tombol1 btn btn-primary" type="submit">Masukkan Data</button>                                
+                                        <button class="tombol1 btn btn-primary" type="submit" onclick="document.location.href='/BODEksisting'" >Masukkan Data</button>                                
                                     </div>
                                     
                                 </div>

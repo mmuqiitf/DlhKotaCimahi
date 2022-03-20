@@ -46,4 +46,8 @@ class Home extends BaseController
     {
         return view('/pages/auth');
     }
+    public function BODEksisting()
+    {
+        return view('/pages/BODEksisting');
+    }
 }
