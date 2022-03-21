@@ -15,28 +15,30 @@
                 <div class="col-lg-12">
                     <div class="domestikcard">
                         <div class="card-body">
-                            <div class="col-lg-3 col-md-4 mb-3">
-                                <div class="kecamatan">
-                                    <h5>Kecamatan</h5>
-                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                        <option selected>Pilih Kecamatan</option>
-                                        <option value="1">Cimahi Selatan</option>
-                                        <option value="2">Cimahi Tengah</option>
-                                        <option value="3">Cimahi Utara</option>
-                                    </select>
+                            <div class="row">
+                                <div class="col-12 col-lg-3 me-2">
+                                    <div class="kecamatan">
+                                        <h5>Kecamatan</h5>
+                                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                            <option selected>Pilih Kecamatan</option>
+                                            <option value="1">Cimahi Selatan</option>
+                                            <option value="2">Cimahi Tengah</option>
+                                            <option value="3">Cimahi Utara</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 mb-3">
-                                <div class="tahun">
-                                    <h5>Tahun</h5>
-                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                        <option selected>Pilih Tahun</option>
-                                        <option value="1">2021</option>
-                                        <option value="2">2022</option>
-                                        <option value="3">2023</option>
-                                        <option value="3">2024</option>
-                                        <option value="3">2025</option>
-                                    </select>
+                                <div class="col-12 col-lg-2">
+                                    <div class="tahun">
+                                        <h5>Tahun</h5>
+                                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                            <option selected>Pilih Tahun</option>
+                                            <option value="1">2021</option>
+                                            <option value="2">2022</option>
+                                            <option value="3">2023</option>
+                                            <option value="3">2024</option>
+                                            <option value="3">2025</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -76,13 +78,14 @@
                                     <input type="number" class="form-control">
                                 </div>
                             </div>
-                            <button class="tombol2 btn btn-primary" type="submit" onclick="document.location.href='#'" >Cek Hasil</button>
+                            <button class="tombol2 btn btn-primary" type="submit" onclick="document.location.href='#'">Cek Hasil</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+<<<<<<< HEAD
 
     <section class="section">
         <div class="domestik">
@@ -101,5 +104,7 @@
         </div>
     </section>
 
+=======
+>>>>>>> 76b543b48f8e0566d872749235bbd2f5940a1863
 </main><!-- End #main -->
 <?= $this->endSection();  ?>
