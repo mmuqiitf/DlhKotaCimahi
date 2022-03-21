@@ -37,7 +37,8 @@ $routes->get('/bnpencemaran', 'Home::bnpencemaran');
 $routes->get('/statusair', 'Home::statusair');
 $routes->get('/indexair', 'Home::indexair');
 $routes->get('/login', 'Home::auth');
-$routes->get('/BODEksisting', 'Home::BODEksisting');
+$routes->get('/BODEksisting', 'BODEksisting::index');
+$routes->get('/BODEksisting/create', 'BODEksisting::create');
 
 
 /*

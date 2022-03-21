@@ -48,6 +48,6 @@ class Home extends BaseController
     }
     public function BODEksisting()
     {
-        return view('/pages/BODEksisting');
+        return view('/pages/BODEksisting/index');
     }
 }
