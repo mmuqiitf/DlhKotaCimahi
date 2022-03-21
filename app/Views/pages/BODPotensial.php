@@ -15,28 +15,30 @@
                 <div class="col-lg-12">
                     <div class="domestikcard">
                         <div class="card-body">
-                            <div class="col-lg-3 col-md-4 mb-3">
-                                <div class="kecamatan">
-                                    <h5>Kecamatan</h5>
-                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                        <option selected>Pilih Kecamatan</option>
-                                        <option value="1">Cimahi Selatan</option>
-                                        <option value="2">Cimahi Tengah</option>
-                                        <option value="3">Cimahi Utara</option>
-                                    </select>
+                            <div class="row">
+                                <div class="col-12 col-lg-3 me-2">
+                                    <div class="kecamatan">
+                                        <h5>Kecamatan</h5>
+                                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                            <option selected>Pilih Kecamatan</option>
+                                            <option value="1">Cimahi Selatan</option>
+                                            <option value="2">Cimahi Tengah</option>
+                                            <option value="3">Cimahi Utara</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 mb-3">
-                                <div class="tahun">
-                                    <h5>Tahun</h5>
-                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                        <option selected>Pilih Tahun</option>
-                                        <option value="1">2021</option>
-                                        <option value="2">2022</option>
-                                        <option value="3">2023</option>
-                                        <option value="3">2024</option>
-                                        <option value="3">2025</option>
-                                    </select>
+                                <div class="col-12 col-lg-2">
+                                    <div class="tahun">
+                                        <h5>Tahun</h5>
+                                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                            <option selected>Pilih Tahun</option>
+                                            <option value="1">2021</option>
+                                            <option value="2">2022</option>
+                                            <option value="3">2023</option>
+                                            <option value="3">2024</option>
+                                            <option value="3">2025</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -76,13 +78,50 @@
                                     <input type="number" class="form-control">
                                 </div>
                             </div>
-                            <button class="tombol2 btn btn-primary" type="submit" onclick="document.location.href='#'" >Cek Hasil</button>
+                            <button class="tombol2 btn btn-primary" type="submit" onclick="document.location.href='#'">Cek Hasil</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="container-fluid bg-light" style="padding-top: 20px; padding-bottom: 20px;">
+        <div class="container">
+            <div class="kotak bg-ligth" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-2 mb-2">
+                            <p>
+                                Temukan Konsep
+                            </p>
+                        </div>
+                        <div class="col-12 col-lg-3 me-2">
+                            <select name="kategori" id="1" class="pl">
+
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-2">
+                            <select class="pl" aria-label=".form-select-sm example">
+
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-2 me-5">
+                            <select class="pl" aria-label=".form-select-sm example">
+
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-2 ms-lg-4">
+                            <div class="btn-c mt-2">
+                                <a href="" class="btn btn-primary">Temukan Vendor</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </main><!-- End #main -->
 <?= $this->endSection();  ?>
