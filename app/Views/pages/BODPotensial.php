@@ -6,7 +6,7 @@
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Hi Abae,</h1>
-        <h4>Data TSS</h4>
+        <h4>Create BOD Potensial - Domestik</h4>
     </div><!-- End Page Title -->
 
     <section class="section">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="rasio">
-                                    <h5>Rasio Ekivales:</h5>
+                                    <h5>Rasio Ekivalen:</h5>
                                     <input type="number" class="form-control">
                                 </div>
                             </div>
@@ -77,6 +77,23 @@
                                 </div>
                             </div>
                             <button class="tombol2 btn btn-primary" type="submit" onclick="document.location.href='#'" >Cek Hasil</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="domestik">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hasilcard">
+                        <div class="card-body">
+                            <h5>Beban Pencemaran Sektor Potensial:</h5>
+                            <div clas>
+
+                            </div>
                         </div>
                     </div>
                 </div>
