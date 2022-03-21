@@ -540,5 +540,160 @@ h6 {
 
 
 /*--------------------------------------------------------------
-# 
+# BOD POTENSIAL DOMESTIK
 --------------------------------------------------------------*/
+
+.kec {
+  float: right;
+}
+
+.domestik {
+  padding-top: 20px;
+}
+
+.kecamatan {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.kecamatan h5 {
+  padding-bottom: 5px;
+  color: #3D6988;
+}
+
+.kecamatan select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.tahun {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.tahun h5 {
+  padding-bottom: 5px;
+  color: #3D6988;
+}
+
+.tahun select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.tanggal {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.tanggal h5{
+  padding-bottom: 5px;
+  color: #3D6988;
+  font-size: 20px;
+}
+
+.tanggal select {
+  color: #666666;
+  font-size: 25px;
+}
+
+.domestikcard {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+  background-color: white;
+}
+
+.domestikcard-img-overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.perhitungan {
+  padding-top: 20px;
+}
+
+.jmlpenduduk {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.jmlpenduduk h5 {
+  padding-bottom: 5px;
+  color: #3D6988;
+}
+
+.jmlpenduduk select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.perhitungancard {
+  margin-bottom: 30px;
+  margin-top: 0%;
+  border: none;
+  border-radius: 5px;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+  background-color: white;
+}
+
+.domestikcard-img-overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.rasio {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.rasio h5 {
+  padding-bottom: 5px;
+  color: #3D6988;
+}
+
+.rasio select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.alfa {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.alfa h5 {
+  padding-bottom: 5px;
+  color: #3D6988;
+}
+
+.alfa select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.faktor {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.faktor h5 {
+  padding-bottom: 5px;
+  color: #3D6988;
+}
+
+.faktor select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.tombol2 {
+  margin-top: 30px;
+  background-color: #3D6988;
+  margin-left: 20px;
+}

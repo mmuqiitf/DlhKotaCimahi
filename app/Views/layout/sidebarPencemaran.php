@@ -17,9 +17,8 @@ $segment = $uri->getSegment(2);
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link <?php  if($segment == 'dashboard') {echo " ";} else {echo "collapsed";}   ?>  " href="/dashboard">
-                <i class="bx bxs-dashboard"></i>
-                <span>Pencemaran Potensial </span>
+            <a class="nav-link <?php  if($segment == 'BODPotensial') {echo " ";} else {echo "collapsed";}   ?> " href="/BODPotensial">
+                <i class="bx bxs-dashboard"></i><span>Pencemaran Potensial</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
@@ -28,9 +27,6 @@ $segment = $uri->getSegment(2);
                 <i class="bx bx-line-chart"></i><span>Pencemaran Eksisting</span>
             </a>
         </li><!-- End Beban Pencemaran Nav -->
-
-      
-
 
 
         <li class="nav-item">

@@ -40,7 +40,7 @@ class Home extends BaseController
         // echo view('layout/footer');
 
         return view('/main/bebanpencemaran') ;
-    }
+    }    
 
     public function auth()
     {
@@ -49,5 +49,9 @@ class Home extends BaseController
     public function BODEksisting()
     {
         return view('/pages/BODEksisting');
+    }
+    public function BODPotensial()
+    {
+        return view('/pages/BODPotensial');
     }
 }
