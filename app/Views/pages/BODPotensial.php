@@ -85,43 +85,5 @@
             </div>
         </div>
     </section>
-
-    <div class="container-fluid bg-light" style="padding-top: 20px; padding-bottom: 20px;">
-        <div class="container">
-            <div class="kotak bg-ligth" style="padding-bottom: 10px; padding-top: 10px;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-lg-2 mb-2">
-                            <p>
-                                Temukan Konsep
-                            </p>
-                        </div>
-                        <div class="col-12 col-lg-3 me-2">
-                            <select name="kategori" id="1" class="pl">
-
-                            </select>
-                        </div>
-                        <div class="col-12 col-lg-2">
-                            <select class="pl" aria-label=".form-select-sm example">
-
-                            </select>
-                        </div>
-                        <div class="col-12 col-lg-2 me-5">
-                            <select class="pl" aria-label=".form-select-sm example">
-
-                            </select>
-                        </div>
-                        <div class="col-12 col-lg-2 ms-lg-4">
-                            <div class="btn-c mt-2">
-                                <a href="" class="btn btn-primary">Temukan Vendor</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </main><!-- End #main -->
 <?= $this->endSection();  ?>
