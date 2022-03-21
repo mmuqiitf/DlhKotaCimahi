@@ -85,8 +85,6 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
-
     <section class="section">
         <div class="domestik">
             <div class="row">
@@ -103,8 +101,5 @@
             </div>
         </div>
     </section>
-
-=======
->>>>>>> 76b543b48f8e0566d872749235bbd2f5940a1863
 </main><!-- End #main -->
 <?= $this->endSection();  ?>
