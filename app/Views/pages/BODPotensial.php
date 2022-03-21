@@ -27,7 +27,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-2">
+                                <div class="col-12 col-lg-3 me-2">
                                     <div class="tahun">
                                         <h5>Tahun</h5>
                                         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
