@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 22, 2022 at 04:31 PM
+-- Generation Time: Mar 22, 2022 at 04:30 PM
 -- Server version: 8.0.23
 -- PHP Version: 7.3.29-to-be-removed-in-future-macOS
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `dlh_cimahi`
 --
-CREATE DATABASE IF NOT EXISTS `dlh_cimahi` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `dlh_cimahi`;
 
 -- --------------------------------------------------------
 
@@ -29,7 +27,6 @@ USE `dlh_cimahi`;
 -- Table structure for table `bod_eksisting`
 --
 
-DROP TABLE IF EXISTS `bod_eksisting`;
 CREATE TABLE `bod_eksisting` (
   `ID_BOD_Eksisting` int NOT NULL,
   `nama_sungai` varchar(50) NOT NULL,
@@ -53,7 +50,6 @@ INSERT INTO `bod_eksisting` (`ID_BOD_Eksisting`, `nama_sungai`, `titik_pantau`, 
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id_user` int NOT NULL,
   `user_email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
