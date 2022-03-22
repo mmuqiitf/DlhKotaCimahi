@@ -57,7 +57,7 @@ $segment = $uri->getSegment(2);
 
         <li class="nav-item">
             <div class="logout">
-                <a class="nav-link collapsed" href="/Home/Auth">
+                <a class="nav-link collapsed" href="/Auth/logout" >
                     <i class="bx bx-log-out"></i>
                     <span>Logout</span>
                 </a>

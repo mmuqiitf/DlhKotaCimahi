@@ -8,6 +8,8 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
+use App\Filters\FilterInterface;
+
 
 class Filters extends BaseConfig
 {
@@ -18,11 +20,13 @@ class Filters extends BaseConfig
      * @var array
      */
     public $aliases = [
+        'auth' => \App\Filters\Auth::class,
         'csrf'          => CSRF::class,
         'toolbar'       => DebugToolbar::class,
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        
     ];
 
     /**
