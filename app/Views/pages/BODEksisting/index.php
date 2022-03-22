@@ -73,8 +73,8 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
+                                    <td>Hulu</td>
+                                    <td>20/12/2020</td>
                                     <td><div class="button__action__container">
                                             <button type="button" class="btn btn-primary custom__button__edit">Update</button>
                                             <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
@@ -82,8 +82,8 @@
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
+                                    <td>Hilir</td>
+                                    <td>12/06/2022</td>
                                     <td><div class="button__action__container">
                                             <button type="button" class="btn btn-primary custom__button__edit">Update</button>
                                             <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
@@ -92,8 +92,8 @@
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
+                                    <td>Tengah</td>
+                                    <td>9/6/2021</td>
                                     <td><div class="button__action__container">
                                             <button type="button" class="btn btn-primary custom__button__edit">Update</button>
                                             <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
