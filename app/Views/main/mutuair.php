@@ -67,8 +67,8 @@
                     </div><!-- End Sales Card -->
 
 
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="cardsungaimutu">
+                        <div class="card-bodysungai">
                             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
 
                                 <option selected>Nama Sungai</option>
@@ -78,14 +78,20 @@
                                 <option value="2">Sungai Cilember</option>
                                 <option value="3">Sungai Cimahi</option>
                             </select>
-
+                        </div>
+                    </div>
+                    <div class="cardtitikpantau">
+                        <div class="card-bodytitik">
                             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                                 <option selected>Titik Pantau</option>
                                 <option value="1">Hulu</option>
                                 <option value="2">Tengah</option>
                                 <option value="3">Hilir</option>
                             </select>
-
+                        </div>
+                    </div>
+                    <div class="cardsampling">
+                        <div class="card-bodysampling">
                             <!-- General Form Elements -->
                             ` <form>
                                 <div class="row mb-3">

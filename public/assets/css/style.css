@@ -509,7 +509,6 @@ h6 {
   margin-top: -3%;
 }
 
-
 /*--------------------------------------------------------------
 # Beban Pencemaran
 --------------------------------------------------------------*/
@@ -535,9 +534,8 @@ h6 {
 
 .tombol1 {
   margin-top: 30px;
-  background-color: #3D6988;
+  background-color: #3d6988;
 }
-
 
 /*--------------------------------------------------------------
 # BOD POTENSIAL DOMESTIK
@@ -558,7 +556,7 @@ h6 {
 
 .kecamatan h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .kecamatan select {
@@ -573,7 +571,7 @@ h6 {
 
 .tahun h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .tahun select {
@@ -586,9 +584,9 @@ h6 {
   padding-top: 20px;
 }
 
-.tanggal h5{
+.tanggal h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
   font-size: 20px;
 }
 
@@ -623,7 +621,7 @@ h6 {
 
 .jmlpenduduk h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .jmlpenduduk select {
@@ -654,7 +652,7 @@ h6 {
 
 .rasio h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .rasio select {
@@ -669,7 +667,7 @@ h6 {
 
 .alfa h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .alfa select {
@@ -684,7 +682,7 @@ h6 {
 
 .faktor h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .faktor select {
@@ -694,7 +692,7 @@ h6 {
 
 .tombol2 {
   margin-top: 30px;
-  background-color: #3D6988;
+  background-color: #3d6988;
   margin-left: 20px;
   margin-bottom: 20px;
 }
@@ -718,5 +716,59 @@ h6 {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   /* background: #f6f6fe; */
   border-radius: 20px;
-  background-color: #3D6988;
+  background-color: #3d6988;
+}
+
+/* ------------ */
+/* * card mutu air */
+.cardsungaimutu {
+  margin-bottom: 30px;
+  background-color: white;
+  margin-top: -3%;
+  border: none;
+  background-color: white;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+}
+.card-bodysungai {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* * card titik pantau */
+.cardtitikpantau {
+  margin-bottom: 30px;
+  background-color: white;
+  margin-top: -1%;
+  border: none;
+  background-color: white;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+}
+.card-bodytitik {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* card sampling */
+.cardsampling {
+  margin-bottom: 30px;
+  background-color: white;
+  margin-top: -1%;
+  border: none;
+
+  background-color: white;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+}
+
+.card-bodysampling {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
