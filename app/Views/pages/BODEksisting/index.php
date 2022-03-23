@@ -51,13 +51,15 @@
                 </div>
 
                 <!-- end of small card -->
-
-
-
+                
                 <div class="custom__card__large">
                     <div class="custom__header__card__large">
                         <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
-                        <button type="button" class="btn btn-primary">Input Excel</button>
+                        <form action="/BODEksisting/uploadexcel" name="submit" method="POST" enctype="multipart/form-data">
+                            <input type="file" id="BODAktualCimahi" name="BODAktualCimahi" value="" class="custom-file-input" aria-describedby="inputGroupFileAddon01" required>
+                            <button type="submit" class="btn btn-primary">Upload Excel</button>
+                            <button type="button" class="btn btn-primary" onclick="document.location.href='/exp/BODAktualCimahi.xlsx'">Download Excel</button>
+                        </form>
                     </div>
 
                     <div class="table__wrapper">
