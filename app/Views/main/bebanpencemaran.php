@@ -18,14 +18,14 @@
                             <div class="col-lg-12">
                                 <div class="col-md-6">
                                     <div class="beban">
-                                        <h2><b>Data Beban <br>Pencemaran <br>TTS Potensial</h2>
+                                        <h2><b>Data Beban <br>Pencemaran <br>BOD Potensial</h2>
                                         <h5>Masukan Data TSS dengan Klik <br>Button di bawah ini!</h5>
                                         <button class="tombol1 btn btn-primary" type="submit" onclick="document.location.href='/BODPotensial'">Masukkan Data</button>                                
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="beban">
-                                        <h2><b>Data Beban <br>Pencemaran <br>TTS Eksisting</h2>
+                                        <h2><b>Data Beban <br>Pencemaran <br>BOD Eksisting</h2>
                                         <h5>Masukan Data Pengolahan Air</h5>
                                         <button class="tombol1 btn btn-primary" type="submit" onclick="document.location.href='/BODEksisting'" >Masukkan Data</button>                                
                                     </div>
