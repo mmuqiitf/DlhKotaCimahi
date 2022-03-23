@@ -8,8 +8,9 @@ class BODEksisting extends BaseController
     public function __construct()
     {
         helper('form');
+		$this->validation = \Config\Services::validation();
         $this->BodEksistingModel = new BODEksistingModel();
-        $this->session = \Config\Services::session();
+        session();
     }
     
 
@@ -24,54 +25,70 @@ class BODEksisting extends BaseController
 
         return view('pages/BODEksisting/bodlist', $data);
     }
-
     public function create()
+    {
+        $data=['validation' => \Config\Services::validation()];
+    
+        return view('pages/BODEksisting/create', $data);
+    }
+
+    public function create_bod()
     {
         //BOD Eksisting
        // $data = $this->BodEksistingModel->dataBODEksisting();
         //dd($data);
         if (!$this->validate([
-            'BOD' =>[
+            'nama_sungai' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Sungai harus diisi'
+                ]
+            ],
+            'titik_pantau' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Titik pantau harus diisi'
+                ]
+            ],
+            'BOD' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'BOD harus diisi'
                 ]
-            ], 'Debit' =>[
+            ],
+            'Debit' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Debit harus diisi'
                 ]
-            ], 'beban_pencemar' =>[
+            ],
+            'beban_pencemar' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Beban Pencemar harus diisi'
+                    'required' => 'Beban pencemar harus diisi'
                 ]
-            ], 'waktu_sampling' =>[
+            ],
+            'waktu_sampling' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Waktu Sampling harus diisi'
-                ]
-            ], 'titik_pantau' =>[
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Titik Pantau harus diisi'
+                    'required' => 'Waktu sampling harus diisi'
                 ]
             ]
-            ]
-                ))
+        ])) {
+            return redirect()->to('/BODEksisting/create')->withInput();
+        }
         $data = [
-            'title' => 'BOD Eksisting',
-            'action' => site_url('BODEksisting/create_action'),
-            'button' => 'Create',
-            'ID_BOD_Eksisting' => set_value('ID_BOD_Eksisting'),
-            'nama_sungai' => set_value('nama_sungai'),
-            'titik_pantau' => set_value('titik_pantau'),
-            'BOD' => set_value('BOD'),
-            'Debit' => set_value('Debit'),
-            'beban_pencemar' => set_value('beban_pencemar'),
-            'waktu_sampling' => set_value('waktu_sampling'),
+            
+            'ID_BOD_Eksisting' => $this->request->getPost('ID_BOD_Eksisting'),
+            'nama_sungai' => $this->request->getPost('nama_sungai'),
+            'titik_pantau' => $this->request->getPost('titik_pantau'),
+            'BOD' => $this->request->getPost('BOD'),
+            'Debit' => $this->request->getPost('Debit'),
+            'beban_pencemar' => $this->request->getPost('beban_pencemar'),
+            'waktu_sampling' => $this->request->getPost('waktu_sampling'),
         ];
-        $this->BODEksistingModel->bod_eksisting_post($data);
+        $this->BodEksistingModel->bod_eksisting_post($data);
+        session()->setFlashdata('success', 'Data berhasil ditambahkan');
         return view('/pages/BODEksisting/create');
     }
 

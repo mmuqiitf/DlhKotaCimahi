@@ -15,7 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
 
-
+<form enctype="multipart/form-data" role="form" action="<?= base_url('BODEksisting/create_bod/'); ?>" method="post" id="BODEksisting-form">
 <main id="main" class="main">
 
     <!-- Header -->
@@ -49,13 +49,12 @@
                 <div class="custom__card">
                     <h3>Nama Sungai</h3>
                     <div class="select__custom__container">
-                        <select class="form-select">
-                            <option>Sungai Cisangkan</option>
-                            <option>Sungai Cibaligo</option>
-                            <option>Sungai Cibereum</option>
-                            <option>Sungai Cilember</option>
-                            <option>Sungai Cimahi</option>
-
+                        <select class="form-control" name="nama_sungai" type="input" class="form-select">
+                            <option>Cisangkan</option>
+                            <option>Cibaligo</option>
+                            <option>Cibereum</option>
+                            <option>Cilember</option>
+                            <option>Cimahi</option>
                         </select>
                     </div>
                 </div>
@@ -68,7 +67,7 @@
                     <div class="custom__card">
                         <h3>Titik Pantau</h3>
                         <div class="select__custom__container">
-                            <select class="form-select">
+                        <select class="form-control" name="titik_pantau" type="input" class="form-select">
                                 <option>Hulu</option>
                                 <option>Tengah</option>
                                 <option>Hilir</option>
@@ -88,30 +87,23 @@
                             <div class="row">
                                 <div class="col d-flex flex-column gap-4">
                                     <div class="d-flex justify-content-between align-items-center container__create">
-                                        <h3>BOD (mg/L)</h3>
-                                        <input type="text">
+                                        <h3 for="BOD">BOD (mg/L)</h3>
+                                        <input class="form-select form-control" name="BOD" type="input" id="BOD">
+                                        
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center container__create">
-                                        <h3>Debit (m3/s)</h3>
-                                        <input type="text">
+                                        <h3 for="Debit">Debit (m3/s)</h3>
+                                        <input class="form-control " name="Debit" type="input" id="Debit">
+                                        
                                     </div>
 
-                                    <div class="btn btn-primary custom__btn__result">Cek Hasil</div>
+                                    <div class="btn btn-primary custom__btn__result" onclick="doMath();">Cek Hasil</div>
 
 
                                     <div class="d-flex justify-content-between align-items-center container__create">
                                         <h3>Beban Pencemar (Kg/Hari)</h3>
-                                        <input type="text">
+                                        <input class="form-control" name="beban_pencemar" id="beban_pencemar" type="input" readonly>
                                     </div>
-
-
-
-
-
-
-
-
-
                                 </div>
 
                                 <div class="col">
@@ -120,32 +112,20 @@
                                         
                                             <div class="form-group">
                                                     <div class="input-group date" id="datepicker">
-                                                        <input type="text" class="form-control custom__date__picker">
+                                                        <input  name="waktu_sampling" type="input" class="custom__date__picker form-control">
                                                         <span class="input-group-append">
                                                             <span class="input-group-text bg-white">
                                                                 <i class="fa fa-calendar"></i>
                                                             </span>
                                                         </span>
                                                     </div>
-            
                                             </div>
                                         
                                     </div>
-
-
-
-
-
-
                                 </div>
-
-
-
                             </div>
-
-
                             <div class="row row__result">
-                                <div class="btn btn-primary custom__btn__result">Simpan Hasil</div>
+                                <button type="submit" class="btn btn-primary custom__btn__result">Simpan hasil</button>
                             </div>
                         </div>
                     </div>
@@ -157,13 +137,24 @@
 
 
 
-</main>
+</main></form>
 
 
 <script type="text/javascript">
     $(function () {
         $('#datepicker').datepicker();
     });
+
+    function doMath()
+    {
+        // Capture the entered values of two input boxes
+        var my_input1 = document.getElementById('BOD').value;
+        var my_input2 = document.getElementById('Debit').value;
+
+        // Add them together and display
+        var sum = (parseFloat(my_input1) * parseFloat(my_input2))*86.4;
+        document.getElementById('beban_pencemar').value=sum;
+    }
 </script>
 
 

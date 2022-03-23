@@ -23,4 +23,9 @@ class BODEksistingModel extends Model
         return $query->getResultArray();
     }
 
+    public function bod_eksisting_post($data)
+    {
+        return $this->db->table('bod_eksisting')->insert($data);
+    }
+
 }
