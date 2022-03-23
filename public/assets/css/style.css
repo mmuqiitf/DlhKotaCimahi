@@ -509,6 +509,16 @@ h6 {
   margin-top: -3%;
 }
 
+.card-bodygrafik {
+  margin-bottom: 50px;
+}
+
+.pilihanperiode {
+  margin-left: 70%;
+  width: 30%;
+  margin-top: -10%;
+}
+
 /*--------------------------------------------------------------
 # Beban Pencemaran
 --------------------------------------------------------------*/
