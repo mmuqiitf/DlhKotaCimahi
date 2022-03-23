@@ -151,7 +151,9 @@
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Cek Hasil</button>
+                                        <button class="tombol3 btn btn-primary" type="submit"
+                                            onclick="document.location.href='#'">Cek Hasil</button>
+                                        <!-- <button type="submit" class="btn btn-primary">Cek Hasil</button> -->
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -170,8 +172,10 @@
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label"></label>
-                                    <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Simpan Hasil</button>
+                                    <div class="col-sm-9">
+                                        <button class="tombol3 btn btn-primary" type="submit"
+                                            onclick="document.location.href='#'">Simpan Hasil</button>
+                                        <!-- <button type="submit" class="btn btn-primary">Simpan Hasil</button> -->
                                     </div>
                                 </div>
                             </form><!-- End General Form Elements -->`
