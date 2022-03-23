@@ -508,3 +508,56 @@ h6 {
 .grafik {
   margin-top: -3%;
 }
+
+/* * card mutu air */
+.cardsungaimutu {
+  margin-bottom: 30px;
+  background-color: white;
+  margin-top: -3%;
+  border: none;
+  background-color: white;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+}
+.card-bodysungai {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* * card titik pantau */
+.cardtitikpantau {
+  margin-bottom: 30px;
+  background-color: white;
+  margin-top: -3%;
+  border: none;
+  background-color: white;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+}
+.card-bodytitik {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* card sampling */
+.cardsampling {
+  margin-bottom: 30px;
+  background-color: white;
+  margin-top: -1%;
+  border: none;
+
+  background-color: white;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+}
+
+.card-bodysampling {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}

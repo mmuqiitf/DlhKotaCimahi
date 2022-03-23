@@ -31,11 +31,18 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::auth');
-$routes->get('/dashbpard', 'Home::index');
-$routes->get('/mutuair', 'Home::statusair');
-$routes->get('/indeksair', 'Home::indexair');
-$routes->get('/login', 'Home::auth');
+
+
+$routes->get('/', 'Auth::index');
+$routes->get('/dashboard', 'Home::index',['filter' => 'auth']);
+$routes->get('/bnpencemaran', 'Home::bnpencemaran',['filter' => 'auth']);
+$routes->get('/statusair', 'Home::statusair',['filter' => 'auth']);
+$routes->get('/indexair', 'Home::indexair',['filter' => 'auth']);
+$routes->get('/login', 'Home::auth',['filter' => 'auth']);
+$routes->get('/BODEksisting', 'Home::BODEksisting',['filter' => 'auth']);
+$routes->get('/BODPotensial', 'Home::BODPotensial',['filter' => 'auth']);
+$routes->get('/BODEksisting', 'BODEksisting::index',['filter' => 'auth']);
+$routes->get('/BODEksisting/create', 'BODEksisting::create',['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

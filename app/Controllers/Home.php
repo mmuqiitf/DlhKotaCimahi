@@ -32,10 +32,22 @@ class Home extends BaseController
         return view('/main/mutuair');
     }
 
-
-
-    public function auth()
+    public function bnpencemaran()
     {
-        return view('/pages/auth');
+        // echo view('layout/header');
+        // echo view('layout/sidebar');
+        // echo view('main/mutuair');
+        // echo view('layout/footer');
+
+        return view('/main/bebanpencemaran') ;
+    }    
+
+    public function BODEksisting()
+    {
+        return view('/pages/BODEksisting/index');
+    }
+    public function BODPotensial()
+    {
+        return view('/pages/BODPotensial');
     }
 }
