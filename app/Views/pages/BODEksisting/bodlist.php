@@ -71,45 +71,24 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach ($bod as $bodeks) : ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Hulu</td>
-                                    <td>20/12/2020</td>
+                                    <td><?= $bodeks['ID_BOD_Eksisting']?></td>
+                                    <td><?= $bodeks['titik_pantau']?></td>
+                                    <td><?= $bodeks['waktu_sampling']?></td>
                                     <td><div class="button__action__container">
                                             <button type="button" class="btn btn-primary custom__button__edit">Update</button>
                                             <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
                                     </div></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Hilir</td>
-                                    <td>12/06/2022</td>
-                                    <td><div class="button__action__container">
-                                            <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                    </div></td>
-
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Tengah</td>
-                                    <td>9/6/2021</td>
-                                    <td><div class="button__action__container">
-                                            <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                    </div></td>
-
-                                </tr>
+                                <?php endforeach; ?>
+                                
                             </tbody>
                         </table>
 
                     </div>
 
                 </div>
-
-
-
-
             </div>
 
 
