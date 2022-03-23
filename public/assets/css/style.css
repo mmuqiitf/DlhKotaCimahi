@@ -509,6 +509,289 @@ h6 {
   margin-top: -3%;
 }
 
+/*--------------------------------------------------------------
+# Beban Pencemaran
+--------------------------------------------------------------*/
+.beban {
+  padding: 40px 40px;
+}
+
+.bbn {
+  float: left;
+}
+
+.beban h2 {
+  line-height: 1.3;
+}
+
+.beban h5 {
+  line-height: 1.8;
+}
+
+.pencemaran {
+  padding-top: 40px;
+}
+
+.tombol1 {
+  margin-top: 30px;
+  background-color: #3d6988;
+  border: none;
+  border-radius: 100px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/*--------------------------------------------------------------
+# BOD POTENSIAL DOMESTIK
+--------------------------------------------------------------*/
+
+.kec {
+  float: right;
+}
+
+.domestik {
+  padding-top: 20px;
+}
+
+.kecamatan {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.kecamatan h5 {
+  padding-bottom: 5px;
+  color: #3d6988;
+}
+
+.kecamatan select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.tahun {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.tahun h5 {
+  padding-bottom: 5px;
+  color: #3d6988;
+}
+
+.tahun select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.tanggal {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.tanggal h5 {
+  padding-bottom: 5px;
+  color: #3d6988;
+  font-size: 20px;
+}
+
+.tanggal select {
+  color: #666666;
+  font-size: 25px;
+}
+
+.domestikcard {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+}
+.card-bodysungai {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.domestikcard-img-overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.perhitungan {
+  padding-top: 20px;
+}
+
+.jmlpenduduk {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.jmlpenduduk h5 {
+  padding-bottom: 5px;
+  color: #3d6988;
+}
+
+.jmlpenduduk select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.perhitungancard {
+  margin-bottom: 30px;
+  margin-top: 0%;
+  border: none;
+  border-radius: 5px;
+}
+.card-bodytitik {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.domestikcard-img-overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.rasio {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.rasio h5 {
+  padding-bottom: 5px;
+  color: #3d6988;
+}
+
+.rasio select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.alfa {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.alfa h5 {
+  padding-bottom: 5px;
+  color: #3d6988;
+}
+
+.alfa select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.faktor {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.faktor h5 {
+  padding-bottom: 5px;
+  color: #3d6988;
+}
+
+.faktor select {
+  color: #666666;
+  font-size: 15px;
+}
+
+.tombol2 {
+  margin-top: 30px;
+  background-color: #3d6988;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 100px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.hasilcard {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.hasilcard h5 {
+  padding-bottom: 5px;
+  color: white;
+}
+
+.hasilcard {
+  margin-bottom: 30px;
+  margin-top: 0%;
+  border: none;
+  border-radius: 5px;
+}
+
+.card-bodysampling {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.tahun1 {
+  padding-bottom: 20px;
+}
+
+.hasilcard h6 {
+  font-size: 15px;
+  color: white;
+}
+
+.judul {
+  color: #3d6988;
+}
+
+.container__search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 8px;
+}
+
+.input__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 341px;
+  height: 36px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.input__container input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+}
+
+.input__container input:focus {
+  outline: none;
+}
+
+.input__container i {
+  margin: 0 10px;
+}
+
+.tombol3 {
+  background-color: white;
+  margin-bottom: 20px;
+  color: #3d6988;
+  border: none;
+  border-radius: 100px;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-top: 27px;
+}
+
+.tombol3:hover {
+  background: #27455a;
+  color: white;
+  outline-style: solid;
+}
+
 /* * card mutu air */
 .cardsungaimutu {
   margin-bottom: 30px;
