@@ -51,15 +51,13 @@
                 </div>
 
                 <!-- end of small card -->
-                
+
                 <div class="custom__card__large">
                     <div class="custom__header__card__large">
-                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
-                        <form action="/BODEksisting/uploadexcel" name="submit" method="POST" enctype="multipart/form-data">
-                            <input type="file" id="BODAktualCimahi" name="BODAktualCimahi" value="" class="custom-file-input" aria-describedby="inputGroupFileAddon01" required>
-                            <button type="submit" class="btn btn-primary">Upload Excel</button>
-                            <button type="button" class="btn btn-primary" onclick="document.location.href='/exp/BODAktualCimahi.xlsx'">Download Excel</button>
-                        </form>
+                        <button type="button" class="btn btn-primary"
+                            onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
+                        <button type="button" class="btn btn-primary"
+                            onclick="document.location.href='/BODEksisting/periode1'">Input Excel</button>
                     </div>
 
                     <div class="table__wrapper">
@@ -77,29 +75,41 @@
                                     <td>1</td>
                                     <td>Mark</td>
                                     <td>Otto</td>
-                                    <td><div class="button__action__container">
-                                            <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                    </div></td>
+                                    <td>
+                                        <div class="button__action__container">
+                                            <button type="button"
+                                                class="btn btn-primary custom__button__edit">Update</button>
+                                            <button type="button"
+                                                class="btn btn-danger custom__button__delete">Delete</button>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>Jacob</td>
                                     <td>Thornton</td>
-                                    <td><div class="button__action__container">
-                                            <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                    </div></td>
+                                    <td>
+                                        <div class="button__action__container">
+                                            <button type="button"
+                                                class="btn btn-primary custom__button__edit">Update</button>
+                                            <button type="button"
+                                                class="btn btn-danger custom__button__delete">Delete</button>
+                                        </div>
+                                    </td>
 
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>Larry</td>
                                     <td>the Bird</td>
-                                    <td><div class="button__action__container">
-                                            <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                    </div></td>
+                                    <td>
+                                        <div class="button__action__container">
+                                            <button type="button"
+                                                class="btn btn-primary custom__button__edit">Update</button>
+                                            <button type="button"
+                                                class="btn btn-danger custom__button__delete">Delete</button>
+                                        </div>
+                                    </td>
 
                                 </tr>
                             </tbody>
