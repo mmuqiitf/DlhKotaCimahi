@@ -89,7 +89,7 @@ class BODEksisting extends BaseController
         ];
         $this->BodEksistingModel->bod_eksisting_post($data);
         session()->setFlashdata('success', 'Data berhasil ditambahkan');
-        return view('/pages/BODEksisting/create');
+        return redirect()->to('/BODEksisting/listbod');
     }
 
   
