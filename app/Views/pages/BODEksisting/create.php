@@ -142,7 +142,9 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#datepicker').datepicker();
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
     });
 
     function doMath()
