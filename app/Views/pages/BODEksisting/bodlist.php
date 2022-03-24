@@ -9,7 +9,6 @@
 <main id="main" class="main">
 
     <!-- Header -->
-
     <div class="container">
         <div class="row">
             <div class="col">
@@ -56,7 +55,8 @@
 
                 <div class="custom__card__large">
                     <div class="custom__header__card__large">
-                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
+                        <button type="button" class="btn btn-primary"
+                            onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
                         <button type="button" class="btn btn-primary">Input Excel</button>
                     </div>
 
@@ -76,13 +76,17 @@
                                     <td><?= $bodeks['ID_BOD_Eksisting']?></td>
                                     <td><?= $bodeks['titik_pantau']?></td>
                                     <td><?= $bodeks['waktu_sampling']?></td>
-                                    <td><div class="button__action__container">
-                                            <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                    </div></td>
+                                    <td>
+                                        <div class="button__action__container">
+                                            <button type="button"
+                                                class="btn btn-primary custom__button__edit">Update</button>
+                                            <button type="button"
+                                                class="btn btn-danger custom__button__delete">Delete</button>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <?php endforeach; ?>
-                                
+
                             </tbody>
                         </table>
 
