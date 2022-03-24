@@ -126,8 +126,8 @@
                             </div>
                             <div class="row row__result">
             
-                                <button type="submit" class="btn btn-primary custom__btn__result" data-bs-toggle="modal" data-bs-target="#exampleModal">Simpan hasil</button>
-                                
+                            <button type="button" class="btn btn-primary custom__btn__result" data-bs-toggle="modal" data-bs-target="#exampleModalupdate">Simpan hasil</button>
+                                <?= $this->include('/feedback/update__modal') ?>
                             </div>
                         </div>
                     </div>
