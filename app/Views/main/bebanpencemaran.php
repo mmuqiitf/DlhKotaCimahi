@@ -18,7 +18,7 @@
                             <div class="col-lg-12">
                                 <div class="col-md-6">
                                     <div class="beban">
-                                        <h2><b>Data Beban <br>Pencemaran <br>TSS </h2>
+                                        <h2><b>Data Beban <br>Pencemaran <br> Potensial </h2>
                                         <h5>Masukan Data dengan Klik <br>Button di bawah ini!</h5>
                                         <button class="tombol1 btn btn-primary" type="submit"
                                             onclick="document.location.href='/BODPotensial'">Masukkan Data</button>
@@ -33,13 +33,13 @@
                             <div class="col-lg-12">
                                 <div class="col-md-6">
                                     <div class="beban">
-                                        <h2><b>Data Beban <br>Pencemaran <br>BOD</h2>
+                                        <h2><b>Data Beban <br>Pencemaran <br>Eksisting</h2>
                                         <h5>Masukan Data Pengolahan Air</h5>
                                         <div class="d-flex gap-3">
+
+
                                             <button class="tombol1 btn btn-primary" type="submit"
-                                                onclick="document.location.href='/BODPotensial'">BOD Potensial</button>
-                                            <button class="tombol1 btn btn-primary" type="submit"
-                                                onclick="document.location.href='/BODEksisting/listbod'">BOD Eksisting
+                                                onclick="document.location.href='/BODEksisting/listbod'">Masukan Data
                                             </button>
                                         </div>
                                     </div>
