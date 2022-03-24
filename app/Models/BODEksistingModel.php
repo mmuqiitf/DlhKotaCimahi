@@ -5,8 +5,8 @@ use CodeIgniter\Model;
 class BODEksistingModel extends Model
 {
     protected $table = 'bod_eksisting';
+    protected $primaryKey = 'ID_BOD_Eksisting';
     protected $allowedFields = [
-        'ID_BOD_Eksisting',
         'nama_sungai' ,
         'titik_pantau',
         'BOD',
@@ -14,7 +14,29 @@ class BODEksistingModel extends Model
         'beban_pencemar',
         'waktu_sampling'
     ];
+    public function delete_bod($idbod)
+    {
+        $data = $this->where([
+            'ID_BOD_Eksisting' => $idbod
+        ])->first();
+        return $data;
+    }
+    //searchBy
+    public function searchBy($by, $content)
+    {
+        $data = $this->where([
+            $by => $content
+        ])->first();
+        return $data;
+    }
 
+    public function bod($idbod)
+    {
+        $data = $this->where([
+            'ID_BOD_Eksisting' => $idbod
+        ])->first();
+        return $data;
+    }
     public function dataBODEksisting()
     {
         $query = $this->db->table('bod_eksisting')

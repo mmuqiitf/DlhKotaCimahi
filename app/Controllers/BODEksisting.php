@@ -34,9 +34,6 @@ class BODEksisting extends BaseController
 
     public function create_bod()
     {
-        //BOD Eksisting
-       // $data = $this->BodEksistingModel->dataBODEksisting();
-        //dd($data);
         if (!$this->validate([
             'nama_sungai' => [
                 'rules' => 'required',
@@ -89,6 +86,45 @@ class BODEksisting extends BaseController
         ];
         $this->BodEksistingModel->bod_eksisting_post($data);
         session()->setFlashdata('success', 'Data berhasil ditambahkan');
+        return redirect()->to('/BODEksisting/listbod');
+    }
+    
+    public function update_bod()
+    {
+        $bod=$this->request->getvar('ID_BOD_Eksisting');
+        $data = $this->request->getvar(['nama_sungai', 'titik_pantau', 'BOD', 'Debit', 'beban_pencemar', 'waktu_sampling']);
+        
+        //dd($data);
+        $this->BodEksistingModel->update($bod,$data);
+        session()->setFlashdata('success', 'Data berhasil ditambahkan');
+        return redirect()->to('/BODEksisting/listbod');
+    }
+
+    public function delete_bod()
+    {
+        $data = $this->request->getvar('ID_BOD_Eksisting');
+        //dd($data);
+        $this->BodEksistingModel->delete($data);
+        session()->setFlashdata('success', 'Data berhasil dihapus');
+        return redirect()->to('/BODEksisting/listbod');
+    }
+
+    public function update_list_bod($idbod)
+    {
+        $bod = $this->BodEksistingModel->bod($idbod);
+        $data = [
+            'title' => 'Update BOD Eksisting',
+            'bod' => $bod
+        ];
+        //dd($bod);
+        return view('pages/BODEksisting/update', $data);
+    }
+
+
+    public function delete_bod1($ID_BOD_Eksisting){
+        $bod=$this->BodEksistingModel->searchBy('ID_BOD_Eksisting',$ID_BOD_Eksisting);
+        $this->BodEksistingModel->delete($bod);
+        session()->setFlashdata('success', 'Data berhasil dihapus', $bod);
         return redirect()->to('/BODEksisting/listbod');
     }
 
