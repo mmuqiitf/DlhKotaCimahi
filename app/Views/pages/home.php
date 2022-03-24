@@ -91,52 +91,87 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Index Kualitas Air</h5>
-                            <!-- Line Chart -->
-                            <div id="lineChart"></div>
+                            <h5 class="card-title">Beban Pencemar BOD Aktual</h5>
+                            <div class="container mt-3">
+                                <div class="row">
+                                    <div class="pilihanperiode">
+                                        <label for="">Pilih Periode</label>
+                                        <select id="bulan" class="form-control">
+                                            <option value="2">1</option>
+                                            <option value="7">2</option>
+                                            <option value="10">3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="container"></div>
+                            <script src="https://code.highcharts.com/highcharts.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
                             <script>
-                                document.addEventListener("DOMContentLoaded", () => {
-                                    new ApexCharts(document.querySelector("#lineChart"), {
-                                        series: [{
-                                            name: "Jumlah",
-                                            data: [0, 1, 1, 43]
-                                        }],
-                                        chart: {
-                                            height: 350,
-                                            type: 'line',
-                                            zoom: {
-                                                enabled: false
-                                            }
+                                // Chart
+                                const options = {
+                                    chart: {
+                                        type: 'areaspline',
+                                        events: {
+                                            load: getData(3)
                                         },
-                                        dataLabels: {
+                                        height: 350,
+                                        zoom: {
                                             enabled: false
-                                        },
-                                        stroke: {
-                                            curve: 'straight'
-                                        },
-                                        grid: {
-                                            row: {
-                                                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                                                opacity: 0.5
-                                            },
-                                        },
-                                        xaxis: {
-                                            categories: ['Memenuhi', 'Ringan', 'Sedang', 'Berat'],
                                         }
-                                    }).render();
-                                });
-                            </script>
-                            <!-- End Line Chart -->
+                                    },
+                                    title: {
+                                        text: ''
+                                    },
+                                    xAxis: {
+                                        type: 'datetime',
+                                        dateTimeLabelFormats: {
+                                            day: '%e of %b'
+                                        }
+                                    },
+                                    series: [{
+                                        name: "Sungai Bod",
+                                        data: [],
+                                        pointStart: Date.UTC(2020, 3, 1),
+                                        pointInterval: 24 * 3600 * 1000 // one day
 
+                                    }],
+
+                                };
+                                const chart = Highcharts.chart('container', options)
+
+                                // Data
+                                $("#bulan").change(function() {
+                                    const val = $(this).val();
+                                    getData(val);
+                                })
+
+                                function getData(bulan) {
+                                    const url = `/home/apiData/${bulan}`;
+
+                                    $.getJSON(url, function(data) {
+                                        const p = [];
+                                        data.map((obj) => {
+                                            p.push(parseInt(obj.jumlah))
+                                        });
+
+                                        chart.series[0].update({
+                                            data: p,
+                                            pointStart: Date.UTC(2020, bulan - 1, 1)
+                                        })
+                                        chart.redraw();
+                                    })
+                                }
+                            </script>
                         </div>
                     </div>
                 </div>
+
                 <!-- GRAFIK 1 LAGI -->
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Status Mutu Air</h5>
-                            <!-- Area Chart -->
+                            <h5 class="card-title">Beban Pencemar TSS Aktual</h5>
                             <div id="areaChart"></div>
                             <script>
                                 document.addEventListener("DOMContentLoaded", () => {
@@ -231,8 +266,4 @@
         </div>
     </section>
 </main><!-- End #main -->
-
-
-
-
 <?= $this->endSection();  ?>
