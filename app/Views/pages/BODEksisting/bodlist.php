@@ -70,18 +70,21 @@
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody><form action="<?= base_url('BODEksisting/delete_bod'); ?>" method="post">
                                 <?php foreach ($bod as $bodeks) : ?>
+                                    
                                 <tr>
                                     <td><?= $bodeks['ID_BOD_Eksisting']?></td>
                                     <td><?= $bodeks['titik_pantau']?></td>
                                     <td><?= $bodeks['waktu_sampling']?></td>
                                     <td>
                                         <div class="button__action__container">
-                                            <button type="button"
-                                                class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button"
+                                            <a href="/BODEksisting/update_list_bod/<?= $bodeks['ID_BOD_Eksisting'] ?>"
+                                                class="btn btn-primary custom__button__edit">Update</a>
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModaldelete"
                                                 class="btn btn-danger custom__button__delete">Delete</button>
+                                                <input type="hidden" name="ID_BOD_Eksisting" value="<?= $bodeks['ID_BOD_Eksisting']; ?>">
+                                            <?= $this->include('/feedback/delete__modal') ?>
                                         </div>
                                     </td>
                                 </tr>
@@ -94,6 +97,7 @@
 
                 </div>
             </div>
+            
 
 
 
