@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 22, 2022 at 04:30 PM
--- Server version: 8.0.23
--- PHP Version: 7.3.29-to-be-removed-in-future-macOS
+-- Host: 127.0.0.1
+-- Generation Time: Mar 24, 2022 at 08:00 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,21 +28,26 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bod_eksisting` (
-  `ID_BOD_Eksisting` int NOT NULL,
+  `ID_BOD_Eksisting` int(11) NOT NULL,
   `nama_sungai` varchar(50) NOT NULL,
   `titik_pantau` enum('Hulu','Tengah','Hilir') NOT NULL,
-  `BOD` int NOT NULL,
-  `Debit` int NOT NULL,
-  `beban_pencemar` int NOT NULL,
+  `BOD` float NOT NULL,
+  `Debit` float NOT NULL,
+  `beban_pencemar` float NOT NULL,
   `waktu_sampling` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `bod_eksisting`
 --
 
 INSERT INTO `bod_eksisting` (`ID_BOD_Eksisting`, `nama_sungai`, `titik_pantau`, `BOD`, `Debit`, `beban_pencemar`, `waktu_sampling`) VALUES
-(2, 'Sungai A', 'Hulu', 0, 0, 0, '2022-12-12');
+(2, 'Sungai A', 'Hulu', 0, 0, 0, '2022-12-12'),
+(3, 'Sungai Cisangkan', 'Tengah', 23, 33, 0, '0000-00-00'),
+(4, 'Cibaligo', 'Tengah', 7, 0, 12, '0000-00-00'),
+(5, 'Cisangkan', 'Hulu', 7, 0, 12, '0000-00-00'),
+(6, 'Cisangkan', 'Hulu', 7, 0, 12, '0000-00-00'),
+(7, 'Cisangkan', 'Hulu', 7, 0, 12, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -51,11 +56,11 @@ INSERT INTO `bod_eksisting` (`ID_BOD_Eksisting`, `nama_sungai`, `titik_pantau`, 
 --
 
 CREATE TABLE `user` (
-  `id_user` int NOT NULL,
-  `user_email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `user_password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `user_email` varchar(50) NOT NULL,
+  `user_password` varchar(100) NOT NULL,
   `user_name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -88,13 +93,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bod_eksisting`
 --
 ALTER TABLE `bod_eksisting`
-  MODIFY `ID_BOD_Eksisting` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_BOD_Eksisting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
