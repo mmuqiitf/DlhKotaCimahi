@@ -51,13 +51,10 @@
 
                 <!-- end of small card -->
 
-
-
                 <div class="custom__card__large">
                     <div class="custom__header__card__large">
-                        <button type="button" class="btn btn-primary"
-                            onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
-                        <button type="button" class="btn btn-primary">Input Excel</button>
+                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
+                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/periode1'">Input Excel</button>
                     </div>
 
                     <div class="table__wrapper">
