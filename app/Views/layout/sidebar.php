@@ -24,9 +24,15 @@ $segment = $uri->getSegment(2);
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link <?php  if($segment == 'bnpencemaran') {echo " ";} else {echo "collapsed";}   ?> " href="/bnpencemaran">
+            <a class="nav-link dropdown-btn <?php  if($segment == 'bnpencemaran') {echo " ";} else {echo "collapsed";}   ?> " href="#">
                 <i class="bx bx-line-chart"></i><span>Beban Pencemaran</span>
             </a>
+            <div class="dropdown-container">
+                <a class ="dropdown-item " href="/bnpencemaran">Data BOD</a>
+                <a class ="dropdown-item" href="#">Data TSS</a>
+            </div>
+
+
         </li><!-- End Beban Pencemaran Nav -->
 
         <li class="nav-item">
@@ -57,7 +63,7 @@ $segment = $uri->getSegment(2);
 
         <li class="nav-item">
             <div class="logout">
-                <a class="nav-link collapsed" href="/Home/Auth">
+                <a class="nav-link collapsed" href="/Auth/logout" >
                     <i class="bx bx-log-out"></i>
                     <span>Logout</span>
                 </a>

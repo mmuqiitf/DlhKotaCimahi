@@ -42,10 +42,6 @@ class Home extends BaseController
         return view('/main/bebanpencemaran') ;
     }    
 
-    public function auth()
-    {
-        return view('/pages/auth');
-    }
     public function BODEksisting()
     {
         return view('/pages/BODEksisting/index');

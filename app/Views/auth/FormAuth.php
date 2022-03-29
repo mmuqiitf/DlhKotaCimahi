@@ -3,28 +3,38 @@
         <h2 class="fw-bold">Selamat Datang</h2>
         <p>Admin Dinas DLH</p>
 
+        <form method="post" action="/Auth/login">
 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text h-100" id="basic-addon1"> <i class="bx bxs-user "></i></span>
+
+            <?php if(session()->getFlashdata('msg')):?>
+              <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
+            <?php endif;?>
+
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text h-100" id="basic-addon1"> <i class="bx bxs-user "></i></span>
+                </div>
+                <input type="email" class="form-control"
+                     name="email" placeholder="Email">
             </div>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
 
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text h-100" id="basic-addon1"> <i class="bi bi-lock"></i></span>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text h-100" id="basic-addon1"> <i class="bi bi-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password" 
+                     name="password">
             </div>
-            <input type="password" class="form-control" placeholder="password" aria-label="Password" aria-describedby="basic-addon1">
-        </div>
 
 
-        <div class="d-grid gap-2">
-            <a href="/dashboard">
-                <button class="custon__button__auth" type="button">Login</button>
-            </a>
-        </div>
+
+
+            <div class="d-grid gap-2">
+                    <button class="custon__button__auth" type="submit">Login</button>
+            </div>
+
+        </form>
 
     </div>
 </div>
