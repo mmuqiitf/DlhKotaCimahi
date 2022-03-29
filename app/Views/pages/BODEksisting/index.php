@@ -54,10 +54,8 @@
 
                 <div class="custom__card__large">
                     <div class="custom__header__card__large">
-                        <button type="button" class="btn btn-primary"
-                            onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
-                        <button type="button" class="btn btn-primary"
-                            onclick="document.location.href='/BODEksisting/periode1'">Input Excel</button>
+                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
+                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/periode1'">Input Excel</button>
                     </div>
 
                     <div class="table__wrapper">
@@ -75,41 +73,35 @@
                                     <td>1</td>
                                     <td>Mark</td>
                                     <td>Otto</td>
-                                    <td>
-                                        <div class="button__action__container">
+                                    <td><div class="button__action__container">
                                             <button type="button"
                                                 class="btn btn-primary custom__button__edit">Update</button>
                                             <button type="button"
                                                 class="btn btn-danger custom__button__delete">Delete</button>
-                                        </div>
-                                    </td>
+                                        </div></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>Jacob</td>
                                     <td>Thornton</td>
-                                    <td>
-                                        <div class="button__action__container">
+                                    <td><div class="button__action__container">
                                             <button type="button"
                                                 class="btn btn-primary custom__button__edit">Update</button>
                                             <button type="button"
                                                 class="btn btn-danger custom__button__delete">Delete</button>
-                                        </div>
-                                    </td>
+                                        </div></td>
 
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>Larry</td>
                                     <td>the Bird</td>
-                                    <td>
-                                        <div class="button__action__container">
+                                    <td><div class="button__action__container">
                                             <button type="button"
                                                 class="btn btn-primary custom__button__edit">Update</button>
                                             <button type="button"
                                                 class="btn btn-danger custom__button__delete">Delete</button>
-                                        </div>
-                                    </td>
+                                        </div></td>
 
                                 </tr>
                             </tbody>
