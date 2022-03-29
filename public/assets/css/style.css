@@ -164,14 +164,14 @@ h6 {
 /*--------------------------------------------------------------
 # Sidebar
 --------------------------------------------------------------*/
-.dropdown-container{
-  display:none;
+.dropdown-container {
+  display: none;
   margin: 5px 0;
   background-color: #ffffff;
   padding-left: 8px;
 }
-.dropdown-item{
-  display:block;
+.dropdown-item {
+  display: block;
   font-size: 15px;
   font-weight: 600;
   border-radius: 4px;
@@ -179,12 +179,10 @@ h6 {
   background-color: #ffffff;
   padding: 10px 20px;
 }
-.dropdown-item:hover{
+.dropdown-item:hover {
   color: #f6f9ff;
-  background: #3d6988
+  background: #3d6988;
 }
-
-
 
 .sidebar {
   position: fixed;
@@ -867,3 +865,7 @@ h6 {
   margin-top: 20px;
 }
 
+.custom__sidebar__active {
+  background: #3d6988;
+  color: white;
+}

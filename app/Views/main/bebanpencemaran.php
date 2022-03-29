@@ -6,7 +6,7 @@
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Hi Marco,</h1>
-        <h4>Beban Pencemaran</h4>
+        <h4>Data BOD</h4>
     </div><!-- End Page Title -->
 
     <section class="section">
@@ -18,7 +18,7 @@
                             <div class="col-lg-12">
                                 <div class="col-md-6">
                                     <div class="beban">
-                                        <h2><b>Data Beban <br>Pencemaran <br> Potensial </h2>
+                                        <h2><b>Data BOD <br> Potensial </h2>
                                         <h5>Masukan Data dengan Klik <br>Button di bawah ini!</h5>
                                         <button class="tombol1 btn btn-primary" type="submit"
                                             onclick="document.location.href='/BODPotensial'">Masukkan Data</button>
@@ -33,8 +33,8 @@
                             <div class="col-lg-12">
                                 <div class="col-md-6">
                                     <div class="beban">
-                                        <h2><b>Data Beban <br>Pencemaran <br>Eksisting</h2>
-                                        <h5>Masukan Data Pengolahan Air</h5>
+                                        <h2><b>Data BOD <br>Eksisting</h2>
+                                        <h5>Masukan Data dengan Klik <br>Button di bawah ini!</h5>
                                         <div class="d-flex gap-3">
 
 

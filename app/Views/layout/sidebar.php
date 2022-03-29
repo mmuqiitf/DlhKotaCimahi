@@ -28,7 +28,7 @@ $segment = $uri->getSegment(2);
                 <i class="bx bx-line-chart"></i><span>Beban Pencemaran</span>
             </a>
             <div class="dropdown-container">
-                <a class ="dropdown-item" href="/bnpencemaran">Data BOD</a>
+                <a class ="dropdown-item " href="/bnpencemaran">Data BOD</a>
                 <a class ="dropdown-item" href="#">Data TSS</a>
             </div>
 
