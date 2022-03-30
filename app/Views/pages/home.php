@@ -23,8 +23,8 @@
                                         <i class="bx bxs-user"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>Karyawan</h6>
-                                        <h5 class="card-title">123</h5>
+                                        <h6 class="card-title">Karyawan</h6>
+                                        <h5 class="card-title"><?= $jumlah_user ?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -39,8 +39,8 @@
                                         <i class="bx bxs-location-plus"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>Titik Pantau</h6>
-                                        <h5 class="card-title">123</h5>
+                                        <h6 class="card-title">Titik Pantau</h6>
+                                        <h5 class="card-title">15</h5>
                                     </div>
                                 </div>
                             </div>
@@ -55,8 +55,8 @@
                                         <i class="bx bxs-bar-chart-alt-2"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>Perusahaan</h6>
-                                        <h5 class="card-title">123</h5>
+                                        <h6 class="card-title">Jumlah Sungai</h6>
+                                        <h5 class="card-title"><?= $jumlah_Sungai ?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -71,8 +71,8 @@
                                         <i class="bx bxs-layer-plus"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>Total Data BOD</h6>
-                                        <h5 class="card-title">123</h5>
+                                        <h6 class="card-title">Nilai Index Pencemaran Air</h6>
+                                        <h5 class="card-title">21.33</h5>
                                     </div>
                                 </div>
                             </div>
@@ -107,202 +107,63 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Beban Pencemar BOD Aktual</h5>
-                                            <div class="container mt-3">
-                                                <div class="row">
-                                                    <div class="pilihanperiode">
-                                                        <label for="">Pilih Periode</label>
-                                                        <select id="bulan" class="form-control">
-                                                            <option value="2">1</option>
-                                                            <option value="7">2</option>
-                                                            <option value="10">3</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="container"></div>
-                                            <script src="https://code.highcharts.com/highcharts.js"></script>
-                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-                                            <script>
-                                                // Chart
-                                                const options = {
-                                                    chart: {
-                                                        type: 'areaspline',
-                                                        events: {
-                                                            load: getData(3)
-                                                        },
-                                                        height: 350,
-                                                        zoom: {
-                                                            enabled: false
-                                                        }
-                                                    },
-                                                    title: {
-                                                        text: ''
-                                                    },
-                                                    xAxis: {
-                                                        type: 'datetime',
-                                                        dateTimeLabelFormats: {
-                                                            day: '%e of %b'
-                                                        }
-                                                    },
-                                                    series: [{
-                                                        name: "Sungai Bod",
-                                                        data: [],
-                                                        pointStart: Date.UTC(2020, 3, 1),
-                                                        pointInterval: 24 * 3600 * 1000 // one day
-
-                                                    }],
-
-                                                };
-                                                const chart = Highcharts.chart('container', options)
-
-                                                // Data
-                                                $("#bulan").change(function() {
-                                                    const val = $(this).val();
-                                                    getData(val);
-                                                })
-
-                                                function getData(bulan) {
-                                                    const url = `/home/apiData/${bulan}`;
-
-                                                    $.getJSON(url, function(data) {
-                                                        const p = [];
-                                                        data.map((obj) => {
-                                                            p.push(parseInt(obj.jumlah))
-                                                        });
-
-                                                        chart.series[0].update({
-                                                            data: p,
-                                                            pointStart: Date.UTC(2020, bulan - 1, 1)
-                                                        })
-                                                        chart.redraw();
-                                                    })
-                                                }
-                                            </script>
+                                            <h5 class="card-title">Pij Pencemaran Air Berdasarkan Titik Pantau</h5>
+                                            <canvas id="thread_sungai" width="300" height="300"></canvas>
                                         </div>
                                     </div>
                                 </div>
-
+                                <script src="https://code.highcharts.com/highcharts.js"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
                                 <!-- GRAFIK 1 LAGI -->
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Beban Pencemar TSS Aktual</h5>
-                                            <div id="areaChart"></div>
-                                            <script>
-                                                document.addEventListener("DOMContentLoaded", () => {
-                                                    const series = {
-                                                        "monthDataSeries1": {
-                                                            "prices": [
-                                                                8107.85,
-                                                                8128.0,
-                                                                8122.9,
-                                                                8165.5,
-                                                                8340.7,
-                                                                8423.7,
-                                                                8423.5,
-                                                                8514.3,
-                                                                8481.85,
-                                                                8487.7,
-                                                                8506.9,
-                                                                8626.2,
-                                                                8668.95,
-                                                                8602.3,
-                                                                8607.55,
-                                                                8512.9,
-                                                                8496.25,
-                                                                8600.65,
-                                                                8881.1,
-                                                                9340.85
-                                                            ],
-                                                            "dates": [
-                                                                "13 Nov 2021",
-                                                                "14 Nov 2021",
-                                                                "15 Nov 2021",
-                                                                "16 Nov 2021",
-                                                                "17 Nov 2021",
-                                                                "20 Nov 2021",
-                                                                "21 Nov 2021",
-                                                                "22 Nov 2021",
-                                                                "23 Nov 2021",
-                                                                "24 Nov 2021",
-                                                                "27 Nov 2021",
-                                                                "28 Nov 2021",
-                                                                "29 Nov 2021",
-                                                                "30 Nov 2021",
-                                                                "01 Dec 2021",
-                                                                "04 Dec 2021",
-                                                                "05 Dec 2021",
-                                                                "06 Dec 2021",
-                                                                "07 Dec 2021",
-                                                                "08 Dec 2021"
-                                                            ]
-                                                        },
-                                                    }
-                                                    new ApexCharts(document.querySelector("#areaChart"), {
-                                                        series: [{
-                                                            name: "Status Mutu Air",
-                                                            data: series.monthDataSeries1.prices
-                                                        }],
-                                                        chart: {
-                                                            type: 'area',
-                                                            height: 350,
-                                                            zoom: {
-                                                                enabled: false
-                                                            }
-                                                        },
-                                                        dataLabels: {
-                                                            enabled: false
-                                                        },
-                                                        stroke: {
-                                                            curve: 'straight'
-                                                        },
-                                                        subtitle: {
-                                                            // text: 'Price Movements',
-                                                            align: 'left'
-                                                        },
-                                                        labels: series.monthDataSeries1.dates,
-                                                        xaxis: {
-                                                            type: 'datetime',
-                                                        },
-                                                        yaxis: {
-                                                            opposite: true
-                                                        },
-                                                        legend: {
-                                                            horizontalAlign: 'left'
-                                                        }
-                                                    }).render();
-                                                });
-                                            </script>
-                                            <!-- End Area Chart -->
+                                            <h5 class="card-title">Index Pencemaran Air</h5>
+                                            <canvas id="index_pencemaran_air" width="300" height="300"></canvas>
                                         </div>
                                     </div>
                                 </div>
+                                <script src="https://code.highcharts.com/highcharts.js"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+
+                                <!-- GRAFIK 1 LAGI -->
+                                <div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pij Pencemaran Air Berdasarkan Periode</h5>
+                                            <canvas id="pij_tanggal" width="300" height="100"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script src="https://code.highcharts.com/highcharts.js"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
                             </div>
                         </div>
                     </section>
                 </div>
 
                 <div class="grafikitem filter-bp">
-                    <section id="tenagakerja" class="tenagakerja">
-                        <div class="container">
+                    <section class="section">
+                        <div class="grafik">
                             <div class="row">
-
-                                <div class="col-lg-4 col-md-10 d-flex align-items-stretch">
-
-                                    <div class="member">
-                                        <img src="" class="" alt="">
-                                        <h4>jj</h4>
-                                        <span>8</span>
-                                        <p>
-                                            kk
-                                        </p>
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Beban Pencemar BOD Aktual</h5>
+                                            <canvas id="" width="300" height="300"></canvas>
+                                        </div>
                                     </div>
-
                                 </div>
 
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Beban Pencemar BOD Aktual</h5>
+                                            <canvas id="" width="300" height="300"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
                     </section>
                 </div>
             </div>
@@ -310,3 +171,92 @@
     </section>
 </main><!-- End #main -->
 <?= $this->endSection();  ?>
+<?= $this->section('script') ?>
+<script src="<?= base_url('chartjs/Chart.bundle.min.js') ?>"></script>
+<script>
+    var thread_sungai = document.getElementById('thread_sungai');
+    var label_thread_sungai = [];
+    var data_thread_pij = [];
+
+    <?php foreach ($thread_per_sungai->getResult() as $key => $value) : ?>
+        label_thread_sungai.push('<?= $value->sungai ?>');
+        data_thread_pij.push('<?= $value->Nilai_pij ?>');
+    <?php endforeach ?>
+
+    var data_thread_per_sungai = {
+        datasets: [{
+            // data: data_thread_sungai,
+            data: data_thread_pij,
+            backgroundColor: [
+                'rgba(255,99,132,0.8)',
+                'rgba(54,162,235,0.8)',
+                'rgba(255,206,86,0.8)',
+                'rgb(152,251,153,0.8)',
+                'rgb(64,224,208,0.8)',
+            ],
+        }],
+        labels: label_thread_sungai,
+    }
+
+    var chart_thread_sungai = new Chart(thread_sungai, {
+        type: 'doughnut',
+        data: data_thread_per_sungai
+    });
+
+    // Pij tanggal
+    var thread_sungai = document.getElementById('pij_tanggal');
+    var label_thread_sungai = [];
+    var data_thread_pij = [];
+
+    <?php foreach ($thread_per_periode->getResult() as $key => $value) : ?>
+        label_thread_sungai.push('<?= $value->sungai ?>');
+        data_thread_pij.push('<?= $value->Nilai_pij ?>');
+    <?php endforeach ?>
+
+    var data_thread_per_sungai = {
+        datasets: [{
+            // data: data_thread_sungai,
+            data: data_thread_pij,
+            backgroundColor: 'rgb(43, 191, 254,0.5)',
+
+        }],
+        labels: label_thread_sungai,
+    }
+
+    var chart_thread_sungai = new Chart(thread_sungai, {
+        type: 'line',
+        data: data_thread_per_sungai
+    });
+
+    // IPA
+    var ipa = document.getElementById('index_pencemaran_air');
+    var data_ipa = [];
+    var label_katagori_pencemaran = [];
+
+    <?php foreach ($Index_Pencemaran_air->getResult() as $key => $value) : ?>
+        data_ipa.push(<?= $value->Nilai_ipa ?>);
+        label_katagori_pencemaran.push('<?= $value->katagori_pencemaran ?>');
+    <?php endforeach ?>
+
+    var Index_Pencemaran_air = {
+        datasets: [{
+            label: 'Nilai Ipa',
+            data: data_ipa,
+            backgroundColor: [
+                'rgba(255,99,132,0.8)',
+                'rgba(54,162,235,0.8)',
+                'rgba(255,206,86,0.8)',
+                'rgb(152,251,153,0.8)',
+                'rgb(64,224,208,0.8)',
+            ],
+        }],
+
+        labels: label_katagori_pencemaran,
+    }
+
+    var chart_katagori_pencemaran = new Chart(ipa, {
+        type: 'bar',
+        data: Index_Pencemaran_air
+    });
+</script>
+<?= $this->endSection() ?>

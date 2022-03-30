@@ -371,7 +371,7 @@ h6 {
 .dashboard .info-card h6 {
   font-size: 12px;
   color: #012970;
-  font-weight: 500;
+  font-weight: 800;
   margin: 0;
   padding: 0px;
 }
@@ -509,10 +509,6 @@ h6 {
 }
 
 /* GRAFIK */
-.grafik {
-  margin-top: -5%;
-}
-
 .card-bodygrafik {
   margin-bottom: 50px;
 }
@@ -794,68 +790,13 @@ h6 {
   margin-bottom: 20px;
 }
 
-/* nyoba */
-
-/* tenaga kerj */
-.tenagakerja .member {
-  text-align: center;
+/* grafik */
+.grafik {
+  margin-top: -5%;
   margin-bottom: 20px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  padding: 30px 20px;
-  background: #fff;
+  padding: 15px 20px;
   position: relative;
-  width: 100%;
-  border-radius: 10px;
   transition: 3s;
-}
-
-.tenagakerja .member img {
-  width: 150;
-  height: 150;
-  border-radius: 50%;
-  margin: 0 0 30px 0;
-}
-
-.tenagakerja .member h4 {
-  font-weight: 700;
-  margin-bottom: 2px;
-  font-size: 18px;
-}
-
-.tenagakerja .member span {
-  font-style: italic;
-  display: block;
-  font-size: 13px;
-}
-
-.tenagakerja .member p {
-  padding-top: 10px;
-  font-size: 14px;
-  font-style: italic;
-  color: #aaaaaa;
-}
-
-.tenagakerja .member .social {
-  margin-top: 15px;
-}
-
-.tenagakerja .member .social a {
-  color: #919191;
-  transition: 0.3s;
-}
-
-.tenagakerja .member .social a:hover {
-  color: #012970;
-}
-
-.tenagakerja .member .social i {
-  font-size: 18px;
-  margin: 0 2px;
-}
-
-.tenagakerja .member:hover {
-  transform: scale(1.09);
-  border-radius: 10px;
 }
 
 .Grafikpilihan {
