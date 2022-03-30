@@ -4,11 +4,14 @@ namespace App\Controllers;
 
 use App\Models\GrafikModel;
 use App\Models\TssGrafikModel;
+use App\Models\Users;
 
 class Home extends BaseController
 {
     public function index()
     {
+        $modelUser = new Users();
+        $jumlah_user = $modelUser->countAllResults();
         // echo view('layout/header');
         // echo view('layout/sidebar');
         // echo view('main/dashboard');
@@ -17,7 +20,7 @@ class Home extends BaseController
         $bulan = $bulan ? $bulan : Date("m");
         $bulantss = $this->request->getGet('bulan');
         $bulantss = $bulantss ? $bulantss : Date("m");
-        return view('/pages/home');
+        return view('/pages/home', ['jumlah_user' => $jumlah_user,]);
     }
 
     public function indexair()

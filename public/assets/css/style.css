@@ -308,6 +308,9 @@ h6 {
 # Dashboard
 --------------------------------------------------------------*/
 /* Card */
+.dashboard {
+  height: 20vh;
+}
 
 .card {
   margin-bottom: 30px;
@@ -343,6 +346,7 @@ h6 {
 }
 
 /* Info Cards */
+
 .dashboard .info-card {
   padding-bottom: 5px;
   padding-top: 10px;
@@ -506,7 +510,7 @@ h6 {
 
 /* GRAFIK */
 .grafik {
-  margin-top: -3%;
+  margin-top: -5%;
 }
 
 .card-bodygrafik {
@@ -789,3 +793,105 @@ h6 {
   margin-left: 2px;
   margin-bottom: 20px;
 }
+
+/* nyoba */
+
+/* tenaga kerj */
+.tenagakerja .member {
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 30px 20px;
+  background: #fff;
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  transition: 3s;
+}
+
+.tenagakerja .member img {
+  width: 150;
+  height: 150;
+  border-radius: 50%;
+  margin: 0 0 30px 0;
+}
+
+.tenagakerja .member h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  font-size: 18px;
+}
+
+.tenagakerja .member span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+}
+
+.tenagakerja .member p {
+  padding-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: #aaaaaa;
+}
+
+.tenagakerja .member .social {
+  margin-top: 15px;
+}
+
+.tenagakerja .member .social a {
+  color: #919191;
+  transition: 0.3s;
+}
+
+.tenagakerja .member .social a:hover {
+  color: #012970;
+}
+
+.tenagakerja .member .social i {
+  font-size: 18px;
+  margin: 0 2px;
+}
+
+.tenagakerja .member:hover {
+  transform: scale(1.09);
+  border-radius: 10px;
+}
+
+.Grafikpilihan {
+  padding-top: 1px;
+}
+.Grafikpilihan #grafik-flters {
+  padding: 0;
+  margin: 0 auto 25px auto;
+  list-style: none;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.Grafikpilihan #grafik-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 18px 10px 18px;
+  font-size: 16px;
+  line-height: 1;
+  margin: 0 3px 10px 3px;
+  transition: all ease-in-out 0.3s;
+  font-weight: 800;
+  color: #3d6988;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  background: #f6f6fe;
+}
+
+.Grafikpilihan #grafik-flters li:hover,
+.Grafikpilihan #grafik-flters li.filter-active {
+  color: #fff;
+  background: linear-gradient(0.25turn, #00c0e2, #3d6988);
+  transition: ease-in-out 0.7s;
+}
+
+.Grafikpilihano #grafik-flters li:last-child {
+  margin-right: 0;
+}
+/* tenaga kerja end */
