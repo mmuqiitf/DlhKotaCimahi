@@ -7,6 +7,8 @@ use App\Models\TssGrafikModel;
 use \App\Models\ThreadModel;
 use \App\Models\SungaiModel;
 use App\Models\Users;
+use App\Models\BodGrafikModel;
+use App\Models\BodAktualGrafikModel;
 
 class Home extends BaseController
 {
@@ -15,6 +17,8 @@ class Home extends BaseController
         $modelUser = new Users();
         $modelSungai = new SungaiModel();
         $modelThread = new ThreadModel();
+        $modelBodgrafik = new BodGrafikModel();
+        $modelBodAktualgrafik = new BodAktualGrafikModel();
         $jumlah_user = $modelUser->countAllResults();
         $jumlah_Sungai = $modelSungai->countAllResults();
         $tahun_lahir_user = $modelUser->select('YEAR(tanggal) AS tahun_lahir, COUNT(id_user) AS jumlah')
@@ -46,6 +50,19 @@ class Home extends BaseController
             ->groupBy('thread.id_sungai')
             ->groupBy('thread.Nilai_pij')
             ->get();
+
+        $Bodgraf =  $modelBodgrafik->select('COUNT(bod_eksisting.ID_BOD_Eksisting) AS Nilai_Bod, bod_eksisting.nama_sungai AS bod_eksisting ,bod_eksisting.BOD AS BOD')
+            ->groupBy('bod_eksisting.nama_sungai')
+            ->groupBy('bod_eksisting.BOD')
+            ->get();
+
+        $modelBodAktualgrafik =  $modelBodAktualgrafik->select('COUNT(bod_aktual.id_bodaktual) AS Nilai_BodAktual, bod_aktual.titik_pantau AS bod_aktual ,bod_aktual.Bod_aktual AS Bod_aktual')
+            ->groupBy('bod_aktual.titik_pantau')
+            ->groupBy('bod_aktual.Bod_aktual')
+            ->get();
+
+
+
         // $bulan = $this->request->getGet('bulan');
         // $bulan = $bulan ? $bulan : Date("m");
         // $bulantss = $this->request->getGet('bulan');
@@ -59,6 +76,8 @@ class Home extends BaseController
             // 'jumlah_isi' => $jumlah_isi,
             'thread_per_sungai' => $thread_per_sungai,
             'thread_per_periode' => $thread_per_periode,
+            'Bodgraf' => $Bodgraf,
+            'modelBodAktualgrafik' => $modelBodAktualgrafik,
         ]);
     }
 

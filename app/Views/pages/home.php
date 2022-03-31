@@ -149,8 +149,8 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Beban Pencemar BOD Aktual</h5>
-                                            <canvas id="" width="300" height="300"></canvas>
+                                            <h5 class="card-title">Beban Pencemar BOD Eksisting</h5>
+                                            <canvas id="Bodgraf" width="300" height="300"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +159,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Beban Pencemar BOD Aktual</h5>
-                                            <canvas id="" width="300" height="300"></canvas>
+                                            <canvas id="modelBodAktualgrafik" width="300" height="300"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -193,6 +193,11 @@
                 'rgba(255,206,86,0.8)',
                 'rgb(152,251,153,0.8)',
                 'rgb(64,224,208,0.8)',
+                'rgb(138, 43, 226,0.8)',
+                'rgb(220, 20, 60,0.8)',
+                'rgb(85, 107, 47,0.8)',
+                'rgb(249, 19, 147,0.8)',
+                'rgb(253, 215, 3,0.8)',
             ],
         }],
         labels: label_thread_sungai,
@@ -202,6 +207,7 @@
         type: 'doughnut',
         data: data_thread_per_sungai
     });
+
 
     // Pij tanggal
     var thread_sungai = document.getElementById('pij_tanggal');
@@ -217,6 +223,7 @@
         datasets: [{
             // data: data_thread_sungai,
             data: data_thread_pij,
+            borderColor: 'rgb(61, 105, 136)',
             backgroundColor: 'rgb(43, 191, 254,0.5)',
 
         }],
@@ -242,6 +249,7 @@
         datasets: [{
             label: 'Nilai Ipa',
             data: data_ipa,
+
             backgroundColor: [
                 'rgba(255,99,132,0.8)',
                 'rgba(54,162,235,0.8)',
@@ -249,6 +257,7 @@
                 'rgb(152,251,153,0.8)',
                 'rgb(64,224,208,0.8)',
             ],
+
         }],
 
         labels: label_katagori_pencemaran,
@@ -257,6 +266,66 @@
     var chart_katagori_pencemaran = new Chart(ipa, {
         type: 'bar',
         data: Index_Pencemaran_air
+    });
+
+    // bod eksinting
+    var Bodgraf = document.getElementById('Bodgraf');
+    var label_Bodgraf = [];
+    var data_Bodgraf = [];
+
+    <?php foreach ($Bodgraf->getResult() as $key => $value) : ?>
+        label_Bodgraf.push('<?= $value->bod_eksisting ?>');
+        data_Bodgraf.push('<?= $value->BOD ?>');
+    <?php endforeach ?>
+
+    var data_Bodgraf = {
+        datasets: [{
+            // data: data_thread_sungai,
+            data: data_Bodgraf,
+            borderColor: 'rgb(61, 105, 136)',
+        }],
+        labels: label_Bodgraf,
+    }
+
+    var chart_Bodgraf = new Chart(Bodgraf, {
+        type: 'line',
+        data: data_Bodgraf
+    });
+
+    // BOD AKTUAL
+    var modelBodAktualgrafik = document.getElementById('modelBodAktualgrafik');
+    var label_modelBodAktualgrafik = [];
+    var data_modelBodAktualgrafik = [];
+
+    <?php foreach ($modelBodAktualgrafik->getResult() as $key => $value) : ?>
+        label_modelBodAktualgrafik.push('<?= $value->bod_aktual ?>');
+        data_modelBodAktualgrafik.push('<?= $value->Bod_aktual ?>');
+    <?php endforeach ?>
+
+    var data_modelBodAktualgrafik = {
+        datasets: [{
+            // data: data_thread_sungai,
+            data: data_modelBodAktualgrafik,
+            borderColor: 'rgb(61, 105, 136)',
+            backgroundColor: [
+                'rgba(255,99,132,0.8)',
+                'rgba(54,162,235,0.8)',
+                'rgba(255,206,86,0.8)',
+                'rgb(152,251,153,0.8)',
+                'rgb(64,224,208,0.8)',
+                'rgb(138, 43, 226,0.8)',
+                'rgb(220, 20, 60,0.8)',
+                'rgb(85, 107, 47,0.8)',
+                'rgb(249, 19, 147,0.8)',
+                'rgb(253, 215, 3,0.8)',
+            ]
+        }],
+        labels: label_modelBodAktualgrafik,
+    }
+
+    var chart_modelBodAktualgrafik = new Chart(modelBodAktualgrafik, {
+        type: 'bar',
+        data: data_modelBodAktualgrafik
     });
 </script>
 <?= $this->endSection() ?>
