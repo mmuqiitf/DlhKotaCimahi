@@ -99,6 +99,12 @@ class Home extends BaseController
         return view('/main/mutuair');
     }
 
+    public function buattss()
+    {
+        return view('/main/createtss');
+    }
+
+
     public function bnpencemaran()
     {
         // echo view('layout/header');
