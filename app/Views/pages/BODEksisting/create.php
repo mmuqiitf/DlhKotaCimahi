@@ -107,7 +107,7 @@
                                 </div>
 
                                 <div class="col">
-                                    <div class="d-flex flex-column custom__container__sampling gap-2">
+                                    <div class="d-flex flex-column custom__container__sampling gap-2">`
                                         <h2>Waktu Sampling</h2>
                                         
                                             <div class="form-group">

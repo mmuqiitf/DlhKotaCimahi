@@ -1,4 +1,4 @@
-<?= $this->extend('layout/templatePencemaran');  ?>
+<?= $this->extend('layout/template');  ?>
 
 
 <?= $this->section('content'); ?>
