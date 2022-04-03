@@ -7,7 +7,7 @@
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Hi Oki Kurniawan,</h1>
-        <h4>Status Mutu Air</h4>
+        <h4>Perhitungan Mutu Air</h4>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
