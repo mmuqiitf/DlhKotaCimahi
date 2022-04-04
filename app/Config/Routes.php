@@ -38,6 +38,7 @@ $routes->get('/dashboard', 'Home::index',['filter' => 'auth']);
 $routes->get('/bnpencemaran', 'Home::bnpencemaran',['filter' => 'auth']);
 $routes->get('/statusair', 'Home::statusair',['filter' => 'auth']);
 $routes->get('/indexair', 'Home::indexair',['filter' => 'auth']);
+$routes->get('/buattss', 'Home::buattss',['filter' => 'auth']);
 $routes->get('/login', 'Home::auth',['filter' => 'auth']);
 $routes->get('/BODEksisting', 'Home::BODEksisting',['filter' => 'auth']);
 $routes->get('/BODPotensial', 'Home::BODPotensial',['filter' => 'auth']);

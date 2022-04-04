@@ -53,7 +53,7 @@ $segment = $uri->getSegment(2);
         </li><!-- End Index Kualitas Air Nav -->
 
         <li class="nav-item">
-            <a class="nav-link  <?php  if($segment == 'statusair') {echo " ";}  else {echo "collapsed";}   ?>"
+            <a class="nav-link  <?php  if($segment == 'buattss') {echo " ";}  else {echo "collapsed";}   ?>"
                 href="/statusair">
                 <i class="bx bxs-cog"></i><span>Status Mutu Air </span>
             </a>
