@@ -20,27 +20,11 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bx bxs-user"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6 class="card-title">Karyawan</h6>
-                                        <h5 class="card-title"><?= $jumlah_user ?></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Sales Card -->
-
-                    <div class="col-lg-3 col-md-4 mb-3">
-                        <div class="card info-card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bx bxs-location-plus"></i>
                                     </div>
                                     <div class="ps-3">
                                         <h6 class="card-title">Titik Pantau</h6>
-                                        <h5 class="card-title">15</h5>
+                                        <h5 class="card-title"><?= $jumlah_Sungai ?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +40,23 @@
                                     </div>
                                     <div class="ps-3">
                                         <h6 class="card-title">Jumlah Sungai</h6>
-                                        <h5 class="card-title"><?= $jumlah_Sungai ?></h5>
+                                        <h5 class="card-title">5</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Sales Card -->
+
+                    <div class="col-lg-3 col-md-4 mb-3">
+                        <div class="card info-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bx bxs-user"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6 class="card-title">Jumlah Pecemaran Air</h6>
+                                        <h5 class="card-title">30</h5>
                                     </div>
                                 </div>
                             </div>
@@ -104,16 +104,6 @@
                     <section class="section">
                         <div class="grafik">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Pij Pencemaran Air Berdasarkan Titik Pantau</h5>
-                                            <canvas id="thread_sungai" width="300" height="300"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script src="https://code.highcharts.com/highcharts.js"></script>
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
                                 <!-- GRAFIK 1 LAGI -->
                                 <div class="col-lg-6">
                                     <div class="card">
@@ -127,11 +117,35 @@
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
 
                                 <!-- GRAFIK 1 LAGI -->
-                                <div>
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Jumlah Pencemaran Air</h5>
+                                            <canvas id="jumlah_pencemaran_air" width="300" height="300"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script src="https://code.highcharts.com/highcharts.js"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pij Pencemaran Air Berdasarkan Titik Pantau</h5>
+                                            <canvas id="thread_sungai" width="300" height="300"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script src="https://code.highcharts.com/highcharts.js"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+
+
+                                <!-- GRAFIK 1 LAGI -->
+                                <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Pij Pencemaran Air Berdasarkan Periode</h5>
-                                            <canvas id="pij_tanggal" width="300" height="100"></canvas>
+                                            <canvas id="pij_tanggal" width="300" height="300"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +163,7 @@
                                 <div class="col-lg-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Beban Pencemar BOD Eksisting</h5>
+                                            <h5 class="card-title">Beban Pencemar BOD Potensial Domestik</h5>
                                             <canvas id="Bodgraf" width="300" height="300"></canvas>
                                         </div>
                                     </div>
@@ -160,6 +174,15 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Beban Pencemar BOD Aktual</h5>
                                             <canvas id="modelBodAktualgrafik" width="300" height="300"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Beban Pencemar TSS Aktual</h5>
+                                            <canvas id="modelTssAktualgrafik" width="300" height="100"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -198,6 +221,11 @@
                 'rgb(85, 107, 47,0.8)',
                 'rgb(249, 19, 147,0.8)',
                 'rgb(253, 215, 3,0.8)',
+                'rgb(23, 25, 3,0.8)',
+                'rgb(123, 115, 23,0.8)',
+                'rgb(153, 215, 13,0.8)',
+                'rgb(255, 115, 53,0.8)',
+                'rgba(25,199,152,0.8)',
             ],
         }],
         labels: label_thread_sungai,
@@ -207,6 +235,42 @@
         type: 'doughnut',
         data: data_thread_per_sungai
     });
+
+    // STATUS MUTU AIR
+    // var status_mutu_air = document.getElementById('status_mutu_air');
+    // var label_status_mutu_air = [];
+    // var data_status_mutu = [];
+
+
+
+    // var data_status_mutu_air = {
+    //     datasets: [{
+    //         data: data_status_mutu,
+    //         backgroundColor: [
+    //             'rgba(255,99,132,0.8)',
+    //             'rgba(54,162,235,0.8)',
+    //             'rgba(255,206,86,0.8)',
+    //             'rgb(152,251,153,0.8)',
+    //             'rgb(64,224,208,0.8)',
+    //             'rgb(138, 43, 226,0.8)',
+    //             'rgb(220, 20, 60,0.8)',
+    //             'rgb(85, 107, 47,0.8)',
+    //             'rgb(249, 19, 147,0.8)',
+    //             'rgb(253, 215, 3,0.8)',
+    //             'rgb(23, 25, 3,0.8)',
+    //             'rgb(123, 115, 23,0.8)',
+    //             'rgb(153, 215, 13,0.8)',
+    //             'rgb(255, 115, 53,0.8)',
+    //             'rgba(25,199,152,0.8)',
+    //         ],
+    //     }],
+    //     labels: label_status_mutu_air,
+    // }
+
+    // var chart_status_mutu_air = new Chart(status_mutu_air, {
+    //     type: 'pie',
+    //     data: data_status_mutu_air
+    // });
 
 
     // Pij tanggal
@@ -224,7 +288,8 @@
             // data: data_thread_sungai,
             data: data_thread_pij,
             borderColor: 'rgb(61, 105, 136)',
-            backgroundColor: 'rgb(43, 191, 254,0.5)',
+            backgroundColor: 'rgba(62,207,235,0.5)',
+
 
         }],
         labels: label_thread_sungai,
@@ -268,27 +333,68 @@
         data: Index_Pencemaran_air
     });
 
+    // JUMLAH IPA
+    var jumlah_ipa = document.getElementById('jumlah_pencemaran_air');
+    var data_jumlah_ipa = [];
+    var label_katagori_pencemaran = [];
+
+    <?php foreach ($Jumlah_Pencemaran_air->getResult() as $key => $value) : ?>
+        data_jumlah_ipa.push(<?= $value->Jumlah_ipa ?>);
+        label_katagori_pencemaran.push('<?= $value->katagori_pencemaran ?>');
+    <?php endforeach ?>
+
+    var Jumlah_Pencemaran_air = {
+        datasets: [{
+            label: 'Jumlah Ipa',
+            data: data_jumlah_ipa,
+
+            backgroundColor: [
+                'rgba(255,99,132,0.8)',
+                'rgba(54,162,235,0.8)',
+                'rgba(255,206,86,0.8)',
+                'rgb(64,224,208,0.8)',
+            ],
+
+        }],
+
+        labels: label_katagori_pencemaran,
+    }
+
+    var chart_katagori_pencemaran = new Chart(jumlah_ipa, {
+        type: 'pie',
+        data: Jumlah_Pencemaran_air
+    });
+
     // bod eksinting
     var Bodgraf = document.getElementById('Bodgraf');
     var label_Bodgraf = [];
     var data_Bodgraf = [];
 
     <?php foreach ($Bodgraf->getResult() as $key => $value) : ?>
-        label_Bodgraf.push('<?= $value->bod_eksisting ?>');
-        data_Bodgraf.push('<?= $value->BOD ?>');
+        label_Bodgraf.push('<?= $value->bod_potensial ?>');
+        data_Bodgraf.push('<?= $value->Nilai_domestik ?>');
     <?php endforeach ?>
 
     var data_Bodgraf = {
         datasets: [{
             // data: data_thread_sungai,
             data: data_Bodgraf,
-            borderColor: 'rgb(61, 105, 136)',
+            // borderColor: 'rgb(61, 105, 136)',
+            // backgroundColor: 'rgba(245,183,105,0.8)',
+            backgroundColor: [
+                'rgba(255,99,132,0.8)',
+                'rgba(54,162,235,0.8)',
+                'rgba(255,206,86,0.8)',
+                'rgb(152,251,153,0.8)',
+                'rgb(64,224,208,0.8)',
+                'rgb(138, 43, 226,0.8)',
+            ],
         }],
         labels: label_Bodgraf,
     }
 
     var chart_Bodgraf = new Chart(Bodgraf, {
-        type: 'line',
+        type: 'bar',
         data: data_Bodgraf
     });
 
@@ -324,8 +430,44 @@
     }
 
     var chart_modelBodAktualgrafik = new Chart(modelBodAktualgrafik, {
-        type: 'bar',
+        type: 'doughnut',
         data: data_modelBodAktualgrafik
+    });
+
+    // TSS AKTUAL
+    var modelTssAktualgrafik = document.getElementById('modelTssAktualgrafik');
+    var label_modelTssAktualgrafik = [];
+    var data_modelTssAktualgrafik = [];
+
+    <?php foreach ($modelTssAktualgrafik->getResult() as $key => $value) : ?>
+        label_modelTssAktualgrafik.push('<?= $value->titik_pantau ?>');
+        data_modelTssAktualgrafik.push('<?= $value->tss_aktual ?>');
+    <?php endforeach ?>
+
+    var data_modelTssAktualgrafik = {
+        datasets: [{
+            // data: data_thread_sungai,
+            data: data_modelTssAktualgrafik,
+            borderColor: 'rgb(61, 105, 136)',
+            backgroundColor: [
+                'rgba(25,199,132,0.2)',
+                // 'rgba(54,162,235,0.8)',
+                // 'rgba(255,206,86,0.8)',
+                // 'rgb(152,251,153,0.8)',
+                // 'rgb(64,224,208,0.8)',
+                // 'rgb(138, 43, 226,0.8)',
+                // 'rgb(220, 20, 60,0.8)',
+                // 'rgb(85, 107, 47,0.8)',
+                // 'rgb(249, 19, 147,0.8)',
+                // 'rgb(253, 215, 3,0.8)',
+            ]
+        }],
+        labels: label_modelTssAktualgrafik,
+    }
+
+    var chart_modelTssAktualgrafik = new Chart(modelTssAktualgrafik, {
+        type: 'line',
+        data: data_modelTssAktualgrafik
     });
 </script>
 <?= $this->endSection() ?>
