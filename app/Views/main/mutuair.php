@@ -74,6 +74,98 @@
                             <button type="button" class="btn btn-primary">Input Excel</button>
                         </div>
 
+                    </div>
+                    <div class="cardsampling">
+                        <div class="card-bodysampling">
+                            <!-- General Form Elements -->
+                            ` <form action = "/BODEksisting/save" method = "post">
+                                <div class="row mb-3">
+                                    <label for="inputDate" class="col-sm-2 col-form-label">Tanggal</label>
+                                    <div class="col-sm-4">
+                                        <input type="date" class="form-control" id="inputtanggal" name="inputtanggal">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">TSS(mg/L)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" id="coltss" name="coltss">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">DO(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" id="coldo" name="coldo">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">BOD(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" id="colbod" name="colbod">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">COD(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" id="colcod" name="colcod">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Fosfat(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number"step="any" class="form-control" id="colfosfat" name="colfosfat">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Feral
+                                        Coli(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" id="colferal" name="colferal">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Total
+                                        Coliform(m3/s)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" id="colcoliform" name="colcoliform">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-10">
+                                        <button class="tombol3 btn btn-primary" type="" onclick="hitung()">Cek
+                                            Hasil</button>
+                                        <!-- <button type="submit" class="btn btn-primary">Cek Hasil</button> -->
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Pencemaran air
+                                        (Pij)</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" id="colpij" name="colpij" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Status Mutu Air</label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" id="colstatus" readonly  name="colstatus">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-9">
+                                        <button type="submit" class="tombol3 btn btn-primary">Simpan
+                                            Hasil</button>
+                                        <!-- <button type="submit" class="btn btn-primary">Simpan Hasil</button> -->
+                                    </div>
+                                </div>
+                            </form><!-- End General Form Elements -->`
+
+
                         <div class="table__wrapper">
                             <table class="custom__table">
                                 <thead>
@@ -128,6 +220,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+
 
                         </div>
 
