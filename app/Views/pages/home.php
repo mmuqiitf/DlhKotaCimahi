@@ -182,7 +182,8 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Beban Pencemar TSS Aktual</h5>
-                                            <canvas id="modelTssAktualgrafik" width="300" height="100"></canvas>
+                                            <!-- <canvas id="modelTssAktualgrafik" width="300" height="100"></canvas> -->
+                                            <div id="chart-container">FusionCharts XT will load here!</div>
                                         </div>
                                     </div>
                                 </div>
@@ -197,6 +198,52 @@
 <?= $this->section('script') ?>
 <script src="<?= base_url('chartjs/Chart.bundle.min.js') ?>"></script>
 <script>
+    var label_thread_sungai = [];
+    var data_thread_pij = [];
+
+
+    <?php
+    $chartData = [];
+    foreach ($thread_per_sungai->getResult() as $key => $value) : {
+            $chartData[] = [
+                'label' => $value->sungai,
+                'value' => $value->Nilai_pij
+            ];
+        };
+
+    endforeach ?>
+
+    const chartData = <?= json_encode($chartData); ?>;
+
+    //STEP 3 - Chart Configurations
+    const chartConfig = {
+        type: 'column3d',
+        renderAt: 'chart-container',
+        width: '100%',
+        height: '400',
+        dataFormat: 'json',
+        dataSource: {
+            // Chart Configuration
+            "chart": {
+                // "caption": "Countries With Most Oil Reserves [2017-18]",
+                // "subCaption": "In MMbbl = One Million barrels",
+                // "xAxisName": "Country",
+                // "yAxisName": "Reserves (MMbbl)",
+                // "numberSuffix": "K",
+                // "theme": "fusion",
+            },
+            // Chart Data
+            data: chartData
+        }
+    };
+
+
+    FusionCharts.ready(function() {
+        var fusioncharts = new FusionCharts(chartConfig);
+        fusioncharts.render();
+    });
+
+    // COBA
     var thread_sungai = document.getElementById('thread_sungai');
     var label_thread_sungai = [];
     var data_thread_pij = [];
@@ -231,46 +278,13 @@
         labels: label_thread_sungai,
     }
 
+
+
     var chart_thread_sungai = new Chart(thread_sungai, {
         type: 'doughnut',
         data: data_thread_per_sungai
+
     });
-
-    // STATUS MUTU AIR
-    // var status_mutu_air = document.getElementById('status_mutu_air');
-    // var label_status_mutu_air = [];
-    // var data_status_mutu = [];
-
-
-
-    // var data_status_mutu_air = {
-    //     datasets: [{
-    //         data: data_status_mutu,
-    //         backgroundColor: [
-    //             'rgba(255,99,132,0.8)',
-    //             'rgba(54,162,235,0.8)',
-    //             'rgba(255,206,86,0.8)',
-    //             'rgb(152,251,153,0.8)',
-    //             'rgb(64,224,208,0.8)',
-    //             'rgb(138, 43, 226,0.8)',
-    //             'rgb(220, 20, 60,0.8)',
-    //             'rgb(85, 107, 47,0.8)',
-    //             'rgb(249, 19, 147,0.8)',
-    //             'rgb(253, 215, 3,0.8)',
-    //             'rgb(23, 25, 3,0.8)',
-    //             'rgb(123, 115, 23,0.8)',
-    //             'rgb(153, 215, 13,0.8)',
-    //             'rgb(255, 115, 53,0.8)',
-    //             'rgba(25,199,152,0.8)',
-    //         ],
-    //     }],
-    //     labels: label_status_mutu_air,
-    // }
-
-    // var chart_status_mutu_air = new Chart(status_mutu_air, {
-    //     type: 'pie',
-    //     data: data_status_mutu_air
-    // });
 
 
     // Pij tanggal
@@ -333,6 +347,43 @@
         data: Index_Pencemaran_air
     });
 
+    // STATUS MUTU AIR
+    // var status_mutu_air = document.getElementById('status_mutu_air');
+    // var label_status_mutu_air = [];
+    // var data_status_mutu = [];
+
+
+
+    // var data_status_mutu_air = {
+    //     datasets: [{
+    //         data: data_status_mutu,
+    //         backgroundColor: [
+    //             'rgba(255,99,132,0.8)',
+    //             'rgba(54,162,235,0.8)',
+    //             'rgba(255,206,86,0.8)',
+    //             'rgb(152,251,153,0.8)',
+    //             'rgb(64,224,208,0.8)',
+    //             'rgb(138, 43, 226,0.8)',
+    //             'rgb(220, 20, 60,0.8)',
+    //             'rgb(85, 107, 47,0.8)',
+    //             'rgb(249, 19, 147,0.8)',
+    //             'rgb(253, 215, 3,0.8)',
+    //             'rgb(23, 25, 3,0.8)',
+    //             'rgb(123, 115, 23,0.8)',
+    //             'rgb(153, 215, 13,0.8)',
+    //             'rgb(255, 115, 53,0.8)',
+    //             'rgba(25,199,152,0.8)',
+    //         ],
+    //     }],
+    //     labels: label_status_mutu_air,
+    // }
+
+    // var chart_status_mutu_air = new Chart(status_mutu_air, {
+    //     type: 'pie',
+    //     data: data_status_mutu_air
+    // });
+
+
     // JUMLAH IPA
     var jumlah_ipa = document.getElementById('jumlah_pencemaran_air');
     var data_jumlah_ipa = [];
@@ -354,6 +405,9 @@
                 'rgba(255,206,86,0.8)',
                 'rgb(64,224,208,0.8)',
             ],
+            toolbar: {
+                show: true
+            }
 
         }],
 

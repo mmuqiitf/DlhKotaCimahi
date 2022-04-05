@@ -24,6 +24,8 @@
     <link href="/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
 
 
     <!-- Template Main CSS File -->
