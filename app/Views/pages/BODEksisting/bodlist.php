@@ -20,10 +20,13 @@
             </div>
             <div class="col">
                 <div class="container__search">
-                    <div class="input__container">
-                        <i class="bi bi-search"></i>
-                        <input type="text" placeholder="search">
-                    </div>
+                    <form action="<?= base_url('BODEksisting/listbod'); ?>" method="post">
+                        <div class="input__container input-group">
+                            <i class="bi bi-search"></i>
+                            <input type="text" class="form-control" name="keyword" placeholder="search">
+                            <button class="btn btn-primary" type="submit" name="submit">Cari...</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -33,79 +36,59 @@
 
         <div class="custom__wrapper">
 
-            <!-- small card -->
-            <div class="custom__container">
-                <div class="custom__card">
-                    <h3>Nama Sungai</h3>
-                    <div class="select__custom__container">
-                        <select class="form-select">
-                            <option>Sungai Cisangkan</option>
-                            <option>Sungai Cibaligo</option>
-                            <option>Sungai Cibereum</option>
-                            <option>Sungai Cilember</option>
-                            <option>Sungai Cimahi</option>
 
-                        </select>
-                    </div>
+
+            <div class="custom__card__large">
+                <div class="custom__header__card__large">
+                    <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
+                    <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/periode1'">Input Excel</button>
                 </div>
 
-                <!-- end of small card -->
-
-                <div class="custom__card__large">
-                    <div class="custom__header__card__large">
-                        <button type="button" class="btn btn-primary"
-                            onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
-                        <button type="button" class="btn btn-primary"
-                            onclick="document.location.href='/BODEksisting/periode1'">Input Excel</button>
-                    </div>
-
-                    <div class="table__wrapper">
-                        <table class="custom__table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No.id</th>
-                                    <th scope="col">Titik Pantau</th>
-                                    <th scope="col">Tanggal Sampling</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <form action="<?= base_url('BODEksisting/delete_bod'); ?>" method="post">
-                                    <?php foreach ($bod as $bodeks) : ?>
+                <div class="table__wrapper">
+                    <table class="custom__table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.id</th>
+                                <th scope="col">Nama Sungai</th>
+                                <th scope="col">Titik Pantau</th>
+                                <th scope="col">Tanggal Sampling</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form action="<?= base_url('BODEksisting/delete_bod'); ?>" method="post">
+                                <?php foreach ($bod as $bodeks) : ?>
 
                                     <tr>
-                                        <td><?= $bodeks['ID_BOD_Eksisting']?></td>
-                                        <td><?= $bodeks['titik_pantau']?></td>
-                                        <td><?= $bodeks['waktu_sampling']?></td>
+                                        <td><?= $bodeks['ID_BOD_Eksisting'] ?></td>
+                                        <td><?= $bodeks['nama_sungai'] ?></td>
+                                        <td><?= $bodeks['titik_pantau'] ?></td>
+                                        <td><?= $bodeks['waktu_sampling'] ?></td>
                                         <td>
                                             <div class="button__action__container">
-                                                <a href="/BODEksisting/update_list_bod/<?= $bodeks['ID_BOD_Eksisting'] ?>"
-                                                    class="btn btn-primary custom__button__edit">Update</a>
-                                                <button type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModaldelete"
-                                                    class="btn btn-danger custom__button__delete">Delete</button>
-                                                <input type="hidden" name="ID_BOD_Eksisting"
-                                                    value="<?= $bodeks['ID_BOD_Eksisting']; ?>">
+                                                <a href="/BODEksisting/update_list_bod/<?= $bodeks['ID_BOD_Eksisting'] ?>" class="btn btn-primary custom__button__edit">Update</a>
+                                                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn btn-danger custom__button__delete">Delete</button>
+                                                <input type="hidden" name="ID_BOD_Eksisting" value="<?= $bodeks['ID_BOD_Eksisting']; ?>">
                                                 <?= $this->include('/feedback/delete__modal') ?>
                                             </div>
                                         </td>
                                     </tr>
 
 
-                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
 
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
 
-                        <div class="pager_custom">
-                            <?= $pager->links("bod_eksisting" , "eksisting_pager") ?>
-                        </div>
-
-
+                    <div class="pager_custom">
+                        <?= $pager->links("bod_eksisting", "eksisting_pager") ?>
                     </div>
 
+
                 </div>
+
             </div>
+        </div>
 
 
 

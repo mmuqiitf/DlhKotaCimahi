@@ -1,13 +1,15 @@
-<?php namespace App\Models;
- 
+<?php
+
+namespace App\Models;
+
 use CodeIgniter\Model;
- 
+
 class BODEksistingModel extends Model
 {
     protected $table = 'bod_eksisting';
     protected $primaryKey = 'ID_BOD_Eksisting';
     protected $allowedFields = [
-        'nama_sungai' ,
+        'nama_sungai',
         'titik_pantau',
         'BOD',
         'Debit',
@@ -40,8 +42,8 @@ class BODEksistingModel extends Model
     public function dataBODEksisting()
     {
         $query = $this->db->table('bod_eksisting')
-        ->select('*')
-        ->get();
+            ->select('*')
+            ->get();
         return $query->getResultArray();
     }
 
@@ -50,4 +52,8 @@ class BODEksistingModel extends Model
         return $this->db->table('bod_eksisting')->insert($data);
     }
 
+    public function search($keyword)
+    {
+        return $this->table('bod_eksisting')->like('nama_sungai', $keyword)->orLike('titik_pantau', $keyword)->findAll();
+    }
 }
