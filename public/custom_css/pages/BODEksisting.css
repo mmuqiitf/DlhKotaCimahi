@@ -55,6 +55,24 @@
   background: #fff;
   color: #3d6988;
 }
+.select__custom__container button{
+  background: #3d6988;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+  padding: 8px 25px;
+  transition: 0.2s;
+}
+
+.select__custom__container button:hover{
+  background: #fff;
+  color: #3d6988;
+  outline-style: solid;
+}
 
 .input__container input:focus {
   outline: none;
