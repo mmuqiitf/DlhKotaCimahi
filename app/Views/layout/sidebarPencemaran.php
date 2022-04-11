@@ -23,7 +23,7 @@ $segment = $uri->getSegment(2);
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link <?php  if($segment == 'BODEksisting') {echo " ";} else {echo "collapsed";}   ?> " href="/BODEksisting">
+            <a class="nav-link <?php  if($segment == 'BODEksisting') {echo " ";} else {echo "collapsed";}   ?> " href="/BODEksisting/listbod">
                 <i class="bx bx-line-chart"></i><span>Pencemaran Eksisting</span>
             </a>
         </li><!-- End Beban Pencemaran Nav -->

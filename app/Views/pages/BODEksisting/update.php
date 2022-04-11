@@ -15,7 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
 
-<form enctype="multipart/form-data" role="form" action="<?= base_url('BODEksisting/create_bod/'); ?>" method="post" id="BODEksisting-form">
+<form action="<?= base_url('BODEksisting/update_bod'); ?>" method="POST">
 <main id="main" class="main">
 
     <!-- Header -->
@@ -50,27 +50,27 @@
                     <h3>Nama Sungai</h3>
                     <div class="select__custom__container">
                         <select class="form-control" name="nama_sungai" type="input" class="form-select">
-                            <option>Cisangkan</option>
-                            <option>Cibaligo</option>
-                            <option>Cibereum</option>
-                            <option>Cilember</option>
-                            <option>Cimahi</option>
+                            <option value="Cisangkan" <?php if($bod['nama_sungai']=="Cisangkan") echo 'selected="selected"'; ?>>Cisangkan</option>
+                            <option value="Cibaligo" <?php if($bod['nama_sungai']=="Cibaligo") echo 'selected="selected"'; ?>>Cibaligo</option>
+                            <option value="Cibeureum" <?php if($bod['nama_sungai']=="Cibeureum") echo 'selected="selected"'; ?>>Cibereum</option>
+                            <option value="Cilember" <?php if($bod['nama_sungai']=="Cilember") echo 'selected="selected"'; ?>>Cilember</option>
+                            <option value="Cimahi" <?php if($bod['nama_sungai']=="Cimahi") echo 'selected="selected"'; ?>>Cimahi</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- end of small card -->
 
-
+                <input type="hidden" name="ID_BOD_Eksisting" value="<?= $bod['ID_BOD_Eksisting']; ?>">
                 <!-- small card -->
                 <div class="custom__container">
                     <div class="custom__card">
                         <h3>Titik Pantau</h3>
                         <div class="select__custom__container">
                         <select class="form-control" name="titik_pantau" type="input" class="form-select">
-                                <option>Hulu</option>
-                                <option>Tengah</option>
-                                <option>Hilir</option>
+                                <option value="Hulu" <?php if($bod['titik_pantau']=="Hulu") echo 'selected="selected"'; ?>>Hulu</option>
+                                <option value="Tengah" <?php if($bod['titik_pantau']=="Tengah") echo 'selected="selected"'; ?>>Tengah</option>
+                                <option value="Hilir" <?php if($bod['titik_pantau']=="Hilir") echo 'selected="selected"'; ?>>Hilir</option>
                             </select>
                         </div>
                     </div>
@@ -88,12 +88,12 @@
                                 <div class="col d-flex flex-column gap-4">
                                     <div class="d-flex justify-content-between align-items-center container__create">
                                         <h3 for="BOD">BOD (mg/L)</h3>
-                                        <input class="form-select form-control" name="BOD" type="input" id="BOD">
+                                        <input class="form-select form-control" name="BOD" type="input" id="BOD" value="<?= $bod['BOD']?>">
                                         
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center container__create">
                                         <h3 for="Debit">Debit (m3/s)</h3>
-                                        <input class="form-control " name="Debit" type="input" id="Debit">
+                                        <input class="form-control " name="Debit" type="input" id="Debit" value="<?= $bod['Debit']?>">
                                         
                                     </div>
 
@@ -102,7 +102,7 @@
 
                                     <div class="d-flex justify-content-between align-items-center container__create">
                                         <h3>Beban Pencemar (Kg/Hari)</h3>
-                                        <input class="form-control" name="beban_pencemar" id="beban_pencemar" type="input" readonly>
+                                        <input class="form-control" name="beban_pencemar" id="beban_pencemar" type="input" value="<?= $bod['beban_pencemar']?>" readonly>
                                     </div>
                                 </div>
 
@@ -112,7 +112,7 @@
                                         
                                             <div class="form-group">
                                                     <div class="input-group date" id="datepicker">
-                                                        <input  name="waktu_sampling" type="input" class="custom__date__picker form-control">
+                                                        <input  name="waktu_sampling" type="input" class="custom__date__picker form-control" value="<?= $bod['waktu_sampling']?>">
                                                         <span class="input-group-append">
                                                             <span class="input-group-text bg-white">
                                                                 <i class="fa fa-calendar"></i>
@@ -126,8 +126,8 @@
                             </div>
                             <div class="row row__result">
             
-                                <button type="button" class="btn btn-primary custom__btn__result" data-bs-toggle="modal" data-bs-target="#exampleModal">Simpan hasil</button>
-                                <?= $this->include('/feedback/success__modal') ?>
+                            <button type="button" class="btn btn-primary custom__btn__result" data-bs-toggle="modal" data-bs-target="#exampleModalupdate">Simpan hasil</button>
+                                <?= $this->include('/feedback/update__modal') ?>
                             </div>
                         </div>
                     </div>

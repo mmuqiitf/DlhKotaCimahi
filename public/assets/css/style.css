@@ -169,6 +169,26 @@ h6 {
 /*--------------------------------------------------------------
 # Sidebar
 --------------------------------------------------------------*/
+.dropdown-container {
+  display: none;
+  margin: 5px 0;
+  background-color: #ffffff;
+  padding-left: 8px;
+}
+.dropdown-item {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  color: #3d6988;
+  background-color: #ffffff;
+  padding: 10px 20px;
+}
+.dropdown-item:hover {
+  color: #f6f9ff;
+  background: #3d6988;
+}
+
 .sidebar {
   position: fixed;
   top: 0px;
@@ -514,7 +534,6 @@ h6 {
   margin-top: -3%;
 }
 
-
 /*--------------------------------------------------------------
 # Beban Pencemaran
 --------------------------------------------------------------*/
@@ -540,9 +559,12 @@ h6 {
 
 .tombol1 {
   margin-top: 30px;
-  background-color: #3D6988;
+  background-color: #3d6988;
+  border: none;
+  border-radius: 100px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
-
 
 /*--------------------------------------------------------------
 # BOD POTENSIAL DOMESTIK
@@ -563,7 +585,7 @@ h6 {
 
 .kecamatan h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .kecamatan select {
@@ -578,7 +600,7 @@ h6 {
 
 .tahun h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .tahun select {
@@ -591,9 +613,9 @@ h6 {
   padding-top: 20px;
 }
 
-.tanggal h5{
+.tanggal h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
   font-size: 20px;
 }
 
@@ -606,11 +628,10 @@ h6 {
   margin-bottom: 30px;
   border: none;
   border-radius: 5px;
-  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  /* background: #f6f6fe; */
-  border-radius: 20px;
-  background-color: white;
+}
+.card-bodysungai {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .domestikcard-img-overlay {
@@ -628,7 +649,7 @@ h6 {
 
 .jmlpenduduk h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .jmlpenduduk select {
@@ -641,11 +662,10 @@ h6 {
   margin-top: 0%;
   border: none;
   border-radius: 5px;
-  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  /* background: #f6f6fe; */
-  border-radius: 20px;
-  background-color: white;
+}
+.card-bodytitik {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .domestikcard-img-overlay {
@@ -659,7 +679,7 @@ h6 {
 
 .rasio h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .rasio select {
@@ -674,7 +694,7 @@ h6 {
 
 .alfa h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .alfa select {
@@ -689,7 +709,7 @@ h6 {
 
 .faktor h5 {
   padding-bottom: 5px;
-  color: #3D6988;
+  color: #3d6988;
 }
 
 .faktor select {
@@ -699,9 +719,13 @@ h6 {
 
 .tombol2 {
   margin-top: 30px;
-  background-color: #3D6988;
+  background-color: #3d6988;
   margin-left: 20px;
   margin-bottom: 20px;
+  border: none;
+  border-radius: 100px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .hasilcard {
@@ -719,9 +743,134 @@ h6 {
   margin-top: 0%;
   border: none;
   border-radius: 5px;
+}
+
+.card-bodysampling {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.tahun1 {
+  padding-bottom: 20px;
+}
+
+.hasilcard h6 {
+  font-size: 15px;
+  color: white;
+}
+
+.judul {
+  color: #3d6988;
+}
+
+.container__search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 8px;
+}
+
+.input__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 341px;
+  height: 36px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.input__container input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+}
+
+.input__container input:focus {
+  outline: none;
+}
+
+.input__container i {
+  margin: 0 10px;
+}
+
+.tombol3 {
+  background-color: white;
+  margin-bottom: 20px;
+  color: #3d6988;
+  border: none;
+  border-radius: 100px;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-top: 27px;
+}
+
+.tombol3:hover {
+  background: #27455a;
+  color: white;
+  outline-style: solid;
+}
+
+/* * card mutu air */
+.cardsungaimutu {
+  margin-bottom: 30px;
+  background-color: white;
+  margin-top: -3%;
+  border: none;
+  background-color: white;
   /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   /* background: #f6f6fe; */
   border-radius: 20px;
-  background-color: #3D6988;
+}
+.card-bodysungai {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* * card titik pantau */
+.cardtitikpantau {
+  margin-bottom: 30px;
+  background-color: white;
+  margin-top: -3%;
+  border: none;
+  background-color: white;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+}
+.card-bodytitik {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* card sampling */
+.cardsampling {
+  margin-bottom: 30px;
+  background-color: white;
+  margin-top: -1%;
+  border: none;
+
+  background-color: white;
+  /* box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1); */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  /* background: #f6f6fe; */
+  border-radius: 20px;
+}
+
+.card-bodysampling {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.custom__sidebar__active {
+  background: #3d6988;
+  color: white;
 }

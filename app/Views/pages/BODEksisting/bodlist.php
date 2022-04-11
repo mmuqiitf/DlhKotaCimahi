@@ -9,7 +9,6 @@
 <main id="main" class="main">
 
     <!-- Header -->
-
     <div class="container">
         <div class="row">
             <div class="col">
@@ -68,53 +67,34 @@
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody><form action="<?= base_url('BODEksisting/delete_bod'); ?>" method="post">
+                                <?php foreach ($bod as $bodeks) : ?>
+                                    
                                 <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td><div class="button__action__container">
-                                            <button type="button"
-                                                class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button"
+                                    <td><?= $bodeks['ID_BOD_Eksisting']?></td>
+                                    <td><?= $bodeks['titik_pantau']?></td>
+                                    <td><?= $bodeks['waktu_sampling']?></td>
+                                    <td>
+                                        <div class="button__action__container">
+                                            <a href="/BODEksisting/update_list_bod/<?= $bodeks['ID_BOD_Eksisting'] ?>"
+                                                class="btn btn-primary custom__button__edit">Update</a>
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModaldelete"
                                                 class="btn btn-danger custom__button__delete">Delete</button>
-                                        </div></td>
+                                                <input type="hidden" name="ID_BOD_Eksisting" value="<?= $bodeks['ID_BOD_Eksisting']; ?>">
+                                            <?= $this->include('/feedback/delete__modal') ?>
+                                        </div>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td><div class="button__action__container">
-                                            <button type="button"
-                                                class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button"
-                                                class="btn btn-danger custom__button__delete">Delete</button>
-                                        </div></td>
+                                <?php endforeach; ?>
 
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td><div class="button__action__container">
-                                            <button type="button"
-                                                class="btn btn-primary custom__button__edit">Update</button>
-                                            <button type="button"
-                                                class="btn btn-danger custom__button__delete">Delete</button>
-                                        </div></td>
-
-                                </tr>
                             </tbody>
                         </table>
 
                     </div>
 
                 </div>
-
-
-
-
             </div>
+            
 
 
 
