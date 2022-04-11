@@ -89,16 +89,14 @@
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="grafik-flters">
-                        <!-- <li data-filter="*" class="filter-active">Semua</li> -->
                         <li data-filter=".filter-ika">Index Kualitas Air</li>
+                        <li data-filter=".filter-ipa">Indeks Pencemaran Air</li>
                         <li data-filter=".filter-bp">Beban Pencemaran</li>
                     </ul>
                 </div>
             </div>
-
             <br>
             <br>
-
             <div class="row grafik-container">
                 <div class="grafikitem filter-ika">
                     <section class="section">
@@ -155,6 +153,28 @@
                         </div>
                     </section>
                 </div>
+
+                <!-- GRAFIK IPA -->
+                <div class="grafikitem filter-ipa">
+                    <section class="section">
+                        <div class="grafik">
+                            <div class="row">
+                                <!-- GRAFIK 1 LAGI -->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Index Pencemaran Air</h5>
+                                            <canvas id="index_pencemaran_air" width="300" height="300"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script src="https://code.highcharts.com/highcharts.js"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- END GRAFIK IPA -->
 
                 <div class="grafikitem filter-bp">
                     <section class="section">
@@ -225,14 +245,8 @@
         dataSource: {
             // Chart Configuration
             "chart": {
-                // "caption": "Countries With Most Oil Reserves [2017-18]",
-                // "subCaption": "In MMbbl = One Million barrels",
-                // "xAxisName": "Country",
-                // "yAxisName": "Reserves (MMbbl)",
-                // "numberSuffix": "K",
-                // "theme": "fusion",
+
             },
-            // Chart Data
             data: chartData
         }
     };

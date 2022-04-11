@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\GrafikModel;
-use App\Models\TssGrafikModel;
 use \App\Models\ThreadModel;
 use \App\Models\SungaiModel;
 use App\Models\Users;
@@ -155,15 +154,5 @@ class Home extends BaseController
         $grafik->orderBy('tgl', 'asc');
 
         echo json_encode($grafik->get()->getResult());
-    }
-
-    public function apiDataTss($bulantss)
-    {
-        $grafiktss = new TssGrafikModel();
-        $grafiktss->where('tgl >=', "2020-{$bulantss}-01");
-        $grafiktss->where('tgl <=', "2020-{$bulantss}-31");
-        $grafiktss->orderBy('tgl', 'asc');
-
-        echo json_encode($grafiktss->get()->getResult());
     }
 }
