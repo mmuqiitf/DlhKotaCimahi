@@ -30,11 +30,12 @@ class BODEksisting extends BaseController
     
     public function listbod()
     {   
-        $bod = $this->BodEksistingModel->dataBODEksisting();
+        $bod = $this->BodEksistingModel->paginate(5 , "bod_eksisting");
         
         $data = [
             'title' => 'BOD Eksisting',
-            'bod' => $bod
+            'bod' => $bod,
+            'pager' => $this->BodEksistingModel->pager,
         ];
 
         return view('pages/BODEksisting/bodlist', $data);

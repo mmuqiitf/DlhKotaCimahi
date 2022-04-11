@@ -53,8 +53,10 @@
 
                 <div class="custom__card__large">
                     <div class="custom__header__card__large">
-                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
-                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/periode1'">Input Excel</button>
+                        <button type="button" class="btn btn-primary"
+                            onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
+                        <button type="button" class="btn btn-primary"
+                            onclick="document.location.href='/BODEksisting/periode1'">Input Excel</button>
                     </div>
 
                     <div class="table__wrapper">
@@ -67,34 +69,44 @@
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody><form action="<?= base_url('BODEksisting/delete_bod'); ?>" method="post">
-                                <?php foreach ($bod as $bodeks) : ?>
-                                    
-                                <tr>
-                                    <td><?= $bodeks['ID_BOD_Eksisting']?></td>
-                                    <td><?= $bodeks['titik_pantau']?></td>
-                                    <td><?= $bodeks['waktu_sampling']?></td>
-                                    <td>
-                                        <div class="button__action__container">
-                                            <a href="/BODEksisting/update_list_bod/<?= $bodeks['ID_BOD_Eksisting'] ?>"
-                                                class="btn btn-primary custom__button__edit">Update</a>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModaldelete"
-                                                class="btn btn-danger custom__button__delete">Delete</button>
-                                                <input type="hidden" name="ID_BOD_Eksisting" value="<?= $bodeks['ID_BOD_Eksisting']; ?>">
-                                            <?= $this->include('/feedback/delete__modal') ?>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
+                            <tbody>
+                                <form action="<?= base_url('BODEksisting/delete_bod'); ?>" method="post">
+                                    <?php foreach ($bod as $bodeks) : ?>
+
+                                    <tr>
+                                        <td><?= $bodeks['ID_BOD_Eksisting']?></td>
+                                        <td><?= $bodeks['titik_pantau']?></td>
+                                        <td><?= $bodeks['waktu_sampling']?></td>
+                                        <td>
+                                            <div class="button__action__container">
+                                                <a href="/BODEksisting/update_list_bod/<?= $bodeks['ID_BOD_Eksisting'] ?>"
+                                                    class="btn btn-primary custom__button__edit">Update</a>
+                                                <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModaldelete"
+                                                    class="btn btn-danger custom__button__delete">Delete</button>
+                                                <input type="hidden" name="ID_BOD_Eksisting"
+                                                    value="<?= $bodeks['ID_BOD_Eksisting']; ?>">
+                                                <?= $this->include('/feedback/delete__modal') ?>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                    <?php endforeach; ?>
 
                             </tbody>
                         </table>
+
+                        <div class="pager_custom">
+                            <?= $pager->links("bod_eksisting" , "eksisting_pager") ?>
+                        </div>
+
 
                     </div>
 
                 </div>
             </div>
-            
+
 
 
 
