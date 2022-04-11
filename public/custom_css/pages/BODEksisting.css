@@ -39,6 +39,22 @@
   border: none;
   border-radius: 15px;
 }
+.input__container button {
+  background: #3d6988;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+  padding: 8px 25px;
+  transition: 0.2s;
+}
+.input__container button:hover{
+  background: #fff;
+  color: #3d6988;
+}
 
 .input__container input:focus {
   outline: none;
