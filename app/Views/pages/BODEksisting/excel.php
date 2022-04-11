@@ -20,14 +20,6 @@
                 </div>
 
             </div>
-            <div class="col">
-                <div class="container__search">
-                    <div class="input__container">
-                        <i class="bi bi-search"></i>
-                        <input type="text" placeholder="search">
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- ENd Header -->
@@ -38,6 +30,7 @@
 
             <div class="custom__card__large">
                 <div class="custom__header__card__large">
+
                     <form action="/BODEksisting/uploadexcel" name="submit" method="POST" enctype="multipart/form-data">
                         <input type="file" id="BODAktualCimahi" name="BODAktualCimahi" value=""
                             class="custom-file-input" aria-describedby="inputGroupFileAddon01" required>
@@ -45,17 +38,39 @@
                         <button type="button" class="btn btn-primary"
                             onclick="document.location.href='/exp/BODAktualCimahi.xlsx'">Download Excel</button>
                     </form>
-
                 </div>
+
                 <div class="custom__card__large">
                     <div class="custom__header__card__large">
-                    <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/periode1'">Periode I</button>
-                    <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/periode2'">Periode II</button>
-                    <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/periode3'">Periode III</button>
+                        <form action="<?= base_url('BODEksisting/periode')?>" method="get">
+                            <button name="periode" type="submit" class="btn btn-primary" value="5">Periode I</button>
+                            <button name="periode" type="submit" class="btn btn-primary" value="29">Periode II</button>
+                            <button name="periode" type="submit" class="btn btn-primary" value="51">Periode III</button>
+                        </form>
                     </div>
                 </div>
+
+                <form action="<?= base_url('BODEksisting/searchExcel')?>" method="POST">
+                    <div class="custom__card__large">
+                        <div class="custom__header__card__large">
+                            <select name="periodeke" class="input__container" required>
+                                <option value="5">Periode I</option>
+                                <option value="29">Periode II</option>
+                                <option value="51">Periode III</option>
+                            </select>
+                            <div class="input__container input-group">
+                                <i class="bi bi-search"></i>
+                                <input type="text" class="form-control" name="keyword"
+                                    placeholder="Cari waktu sampling...." required>
+                                <button class="btn btn=primary" type="submit" name="submit">Cari</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
                 <div class="table__wrapper">
-                    <h3><?= $prd; ?></h3>
+                    <h1><?= $prd; ?></h1>
+                    <?php if ($prd !='DATA TIDAK DITEMUKAN!') : ?>
                     <div class="table-responsive">
                         <table class="table table-bordered table-sm border-dark">
                             <thead class="text-dark">
@@ -72,6 +87,7 @@
                                 </tr>
                             </thead>
                             <tbody class="text-dark">
+
                                 <?php foreach ($data as $d) : ?>
                                 <tr align="center">
                                     <th align="center"><?= $i++; ?></th>
@@ -85,6 +101,7 @@
                                     <td align="center"><?= $d['beban_pencemar']; ?></td>
                                 </tr>
                                 <?php endforeach ?>
+
                             </tbody>
                         </table>
                         <i><strong>Sumber : Dinas Lingkungan Hidup Kota Cimahi (2020) </strong></i><br>
@@ -93,7 +110,9 @@
                                 Laboratorium Kabupaten Bandung</strong></i><br>
                         <i><strong>2. (-) menunjukan tidak menguji parameter tersebut</strong></i>
                     </div>
+                    <?php endif ?>
                 </div>
+
             </div>
         </div>
 </main>

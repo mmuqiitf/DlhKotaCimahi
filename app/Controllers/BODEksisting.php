@@ -34,66 +34,115 @@ class BODEksisting extends BaseController
         return view('/pages/BODEksisting/create');
     }
 
-    public function periode1()
-    {
+    public function searchExcel(){
         $this->reader->setLoadSheetsOnly(["Tabel 29"]);
 		$workSheet = $this->reader->load("exp/BODAktualCimahi.xlsx");
+        $keyword = $this->request->getVar('keyword');
+        $d = $this->request->getVar('periodeke');
 
+        //Perulangan Mengambil Nilai
         $n = 1;
         $a = 1;
         $i = 1;
+        $data[$i]['nama_sungai'] = null;
+        $data[$i]['titik_pantau'] = null;
+        $data[$i]['lintang'] = null;
+        $data[$i]['bujur'] = null;
+        $data[$i]['waktu_sampling'] = null;
+        $data[$i]['BOD'] = null;
+        $data[$i]['debit'] = null;
+        $data[$i]['beban_pencemar'] = null;
+
+        //Validasi Nama Periode
+        if($d == 5){
+            $prd = "PERIODE I";
+        }elseif($d == 29){
+            $prd = "PERIODE II";
+        }elseif($d == 51){
+            $prd = "PERIODE III";
+        }
+
+        while($i <= 15){
+            $data3[$i]['waktu_sampling'] = $workSheet->getActiveSheet()->getCell('F' . $d)->getValue();
+            //Fitur Search
+            if($keyword){
+                if($data3[$i]['waktu_sampling'] == $keyword){
+                    //Masukan data
+                    while ($n <=3){
+                        $data[$i]['nama_sungai'] = $workSheet->getActiveSheet()->getCell('B' . $d)->getValue();
+                        $n++;
+                    }
+                    $data[$i]['titik_pantau'] = $workSheet->getActiveSheet()->getCell('C' . $d)->getValue();
+                    $data[$i]['lintang'] = $workSheet->getActiveSheet()->getCell('D' . $d)->getValue();
+                    $data[$i]['bujur'] = $workSheet->getActiveSheet()->getCell('E' . $d)->getValue();
+                    $data[$i]['waktu_sampling'] = $workSheet->getActiveSheet()->getCell('F' . $d)->getValue();
+                    $data[$i]['BOD'] = $workSheet->getActiveSheet()->getCell('M' . $d)->getValue();
+                    $data[$i]['debit'] = $workSheet->getActiveSheet()->getCell('AP' . $d)->getValue();
+                    $data[$i]['beban_pencemar'] = $workSheet->getActiveSheet()->getCell('AQ' . $d)->getCalculatedValue();
+        
+                    //Filter Nilai
+                    if ($data[$i]['beban_pencemar'] == 0){
+                        $data[$i]['beban_pencemar'] = "-";
+                    }
+        
+                    //Filter Nama 
+                    if($data[$i]['nama_sungai'] == null){
+                        $data[$i]['nama_sungai'] = $simpan;
+                    }else{
+                        $simpan = $data[$i]['nama_sungai'];
+                    }
+                }
+            }
+            $i++;
+            $d++;
+            $n=1;
+        }
+
+        //Penjelasan Data
+        $i = 1;      
+
+        //Validasi Isi Data
+        if($data[$i]['nama_sungai'] == null){
+            $prd = "DATA TIDAK DITEMUKAN!";
+        }
+
+        $data1 = [
+            'data' => $data,
+            'i' => $i,
+            'prd' =>$prd
+        ];
+
+        //dd($dataHasil);
+        return view('/pages/BODEksisting/excel', $data1);
+    }
+
+    public function periode()
+    {
+        //Read File
+        $this->reader->setLoadSheetsOnly(["Tabel 29"]);
+		$workSheet = $this->reader->load("exp/BODAktualCimahi.xlsx");
+
+        //Validasi Periode
+        $nomor = $this->request->getVar('periode');
         $d = 5;
-        while ($i <= 15){
-            while ($n <=3){
-                $data[$i]['nama_sungai'] = $workSheet->getActiveSheet()->getCell('B' . $d)->getValue();
-                $n++;
-            }
-            $data[$i]['titik_pantau'] = $workSheet->getActiveSheet()->getCell('C' . $d)->getValue();
-            $data[$i]['lintang'] = $workSheet->getActiveSheet()->getCell('D' . $d)->getValue();
-            $data[$i]['bujur'] = $workSheet->getActiveSheet()->getCell('E' . $d)->getValue();
-            $data[$i]['waktu_sampling'] = $workSheet->getActiveSheet()->getCell('F' . $d)->getValue();
-            $data[$i]['BOD'] = $workSheet->getActiveSheet()->getCell('M' . $d)->getValue();
-            $data[$i]['debit'] = $workSheet->getActiveSheet()->getCell('AP' . $d)->getValue();
-            $data[$i]['beban_pencemar'] = $workSheet->getActiveSheet()->getCell('AQ' . $d)->getCalculatedValue();
-
-            //Filter Nilai
-            if ($data[$i]['beban_pencemar'] == 0){
-                $data[$i]['beban_pencemar'] = "-";
-            }
-
-            //Filter Nama 
-            if($data[$i]['nama_sungai'] == null){
-                $data[$i]['nama_sungai'] = $simpan;
-            }else{
-                $simpan = $data[$i]['nama_sungai'];
-            }
-
-            $i++;
-            $d++;
-            $n=1;
+        if($nomor > $d){
+            $d = $nomor;
         }
 
-        $i = 1;
-        $prd = "PERIODE I";
-        
-        $data1 = [
-            'data' => $data,
-            'i' => $i,
-            'prd' =>$prd
-        ];
-        //dd($data);
-        return view('/pages/BODEksisting/excel', $data1);
-    }
+        //Validasi Nama Periode
+        if($d == 5){
+            $prd = "PERIODE I";
+        }elseif($d == 29){
+            $prd = "PERIODE II";
+        }else{
+            $prd = "PERIODE III";
+        }
 
-    public function periode2()
-    {
-        $this->reader->setLoadSheetsOnly(["Tabel 29"]);
-		$workSheet = $this->reader->load("exp/BODAktualCimahi.xlsx");
-
+        //Perulangan Mengambil Nilai
         $n = 1;
         $a = 1;
         $i = 1;
-        $d = 29;
+        //$d = 5;
         while ($i <= 15){
             while ($n <=3){
                 $data[$i]['nama_sungai'] = $workSheet->getActiveSheet()->getCell('B' . $d)->getValue();
@@ -122,61 +171,11 @@ class BODEksisting extends BaseController
             $i++;
             $d++;
             $n=1;
+            //$data[$i]['waktu_sampling'] = search('20 Februari 2020');
         }
 
         $i = 1;
-        $prd = "PERIODE II";
-        
-        $data1 = [
-            'data' => $data,
-            'i' => $i,
-            'prd' =>$prd
-        ];
         //dd($data);
-        return view('/pages/BODEksisting/excel', $data1);
-    }
-
-    public function periode3()
-    {
-        $this->reader->setLoadSheetsOnly(["Tabel 29"]);
-		$workSheet = $this->reader->load("exp/BODAktualCimahi.xlsx");
-
-        $n = 1;
-        $a = 1;
-        $i = 1;
-        $d = 51;
-        while ($i <= 15){
-            while ($n <=3){
-                $data[$i]['nama_sungai'] = $workSheet->getActiveSheet()->getCell('B' . $d)->getValue();
-                $n++;
-            }
-            $data[$i]['titik_pantau'] = $workSheet->getActiveSheet()->getCell('C' . $d)->getValue();
-            $data[$i]['lintang'] = $workSheet->getActiveSheet()->getCell('D' . $d)->getValue();
-            $data[$i]['bujur'] = $workSheet->getActiveSheet()->getCell('E' . $d)->getValue();
-            $data[$i]['waktu_sampling'] = $workSheet->getActiveSheet()->getCell('F' . $d)->getValue();
-            $data[$i]['BOD'] = $workSheet->getActiveSheet()->getCell('M' . $d)->getValue();
-            $data[$i]['debit'] = $workSheet->getActiveSheet()->getCell('AP' . $d)->getValue();
-            $data[$i]['beban_pencemar'] = $workSheet->getActiveSheet()->getCell('AQ' . $d)->getCalculatedValue();
-
-            //Filter Nilai
-            if ($data[$i]['beban_pencemar'] == 0){
-                $data[$i]['beban_pencemar'] = "-";
-            }
-
-            //Filter Nama 
-            if($data[$i]['nama_sungai'] == null){
-                $data[$i]['nama_sungai'] = $simpan;
-            }else{
-                $simpan = $data[$i]['nama_sungai'];
-            }
-
-            $i++;
-            $d++;
-            $n=1;
-        }
-
-        $i = 1;
-        $prd = "PERIODE III";
         
         $data1 = [
             'data' => $data,
@@ -209,6 +208,6 @@ class BODEksisting extends BaseController
 			$file->move("exp/", $data_fn);
 		}
 
-        return redirect()->to('/BODEksisting/periode1/');
+        return redirect()->to('/BODEksisting/periode/');
     }
 }

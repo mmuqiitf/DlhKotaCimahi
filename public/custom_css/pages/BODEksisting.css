@@ -44,10 +44,6 @@
   outline: none;
 }
 
-.input__container i {
-  margin: 0 10px;
-}
-
 .custom__wrapper {
   display: flex;
   flex-direction: column;
