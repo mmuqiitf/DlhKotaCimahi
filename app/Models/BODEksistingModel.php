@@ -56,4 +56,8 @@ class BODEksistingModel extends Model
     {
         return $this->table('bod_eksisting')->like('nama_sungai', $keyword)->orLike('titik_pantau', $keyword)->findAll();
     }
+    public function insertexceldata($data)
+    {
+        $this->db->table('bod_eksisting')->insert($data);
+    }
 }

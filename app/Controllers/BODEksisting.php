@@ -104,6 +104,7 @@ class BODEksisting extends BaseController
             'beban_pencemar' => $this->request->getPost('beban_pencemar'),
             'waktu_sampling' => $this->request->getPost('waktu_sampling'),
         ];
+        //dd($data);
         $this->BodEksistingModel->bod_eksisting_post($data);
         session()->setFlashdata('success', 'Data berhasil ditambahkan');
         return redirect()->to('/BODEksisting/listbod');
@@ -325,5 +326,47 @@ class BODEksisting extends BaseController
         }
 
         return redirect()->to('/BODEksisting/periode1/');
+    }
+    public function importexcel()
+    {
+
+        $file = $this->request->getFile('file_excel');
+        //d($file);
+        $ext = $file->getClientExtension();
+
+        if ($ext == 'xls') {
+            $render = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+        } else {
+            $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        }
+
+
+        $spreadsheet = $render->load($file);
+        $sheetData = $spreadsheet->getActiveSheet()->toArray();
+        //date format phpspreadsheet
+
+
+        foreach ($sheetData as $s => $excel) {
+            //skip title row
+            if ($s <= 3) {
+                continue;
+            }
+            $data = [
+                'nama_sungai' => $excel[1],
+                'titik_pantau' => $excel[2],
+                'waktu_sampling' => date("Y-m-d", strtotime($excel[43])),
+                'BOD' => $excel[12],
+                'debit' => $excel[41],
+                'beban_pencemar' => $excel[42]
+            ];
+            //convert date format
+            //$data['waktu_sampling'] = $data['waktu_sampling'][1] . '-' . $data['waktu_sampling'][2] . '-' . $data['waktu_sampling'][0];
+            //dd($data);
+            $this->BodEksistingModel->insertexceldata($data);
+        }
+        //dd($sheetData);
+        session()->setFlashdata('pesan', 'Data berhasil di import');
+        //redirect to listbod
+        return redirect()->to('/BODEksisting/listbod/');
     }
 }

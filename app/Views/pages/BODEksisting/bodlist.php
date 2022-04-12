@@ -61,8 +61,19 @@
     <div class="custom__wrapper">
         <div class="custom__card__large">
             <div class="custom__header__card__large">
-                <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
-                <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/periode1'">Input Excel</button>
+                <div class="d-flex flex-row">
+                    <div class="col d-flex align-items-start justify-content-end px-2">
+                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
+                    </div>
+                    <div class="col px-2 d-flex align-items-start justify-content-end">
+                        <?= form_open_multipart('BODEksisting/importexcel'); ?>
+                        <form action="<?= base_url('BODEksisting/importexcel'); ?>" method="post">
+                            <input class="form-control" name="file_excel" type="file" accept=".xlsx, .xls">
+                            <button type="submit" class="btn btn-primary mt-2">Import Excel...</button>
+                            <?= form_close(); ?>
+                    </div>
+                </div>
+
             </div>
 
             <div class="table__wrapper">
