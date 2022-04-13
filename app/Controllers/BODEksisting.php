@@ -11,6 +11,7 @@ class BODEksisting extends BaseController
     public function __construct()
     {
         $this->Titikpantau = new Titikpantau();
+        
     }
     public function index()
     {
@@ -18,6 +19,30 @@ class BODEksisting extends BaseController
         // $this->load->view("main/mutuair", $data); // kirim data ke view
         return view('/pages/BODEksisting/index');
         
+    }
+
+    public function edit($id = null)
+    {
+        if (!isset($id)) redirect('main/Statusair');
+
+        $Titikpantau = $this->Titikpantau;
+        $validation = $this->form_validation;
+        $validation->set_rules($Titikpantau->rules());
+
+        if ($validation->run()) {
+            $Titikpantau->update();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+        $data["Statusair"] = $product->getById($id);
+        if (!$data["Statusair"]) show_404();
+
+        $this->load->view("main/createtss", $data);
+    }
+
+    public function delete($id)
+    {
+        $this->Titikpantau->delete($id);
+        return direct()->to('/main/Statusair');
     }
 
     public function create()
@@ -43,33 +68,12 @@ class BODEksisting extends BaseController
 
         ]);
 
-        return redirect()->to('/statusair');
+        return redirect()->to('/mutuair');
     }
 
 
-    public function listtss()
-    {
-        $titikpantau = $this->Titikpantau->datatss();
-        
-        $data = [
-            'title' => 'Peninjauan Status Mutu Air',
-            'titikpantau' => $titikpantau
-        ];
 
-        return view('main/mutuair', $data);
-    }
-
-
-    // function Datatabel()
-    // {
-    //     $model = new Titikpantau();
-    //     $data['mahasiswa']  = $model->getta9()->getResult();
-    //     return redirect()->to('/statusair',$data);
-    // }
-
-
-
-  
+   
 
     function Datatabel()
     {

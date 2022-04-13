@@ -44,6 +44,7 @@ $routes->get('/BODEksisting', 'Home::BODEksisting',['filter' => 'auth']);
 $routes->get('/BODPotensial', 'Home::BODPotensial',['filter' => 'auth']);
 $routes->get('/BODEksisting', 'BODEksisting::index',['filter' => 'auth']);
 $routes->get('/BODEksisting/create', 'BODEksisting::create',['filter' => 'auth']);
+// $routes->delete('/statusair/(:num)','mutuair::delete_tss/$1');
 
 /*
  * --------------------------------------------------------------------

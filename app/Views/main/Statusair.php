@@ -96,11 +96,20 @@
                                                 <td><?= $u['tanggal_pantau']; ?></td>
                                                
                                                 <td>
-                                                    <!-- <button class=" btn btn-success btn-sm text-white detail" data-id="" style="font-weight: 600;"><i class="bi bi-info-circle-fill"></i>&nbsp;Detail</button> | -->
+                                                    
                                                     <div class="button__action__container">
-                                                        <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                                        <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
+                                                    <form action="<?= base_url('mutuair/delete_tss'); ?>" method="post">
+                                                    <?= csrf_field(); ?>
+                                                        
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModaldelete"
+                                                        class="btn btn-danger custom__button__delete">Delete</button>
+                                                     <input type="hidden" name="id_tikpan" value="<?= $u['id_tikpan']; ?>">
+                                                    <?= $this->include('/feedback/delete__modal') ?>
+                                                      
+                                                    </form>
                                                     </div>
+            
+                                                    
 
                                                 </td>
                                             </tr>
@@ -110,3 +119,4 @@
 
 
                                 <?= $this->endSection();  ?>
+                             
