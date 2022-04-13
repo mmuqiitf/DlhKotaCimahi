@@ -11,6 +11,7 @@ class BODEksisting extends BaseController
     public function __construct()
     {
         $this->Titikpantau = new Titikpantau();
+        
     }
     public function index()
     {
@@ -20,7 +21,37 @@ class BODEksisting extends BaseController
         
     }
 
+    public function edit($id = null)
+    {
+        if (!isset($id)) redirect('main/Statusair');
+
+        $Titikpantau = $this->Titikpantau;
+        $validation = $this->form_validation;
+        $validation->set_rules($Titikpantau->rules());
+
+        if ($validation->run()) {
+            $Titikpantau->update();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+        $data["Statusair"] = $product->getById($id);
+        if (!$data["Statusair"]) show_404();
+
+        $this->load->view("main/createtss", $data);
+    }
+
+    public function delete($id)
+    {
+        $this->Titikpantau->delete($id);
+        return direct()->to('/main/Statusair');
+    }
+
     public function create()
+    {
+        return view('/pages/BODEksisting/create');
+    }
+
+
+    public function tampilupdate()
     {
         return view('/pages/BODEksisting/create');
     }
@@ -35,7 +66,7 @@ class BODEksisting extends BaseController
             'Param_5' => $this->request->getVar('colcoliform'),
             'Param_6' => $this->request->getVar('colferal'),
             'Param_7' => $this->request->getVar('coldo'),
-            'id_sungai' => $this->request->getVar('collist'),
+            'Nama_sungai' => $this->request->getVar('collist'),
             'periode_pantau' => $this->request->getVar('periode'),
             'tanggal_pantau' => $this->request->getVar('inputtanggal'),
             'status_mutu' => $this->request->getVar('colstatus'),
@@ -43,34 +74,16 @@ class BODEksisting extends BaseController
 
         ]);
 
-        return redirect()->to('/statusair');
+        return redirect()->to('/mutuair');
     }
 
 
-    public function listtss()
-    {
-        $titikpantau = $this->Titikpantau->datatss();
-        
-        $data = [
-            'title' => 'Peninjauan Status Mutu Air',
-            'titikpantau' => $titikpantau
-        ];
-
-        return view('main/mutuair', $data);
-    }
-
-
-    // function Datatabel()
-    // {
-    //     $model = new Titikpantau();
-    //     $data['mahasiswa']  = $model->getta9()->getResult();
-    //     return redirect()->to('/statusair',$data);
-    // }
+    
 
 
 
-  
-}
+   
+
     function Datatabel()
     {
         $model = new Titikpantau();
@@ -80,3 +93,5 @@ class BODEksisting extends BaseController
         echo view('pages/mutuair', $data);
     }
 }
+
+

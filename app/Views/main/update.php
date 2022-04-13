@@ -55,18 +55,18 @@
                     <div class="cardsampling">
                         <div class="card-bodysampling">
                             <!-- General Form Elements -->
-                            ` <form action = "/BODEksisting/save" method = "post">
+                            ` <form action = "/mutuair/update" method = "post">
                             <div class="cardtitikpantau">
                         <div class="card-bodytitik">
                         <label for="inputNumber" class="col-sm-2 col-form-label">ID Sungai</label>
-                                        <input class="form-control" id="collist" readonly  name="collist">
+                                        <input value="<?=$Pantau['id_tikpan']?>" class="form-control" id="collist" readonly  name="collist">
                                   
                         </div>
                     </div>
                                 <div class="row mb-3">
                                     <label for="inputDate" class="col-sm-2 col-form-label">Tanggal</label>
                                     <div class="col-sm-4">
-                                        <input type="date" class="form-control" id="inputtanggal" name="inputtanggal">
+                                        <input value="<?=$Pantau['tanggal_pantau']?>" type="date" class="form-control" id="inputtanggal" name="inputtanggal">
                                     </div>
                                 </div>
                                 <div class="row mb-3">

@@ -73,99 +73,16 @@
                     <div class="cardsampling">
                         <div class="card-bodysampling">
                             <!-- General Form Elements -->
-                            ` <form action="/BODEksisting/save" method="post">
-                                <div class="row mb-3">
-                                    <label for="inputDate" class="col-sm-2 col-form-label">Tanggal</label>
-                                    <div class="col-sm-4">
-                                        <input type="date" class="form-control" id="inputtanggal" name="inputtanggal">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">TSS(mg/L)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="coltss" name="coltss">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">DO(m3/s)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="coldo" name="coldo">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">BOD(m3/s)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colbod" name="colbod">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">COD(m3/s)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colcod" name="colcod">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">Fosfat(m3/s)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" step="any" class="form-control" id="colfosfat" name="colfosfat">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">Feral
-                                        Coli(m3/s)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colferal" name="colferal">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">Total
-                                        Coliform(m3/s)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colcoliform" name="colcoliform">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label"></label>
-                                    <div class="col-sm-10">
-                                        <button class="tombol3 btn btn-primary" type="" onclick="hitung()">Cek
-                                            Hasil</button>
-                                        <!-- <button type="submit" class="btn btn-primary">Cek Hasil</button> -->
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">Pencemaran air
-                                        (Pij)</label>
-                                    <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colpij" name="colpij" readonly>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="inputNumber" class="col-sm-2 col-form-label">Status Mutu Air</label>
-                                    <div class="col-sm-4">
-                                        <input class="form-control" id="colstatus" readonly name="colstatus">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label"></label>
-                                    <div class="col-sm-9">
-                                        <button type="submit" class="tombol3 btn btn-primary">Simpan
-                                            Hasil</button>
-                                        <!-- <button type="submit" class="btn btn-primary">Simpan Hasil</button> -->
-                                    </div>
-                                </div>
-                            </form><!-- End General Form Elements -->`
                             <div class="table__wrapper">
                                 <table class="custom__table">
                                     <thead>
                                         <tr>
                                             <th scope="col">No.id</th>
-                                            <th scope="col">Titik Pantau</th>
-                                            <th scope="col">Tanggal Sampling</th>
+                                            <th scope="col">Nama Sungai</th>
+                                            <th scope="col">Nilai Pij</th>
+                                            <th scope="col">Status Mutu</th>
+                                            <th scope="col">Tanggal Pantau</th>
+
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -181,11 +98,29 @@
                                                         <button type="button" class="btn btn-primary custom__button__edit">Update</button>
                                                         <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
                                                     </div> -->
-                                                    <form action="/Mutuair/hapusPantau/<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
-                                                        <?= csrf_field(); ?>
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
-                                                    </form>
+                                                <td><?= $u['Nama_sungai']; ?></td>
+                                                <td><?= $u['Nilai_pij']; ?></td>
+                                                <td><?= $u['status_mutu']; ?></td>
+                                                <td><?= $u['tanggal_pantau']; ?></td>
+
+                                                <td>
+
+                                                    <div class="button__action__container">
+                                                        <form action="/Mutuair/update<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
+                                                            <?= csrf_field(); ?>
+                                                            <input type="hidden" name="_method" value="POST">
+                                                            <button type="button" class="btn btn-primary custombuttonedit">Update</button>
+                                                        </form>
+
+                                                        <form action="/Mutuair/hapusPantau/<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
+                                                            <?= csrf_field(); ?>
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                                                        </form>
+
+
+                                                    </div>
+
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
