@@ -98,15 +98,19 @@
                                                 <td>
                                                     
                                                     <div class="button__action__container">
-                                                    <form action="<?= base_url('mutuair/delete_tss'); ?>" method="post">
-                                                    <?= csrf_field(); ?>
-                                                        
-                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModaldelete"
-                                                        class="btn btn-danger custom__button__delete">Delete</button>
-                                                     <input type="hidden" name="id_tikpan" value="<?= $u['id_tikpan']; ?>">
-                                                    <?= $this->include('/feedback/delete__modal') ?>
-                                                      
+                                                    <form action="/Mutuair/update<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="_method" value="POST">
+                                                        <button type="button" class="btn btn-primary custombuttonedit">Update</button>
                                                     </form>
+                                                   
+                                                    <form action="/Mutuair/hapusPantau/<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                                                    </form>
+                                                      
+                                                   
                                                     </div>
             
                                                     

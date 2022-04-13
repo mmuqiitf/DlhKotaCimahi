@@ -50,6 +50,12 @@ class BODEksisting extends BaseController
         return view('/pages/BODEksisting/create');
     }
 
+
+    public function tampilupdate()
+    {
+        return view('/pages/BODEksisting/create');
+    }
+
     public function save()
     {
         $this->Titikpantau->save([
@@ -70,6 +76,9 @@ class BODEksisting extends BaseController
 
         return redirect()->to('/mutuair');
     }
+
+
+    
 
 
 
