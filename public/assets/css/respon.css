@@ -1,0 +1,47 @@
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  .custom__container__auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(180deg, #0575e6 0%, #3d6988 84.79%, #3d6988 100%);
+  }
+
+  .custom__container__auth img {
+    width : 200px ; 
+    height :200.03px;
+  }
+  
+  .custon__button__auth {
+    width: 100%;
+    height: 50px;
+    border-radius: 35px;
+    background: #3d6988;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: light;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+  }
+
+  /* grafik */
+  .grafik {
+  margin-top: 5%;
+  margin-bottom: 200px;
+  padding: 15px 20px;
+  position: relative;
+  transition: 3s;
+  }
+  
+  .Grafikpilihan {
+  padding-top: 1000px;
+  background-color: #ffffff;
+  }
+
+
+}

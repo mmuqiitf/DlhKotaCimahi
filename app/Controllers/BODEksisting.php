@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\Titikpantau;
 
 class BODEksisting extends BaseController
@@ -10,7 +11,6 @@ class BODEksisting extends BaseController
     public function __construct()
     {
         $this->Titikpantau = new Titikpantau();
-
     }
     public function index()
     {
@@ -70,4 +70,13 @@ class BODEksisting extends BaseController
 
 
   
+}
+    function Datatabel()
+    {
+        $model = new Titikpantau();
+        $data = [
+            'Pantau' => $model->paginate(100, 'Pantau'),
+        ];
+        echo view('pages/mutuair', $data);
+    }
 }

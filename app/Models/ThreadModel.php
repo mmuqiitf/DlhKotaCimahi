@@ -13,6 +13,8 @@ class ThreadModel extends Model
         'Nilai_ipa',
         'id_sungai',
         'id_ipa',
+        'Status_Mutu_Air',
+        'Jumlah_ipa',
     ];
     protected $useTimestamps = false;
 }

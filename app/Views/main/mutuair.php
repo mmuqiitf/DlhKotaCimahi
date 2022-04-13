@@ -19,8 +19,7 @@
                         <div class="card info-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bx bxs-user"></i>
                                     </div>
                                     <div class="ps-3">
@@ -36,8 +35,7 @@
                         <div class="card info-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bx bxs-location-plus"></i>
                                     </div>
                                     <div class="ps-3">
@@ -53,8 +51,7 @@
                         <div class="card info-card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bx bxs-bar-chart-alt-2"></i>
                                     </div>
                                     <div class="ps-3">
@@ -69,8 +66,7 @@
 
                     <div class="custom__card__large">
                         <div class="custom__header__card__large">
-                            <button type="button" class="btn btn-primary"
-                                onclick="document.location.href='/buattss'">Create TSS</button>
+                            <button type="button" class="btn btn-primary" onclick="document.location.href='/buattss'">Create TSS</button>
                             <button type="button" class="btn btn-primary">Input Excel</button>
                         </div>
 
@@ -100,13 +96,8 @@
 
                     </tbody>
 
-                            </table>
-
-
-                        </div>
-
-                    </div>
+                           
 
 
 
-                    <?= $this->endSection();  ?>
+                        <?= $this->endSection();  ?>
