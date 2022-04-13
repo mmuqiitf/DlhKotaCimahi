@@ -91,7 +91,8 @@
                     <ul id="grafik-flters">
                         <li data-filter=".filter-ika">Index Kualitas Air</li>
                         <li data-filter=".filter-ipa">Indeks Pencemaran Air</li>
-                        <li data-filter=".filter-bp">Beban Pencemaran</li>
+                        <li data-filter=".filter-bpb">Beban Pencemaran Bod</li>
+                        <li data-filter=".filter-bpt">Beban Pencemaran Tss</li>
                     </ul>
                 </div>
             </div>
@@ -141,19 +142,14 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Index Pencemaran Air</h5>
-                                            <!-- <canvas id="index_pencemaran_air" width="300" height="300"></canvas> -->
-                                            <!-- <div id="chart"></div> -->
-                                            <div id="IPA"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- STATUS PENCEMARAN AIR-->
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Status Pencemaran Air</h5>
-                                            <div id="SPA"></div>
+                                            <div class="form-group">
+                                                <input type="month" class="form-control" id="bulan" value="<?= date('Y-m') ?>">
+                                                <br>
+                                                <button class="btntampil" id="tombolTampil">
+                                                    Tampil
+                                                </button>
+                                            </div>
+                                            <div class="viewTampilGrafik"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -163,38 +159,64 @@
                 </div>
                 <!-- END GRAFIK IPA -->
 
-                <div class="grafikitem filter-bp">
+                <!-- START BOD -->
+                <div class="grafikitem filter-bpb">
                     <section class="section">
                         <div class="grafik">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Beban Pencemar BOD Potensial Domestik</h5>
-                                            <canvas id="Bodgraf" width="300" height="300"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Beban Pencemar BOD Aktual</h5>
-                                            <canvas id="modelBodAktualgrafik" width="300" height="300"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <!-- BOD EKSISTING -->
                                 <div>
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Beban Pencemar TSS Aktual</h5>
-                                            <!-- <canvas id="modelTssAktualgrafik" width="300" height="100"></canvas> -->
-                                            <div id="chart-container">FusionCharts XT will load here!</div>
+                                            <h5 class="card-title">Beban Pencemar BOD Eksisting</h5>
+                                            <div id="BODEKSISTING"></div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- END BOD EKSISTING -->
+
+                                <!-- BOD POTENSIAL -->
+                                <div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Beban Pencemar BOD Potensial</h5>
+                                            <div id="BODPOTENSIAL"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END BOD POTENSIAL -->
                             </div>
+                    </section>
+                </div>
+
+                <!-- START TSS -->
+                <div class="grafikitem filter-bpt">
+                    <section class="section">
+                        <div class="grafik">
+                            <div class="row">
+                                <!-- TSS EKSISTING -->
+                                <div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Beban Pencemar TSS Eksisting</h5>
+                                            <div id="TSSEKSISTING"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TSS EKSISTING -->
+
+                                <!-- TSS POTENSIAL -->
+                                <div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Beban Pencemar TSS Potensial</h5>
+                                            <!-- <div id="TSSEKSISTING"></div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TSS POTENSIAL -->
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -273,103 +295,263 @@
     // END JUMLAH IKA
     // END START IKA
     // START IPA
+    function tampilGrafik() {
+        $.ajax({
+            type: "post",
+            url: "home/tampilGrafikIPA",
+            data: {
+                bulan: $('#bulan').val()
+            },
+            dataType: "json",
+            beforeSend: function() {
+                $('.viewTampilGrafik').html('<i class="fa fa-spin fa-spinner"></i>');
+            },
+            success: function(response) {
+                if (response.data) {
+                    $('.viewTampilGrafik').html(response.data);
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status + '\n' + thrownError);
+            }
+
+        });
+    }
+
+
+    $(document).ready(function() {
+        tampilGrafik();
+
+        $('#tombolTampil').click(function(e) {
+            e.preventDefault();
+            tampilGrafik();
+        });
+    });
+    // END START IPA
+
+    // START BOD
+
+    // BOD EKSISTING
     const dataSource = {
         chart: {
-            showvalues: "1",
             formatnumberscale: "1",
-            theme: "fusion",
-            drawcrossline: "1"
+            showvalues: "1",
+            theme: "fusion"
         },
         categories: [{
             category: [{
-                    label: "Citarum"
+                    label: "Cisangkan"
                 },
                 {
-                    label: "2013"
+                    label: "Cibaligo"
                 },
                 {
-                    label: "2014"
+                    label: "Cibeureum"
                 },
                 {
-                    label: "2015"
+                    label: "Cilember"
                 },
                 {
-                    label: "2016"
+                    label: "Cimahi"
                 }
             ]
         }],
         dataset: [{
                 seriesname: "Hulu",
                 data: [{
-                        value: "125000"
+                        value: "12.1"
                     },
                     {
-                        value: "300000"
+                        value: " 1270.1"
                     },
                     {
-                        value: "480000"
+                        value: " 5310.1"
                     },
                     {
-                        value: "800000"
+                        value: " 1072.2"
                     },
                     {
-                        value: "1100000"
+                        value: " 1633.0 "
                     }
                 ]
             },
             {
                 seriesname: "Tengah",
                 data: [{
-                        value: "70000"
+                        value: "279.1"
                     },
                     {
-                        value: "150000"
+                        value: "953.9"
                     },
                     {
-                        value: "350000"
+                        value: "1043.7"
                     },
                     {
-                        value: "600000"
+                        value: "197.0"
                     },
                     {
-                        value: "1400000"
+                        value: "2610.1 "
                     }
                 ]
             },
             {
                 seriesname: "Hilir",
                 data: [{
-                        value: "10000"
+                        value: "2903.0"
                     },
                     {
-                        value: "100000"
+                        value: " 419.9"
                     },
                     {
-                        value: "300000"
+                        value: "8985.6"
                     },
                     {
-                        value: "600000"
+                        value: " 81.2"
                     },
                     {
-                        value: "900000"
+                        value: "0"
                     }
                 ]
             }
         ]
     };
-
     FusionCharts.ready(function() {
         var myChart = new FusionCharts({
             type: "mscolumn3d",
-            renderAt: "IPA",
+            renderAt: "BODEKSISTING",
             width: "100%",
             height: "300%",
-            // showvalues: "1",
             dataFormat: "json",
             dataSource
         }).render();
     });
 
-    // END START IPA
+    // END BOD EKSISTING
+    // BOD POTENSIAL
+    <?php
+    $Data = [];
+    foreach ($BodPOTENSIAL->getResult() as $key => $value) : {
+            $Data[] = [
+                'label' => $value->Tahun_domestik,
+                'value' => $value->Nilai_domestik
+            ];
+        };
+    endforeach ?>
+
+    const Data = <?= json_encode($Data); ?>;
+    FusionCharts.ready(function() {
+        var myChart = new FusionCharts({
+            type: "pie3d",
+            renderAt: "BODPOTENSIAL",
+            width: "100%",
+            height: "300%",
+            dataFormat: "json",
+            dataSource: {
+                "chart": {
+                    showvalues: "1",
+                    theme: "fusion"
+                },
+                data: Data
+            },
+        }).render();
+    });
+    // END BOD POTENSIAL
+    // END START BOD
+
+    // START TSS EKSISTING
+    const dataSourcee = {
+        chart: {
+            formatnumberscale: "1",
+            showvalues: "1",
+            theme: "fusion"
+        },
+        categories: [{
+            category: [{
+                    label: "Cisangkan"
+                },
+                {
+                    label: "Cibaligo"
+                },
+                {
+                    label: "Cibeureum"
+                },
+                {
+                    label: "Cilember"
+                },
+                {
+                    label: "Cimahi"
+                }
+            ]
+        }],
+        dataset: [{
+                seriesname: "Hulu",
+                data: [{
+                        value: " 29.4"
+                    },
+                    {
+                        value: "423.4"
+                    },
+                    {
+                        value: "40205.4"
+                    },
+                    {
+                        value: " 1766.0"
+                    },
+                    {
+                        value: " 5806.1"
+                    }
+                ]
+            },
+            {
+                seriesname: "Tengah",
+                data: [{
+                        value: "443.2"
+                    },
+                    {
+                        value: "622.1"
+                    },
+                    {
+                        value: " 8741.1"
+                    },
+                    {
+                        value: "124.4"
+                    },
+                    {
+                        value: " 40525.9 "
+                    }
+                ]
+            },
+            {
+                seriesname: "Hilir",
+                data: [{
+                        value: "2073.6"
+                    },
+                    {
+                        value: " 482.1"
+                    },
+                    {
+                        value: "53913.6"
+                    },
+                    {
+                        value: "22.5"
+                    },
+                    {
+                        value: "0"
+                    }
+                ]
+            }
+        ]
+    };
+    FusionCharts.ready(function() {
+        var myChart = new FusionCharts({
+            type: "mscolumn3d",
+            renderAt: "TSSEKSISTING",
+            width: "100%",
+            height: "300%",
+            dataFormat: "json",
+            dataSource
+        }).render();
+    });
+    // END TSS EKSISTING
 </script>
 <?= $this->endSection() ?>

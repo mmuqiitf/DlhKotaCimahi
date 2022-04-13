@@ -79,6 +79,7 @@ $segment = $uri->getSegment(2);
 
 
         <a href="/Mutuair">ERICK ICAL</a>
+
         <li class="nav-item">
             <div class="logout">
                 <a class="nav-link collapsed" href="/Auth/logout">

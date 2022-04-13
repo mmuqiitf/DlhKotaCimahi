@@ -799,6 +799,12 @@ h6 {
   transition: 3s;
 }
 
+.grafipa{
+  height: 50%;
+  width: 100%;
+  position:relative;
+}
+
 .Grafikpilihan {
   padding-top: 1px;
 }
@@ -834,5 +840,18 @@ h6 {
 
 .Grafikpilihano #grafik-flters li:last-child {
   margin-right: 0;
+}
+
+.btntampil{
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 18px 10px 18px;
+  font-size: 16px;
+  line-height: 1;
+  transition: all ease-in-out 0.3s;
+  font-weight: 800;
+  color:  #fff;
+  background: linear-gradient(0.25turn, #00c0e2, #3d6988);
+  border-radius: 15px;
 }
 /* tenaga kerja end */
