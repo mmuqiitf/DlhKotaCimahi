@@ -20,12 +20,13 @@ class Mutuair extends BaseController
         ];
         return view('main/Statusair', $data);
     }
-    // function Datatabel()
-    // {
-    //     $model = new Titikpantau();
-    //     $data = [
-    //         'Pantau' => $model->paginate(100, 'Pantau'),
-    //     ];
-    //     echo view('main/Statusair', $data);
-    // }
+
+    public function hapusPantau($id)
+    {
+        $model = new Titikpantau();
+        $session = session();
+        $model->delete($id);
+        $session->setFlashdata('pesan', 'Data berhasil dihapus');
+        return redirect()->to('/Mutuair/index');
+    }
 }

@@ -172,16 +172,20 @@
                                     <tbody>
                                         <?php foreach ($Pantau as $u) : ?>
                                             <tr>
-                                                <td><?= $u['id_sungai']; ?></td>
+                                                <td><?= $u['id_tikpan']; ?></td>
                                                 <td><?= $u['koord_tikpan']; ?></td>
                                                 <td><?= $u['periode_pantau']; ?></td>
                                                 <td>
                                                     <!-- <button class=" btn btn-success btn-sm text-white detail" data-id="" style="font-weight: 600;"><i class="bi bi-info-circle-fill"></i>&nbsp;Detail</button> | -->
-                                                    <div class="button__action__container">
+                                                    <!-- <div class="button__action__container">
                                                         <button type="button" class="btn btn-primary custom__button__edit">Update</button>
                                                         <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                                    </div>
-
+                                                    </div> -->
+                                                    <form action="/Mutuair/hapusPantau/<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

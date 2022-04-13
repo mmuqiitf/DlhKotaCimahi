@@ -13,6 +13,10 @@ class Titikpantau extends Model
     protected $allowedFields =['Param_1','Param_2','Param_3','Param_4','Param_5','Param_6','Param_7','status_mutu','Nilai_pij','periode_pantau','tanggal_pantau','id_sungai'];
   
 
+    public function gettestimonial($id)
+    {
+        return $this->where(['id_tikpan' => $id])->first();
+    }
 
     public function tss($idtss)
     {
