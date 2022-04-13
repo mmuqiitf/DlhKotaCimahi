@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 
 
 $routes->get('/', 'Auth::index');
+<<<<<<< HEAD
 $routes->get('/dashboard', 'Home::index',['filter' => 'auth']);
 $routes->get('/bnpencemaran', 'Home::bnpencemaran',['filter' => 'auth']);
 $routes->get('/statusair', 'Home::statusair',['filter' => 'auth']);
@@ -45,6 +46,18 @@ $routes->get('/BODPotensial', 'Home::BODPotensial',['filter' => 'auth']);
 $routes->get('/BODEksisting', 'BODEksisting::index',['filter' => 'auth']);
 $routes->get('/BODEksisting/create', 'BODEksisting::create',['filter' => 'auth']);
 // $routes->delete('/statusair/(:num)','mutuair::delete_tss/$1');
+=======
+$routes->get('/dashboard', 'Home::index', ['filter' => 'auth']);
+$routes->get('/bnpencemaran', 'Home::bnpencemaran', ['filter' => 'auth']);
+$routes->get('/statusair', 'Home::statusair', ['filter' => 'auth']);
+$routes->get('/indexair', 'Home::indexair', ['filter' => 'auth']);
+$routes->get('/buattss', 'Home::buattss', ['filter' => 'auth']);
+$routes->get('/login', 'Home::auth', ['filter' => 'auth']);
+$routes->get('/BODEksisting', 'Home::BODEksisting', ['filter' => 'auth']);
+$routes->get('/BODPotensial', 'Home::BODPotensial', ['filter' => 'auth']);
+$routes->get('/BODEksisting', 'BODEksisting::index', ['filter' => 'auth']);
+$routes->get('/BODEksisting/create', 'BODEksisting::create', ['filter' => 'auth']);
+>>>>>>> 999c13975091d9059a02844bc3f5a5b4b9cee86e
 
 /*
  * --------------------------------------------------------------------
