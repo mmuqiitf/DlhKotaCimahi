@@ -17,66 +17,92 @@
                 <div class="row">
                     <div class="cardsungaimutu">
                         <div class="card-bodysungai">
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <select id="list" name="list" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onclick="getSelectValue()">
 
                                 <option selected>Nama Sungai</option>
-                                <option value="1"> Sungai Cisangkan</option>
-                                <option value="2">Sungai Cibaligo</option>
-                                <option value="3">Sungai Cibereum</option>
-                                <option value="2">Sungai Cilember</option>
-                                <option value="3">Sungai Cimahi</option>
+                                <option value="1">Sungai Cisangkan Hulu</option>
+                                <option value="2">Sungai Cisangkan Tengah</option>
+                                <option value="3">Sungai Cisangkan Hilir</option>
+                                <option value="4">Sungai Cibaligo Hulu</option>
+                                <option value="5">Sungai Cibaligo Tengah</option>
+                                <option value="6">Sungai Cibaligo Hilir</option>
+                                <option value="7">Sungai Cibereum Hulu</option>
+                                <option value="8">Sungai Cibereum Tengah</option>
+                                <option value="9">Sungai Cibereum Hilir</option>
+                                <option value="10">Sungai Cilember Hulu</option>
+                                <option value="11">Sungai Cilember Tengah</option>
+                                <option value="12">Sungai Cilember Hilir</option>
+                                <option value="13">Sungai Cimahi Hulu</option>
+                                <option value="14">Sungai Cimahi Tengah</option>
+                                <option value="15">Sungai Cimahi Hilir</option>
+
                             </select>
+
+                            <script>
+                                function getSelectValue()
+                                {
+                                    var selectedValue = document.getElementById("list").value;
+                                    document.getElementById("collist").value = selectedValue;
+
+                                }
+                            </script>
+
+                
                         </div>
                     </div>
-                    <div class="cardtitikpantau">
-                        <div class="card-bodytitik">
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected>Titik Pantau</option>
-                                <option value="1">Hulu</option>
-                                <option value="2">Tengah</option>
-                                <option value="3">Hilir</option>
-                            </select>
-                        </div>
-                    </div>
+                   
                     <div class="cardsampling">
                         <div class="card-bodysampling">
                             <!-- General Form Elements -->
-                            ` <form>
+                            ` <form action = "/BODEksisting/save" method = "post">
+                            <div class="cardtitikpantau">
+                        <div class="card-bodytitik">
+                        <label for="inputNumber" class="col-sm-2 col-form-label">ID Sungai</label>
+                                        <input class="form-control" id="collist" readonly  name="collist">
+                                  
+                        </div>
+                    </div>
                                 <div class="row mb-3">
                                     <label for="inputDate" class="col-sm-2 col-form-label">Tanggal</label>
                                     <div class="col-sm-4">
-                                        <input type="date" class="form-control" id="inputtanggal">
+                                        <input type="date" class="form-control" id="inputtanggal" name="inputtanggal">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Periode Pantau</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" id="periode" name="periode">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">TSS(mg/L)</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="coltss">
+                                        <input type="number" class="form-control" id="coltss" name="coltss">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">DO(m3/s)</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="coldo">
+                                        <input type="number" class="form-control" id="coldo" name="coldo">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">BOD(m3/s)</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colbod">
+                                        <input type="number" class="form-control" id="colbod" name="colbod">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">COD(m3/s)</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colcod">
+                                        <input type="number" class="form-control" id="colcod" name="colcod">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Fosfat(m3/s)</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colfosfat">
+                                        <input type="number"step="any" class="form-control" id="colfosfat" name="colfosfat">
                                     </div>
                                 </div>
 
@@ -84,7 +110,7 @@
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Feral
                                         Coli(m3/s)</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colferal">
+                                        <input type="number" class="form-control" id="colferal" name="colferal">
                                     </div>
                                 </div>
 
@@ -92,14 +118,14 @@
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Total
                                         Coliform(m3/s)</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colcoliform">
+                                        <input type="number" class="form-control" id="colcoliform" name="colcoliform">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-10">
-                                        <button class="tombol3 btn btn-primary" type="submit" onclick="hitung()">Cek
+                                        <button class="tombol3 btn btn-primary" type="" onclick="hitung()">Cek
                                             Hasil</button>
                                         <!-- <button type="submit" class="btn btn-primary">Cek Hasil</button> -->
                                     </div>
@@ -108,25 +134,25 @@
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Pencemaran air
                                         (Pij)</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" id="colpij" disabled>
+                                        <input type="number" class="form-control" id="colpij" name="colpij" readonly>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Status Mutu Air</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control" id="colstatus" readonly>
+                                        <input class="form-control" id="colstatus" readonly  name="colstatus">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-9">
-                                        <button class="tombol3 btn btn-primary">Simpan
+                                        <button type="submit" class="tombol3 btn btn-primary">Simpan
                                             Hasil</button>
                                         <!-- <button type="submit" class="btn btn-primary">Simpan Hasil</button> -->
                                     </div>
                                 </div>
-                            </form><!-- End General Form Elements -->`
+                            </form>
 
                         </div>
                     </div>
@@ -212,7 +238,6 @@ function hitung() {
 }
 </script>
 <!-- End #main -->
-
 
 
 <?= $this->endSection();  ?>
