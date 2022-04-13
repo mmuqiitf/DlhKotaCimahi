@@ -1,8 +1,7 @@
 <?= $this->extend('layout/template');  ?>
-
-
 <?= $this->section('content'); ?>
 <link href="/custom_css/pages/BODEksisting.css" rel="stylesheet">
+
 
 <main id="main" class="main">
     <div class="pagetitle">
@@ -160,7 +159,6 @@
                                     </div>
                                 </div>
                             </form><!-- End General Form Elements -->`
-
                             <div class="table__wrapper">
                                 <table class="custom__table">
                                     <thead>
@@ -172,47 +170,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Hulu</td>
-                                            <td>20/12/2020</td>
-                                            <td>
-                                                <div class="button__action__container">
-                                                    <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                                    <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Hilir</td>
-                                            <td>12/06/2022</td>
-                                            <td>
-                                                <div class="button__action__container">
-                                                    <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                                    <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                                </div>
-                                            </td>
+                                        <?php foreach ($Pantau as $u) : ?>
+                                            <tr>
+                                                <td><?= $u['id_sungai']; ?></td>
+                                                <td><?= $u['koord_tikpan']; ?></td>
+                                                <td><?= $u['periode_pantau']; ?></td>
+                                                <td>
+                                                    <!-- <button class=" btn btn-success btn-sm text-white detail" data-id="" style="font-weight: 600;"><i class="bi bi-info-circle-fill"></i>&nbsp;Detail</button> | -->
+                                                    <div class="button__action__container">
+                                                        <button type="button" class="btn btn-primary custom__button__edit">Update</button>
+                                                        <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
+                                                    </div>
 
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Tengah</td>
-                                            <td>9/6/2021</td>
-                                            <td>
-                                                <div class="button__action__container">
-                                                    <button type="button" class="btn btn-primary custom__button__edit">Update</button>
-                                                    <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
 
-                            </div>
 
-                        </div>
-
-
-
-                        <?= $this->endSection();  ?>
+                                <?= $this->endSection();  ?>
