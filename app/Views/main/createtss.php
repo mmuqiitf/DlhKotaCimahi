@@ -20,21 +20,21 @@
                             <select id="list" name="list" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onclick="getSelectValue()">
 
                                 <option selected>Nama Sungai</option>
-                                <option value="1">Sungai Cisangkan Hulu</option>
-                                <option value="2">Sungai Cisangkan Tengah</option>
-                                <option value="3">Sungai Cisangkan Hilir</option>
-                                <option value="4">Sungai Cibaligo Hulu</option>
-                                <option value="5">Sungai Cibaligo Tengah</option>
-                                <option value="6">Sungai Cibaligo Hilir</option>
-                                <option value="7">Sungai Cibereum Hulu</option>
-                                <option value="8">Sungai Cibereum Tengah</option>
-                                <option value="9">Sungai Cibereum Hilir</option>
-                                <option value="10">Sungai Cilember Hulu</option>
-                                <option value="11">Sungai Cilember Tengah</option>
-                                <option value="12">Sungai Cilember Hilir</option>
-                                <option value="13">Sungai Cimahi Hulu</option>
-                                <option value="14">Sungai Cimahi Tengah</option>
-                                <option value="15">Sungai Cimahi Hilir</option>
+                                <option value="Sungai Cisangkan Hulu">Sungai Cisangkan Hulu</option>
+                                <option value="Sungai Cisangkan Tengah">Sungai Cisangkan Tengah</option>
+                                <option value="Sungai Cisangkan Hilir">Sungai Cisangkan Hilir</option>
+                                <option value="Sungai Cibaligo Hulu">Sungai Cibaligo Hulu</option>
+                                <option value="Sungai Cibaligo Tengah">Sungai Cibaligo Tengah</option>
+                                <option value="Sungai Cibaligo Hilir">Sungai Cibaligo Hilir</option>
+                                <option value="Sungai Cibereum Hulu">Sungai Cibereum Hulu</option>
+                                <option value="Sungai Cibereum Tengah">Sungai Cibereum Tengah</option>
+                                <option value="Sungai Cibereum Hilir">Sungai Cibereum Hilir</option>
+                                <option value="Sungai Cilember Hulu">Sungai Cilember Hulu</option>
+                                <option value="Sungai Cilember Tengah">Sungai Cilember Tengah</option>
+                                <option value="Sungai Cilember Hilir">Sungai Cilember Hilir</option>
+                                <option value="Sungai Cimahi Hulu">Sungai Cimahi Hulu</option>
+                                <option value=">Sungai Cimahi Tengah">Sungai Cimahi Tengah</option>
+                                <option value="Sungai Cimahi Hilir">Sungai Cimahi Hilir</option>
 
                             </select>
 
@@ -42,6 +42,7 @@
                                 function getSelectValue()
                                 {
                                     var selectedValue = document.getElementById("list").value;
+
                                     document.getElementById("collist").value = selectedValue;
 
                                 }

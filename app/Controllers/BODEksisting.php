@@ -35,7 +35,7 @@ class BODEksisting extends BaseController
             'Param_5' => $this->request->getVar('colcoliform'),
             'Param_6' => $this->request->getVar('colferal'),
             'Param_7' => $this->request->getVar('coldo'),
-            'id_sungai' => $this->request->getVar('collist'),
+            'Nama_sungai' => $this->request->getVar('collist'),
             'periode_pantau' => $this->request->getVar('periode'),
             'tanggal_pantau' => $this->request->getVar('inputtanggal'),
             'status_mutu' => $this->request->getVar('colstatus'),
@@ -70,7 +70,7 @@ class BODEksisting extends BaseController
 
 
   
-}
+
     function Datatabel()
     {
         $model = new Titikpantau();
@@ -80,3 +80,5 @@ class BODEksisting extends BaseController
         echo view('pages/mutuair', $data);
     }
 }
+
+
