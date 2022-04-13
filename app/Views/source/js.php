@@ -9,6 +9,8 @@
   <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="/assets/vendor/grafpilih/isotope.pkgd.min.js"></script>
 
+
+
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
 

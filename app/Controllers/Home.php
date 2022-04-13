@@ -2,10 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\Users;
+use App\Models\IkaModel;
 use App\Models\GrafikModel;
 use \App\Models\ThreadModel;
 use \App\Models\SungaiModel;
-use App\Models\Users;
 use App\Models\BodGrafikModel;
 use App\Models\BodAktualGrafikModel;
 use App\Models\TssAktualGrafikModel;
@@ -15,6 +16,8 @@ class Home extends BaseController
     public function index()
     {
         $modelUser = new Users();
+        $modelIka = new IkaModel();
+
         $modelSungai = new SungaiModel();
         $modelThread = new ThreadModel();
         $modelBodgrafik = new BodGrafikModel();
@@ -34,6 +37,20 @@ class Home extends BaseController
         //     ->groupBy('thread.id_sungai')
         //     ->groupBy('thread.Nilai_pij')
         //     ->get();
+        // ==START IKA===
+        // NILAI IKA
+        $nilaiIKA =  $modelIka->select('COUNT(ika.id_ika) AS nilai_ika, ika.tahun_ika AS tahun_ika ,ika.nilai_ika AS nilai_ika')
+            ->groupBy('ika.tahun_ika')
+            ->groupBy('ika.nilai_ika')
+            ->get();
+        // END NILAI IKA
+        // JUMLAH IKA
+        $jumlahIKA =  $modelIka->select('COUNT(ika.id_ika) AS jumlah_ika, ika.tahun_ika AS tahun_ika ,ika.jumlah_ika AS jumlah_ika')
+            ->groupBy('ika.tahun_ika')
+            ->groupBy('ika.jumlah_ika')
+            ->get();
+        // END JUMLAH IKA
+        // ===END START IKA===
         $thread_per_sungai = $modelThread->select('COUNT(thread.id) AS jumlah, sungai.nama_sungai AS sungai,thread.Nilai_pij AS Nilai_pij')
             ->join('sungai', 'thread.id_sungai=sungai.id_sungai')
             ->groupBy('thread.id_sungai')
@@ -88,6 +105,10 @@ class Home extends BaseController
         // $bulantss = $bulantss ? $bulantss : Date("m");
         return view('/pages/home', [
             'jumlah_user' => $jumlah_user,
+            'nilaiIKA' => $nilaiIKA,
+            'jumlahIKA' => $jumlahIKA,
+
+
             'jumlah_Sungai' => $jumlah_Sungai,
             'tahun_lahir_user' => $tahun_lahir_user,
             'jumlah_thread' => $jumlah_thread,

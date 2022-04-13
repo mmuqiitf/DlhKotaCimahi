@@ -98,78 +98,65 @@
             <br>
             <br>
             <div class="row grafik-container">
+                <!-- GRAFIK IKA -->
                 <div class="grafikitem filter-ika">
                     <section class="section">
                         <div class="grafik">
                             <div class="row">
-                                <!-- GRAFIK 1 LAGI -->
-                                <div class="col-lg-6">
+                                <!-- NILAI IKA -->
+                                <div>
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Index Pencemaran Air</h5>
-                                            <canvas id="index_pencemaran_air" width="300" height="300"></canvas>
+                                            <h5 class="card-title">Nilai Index Kualitas Air</h5>
+                                            <div id="NilaiIKA"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <script src="https://code.highcharts.com/highcharts.js"></script>
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+                                <!-- END NILAI IKA -->
 
-                                <!-- GRAFIK 1 LAGI -->
-                                <div class="col-lg-6">
+                                <!-- JUMLAH IKA -->
+                                <div>
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Jumlah Pencemaran Air</h5>
-                                            <canvas id="jumlah_pencemaran_air" width="300" height="300"></canvas>
+                                            <h5 class="card-title">Jumlah Index Kualitas Air</h5>
+                                            <div id="JumlahIKA"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <script src="https://code.highcharts.com/highcharts.js"></script>
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Pij Pencemaran Air Berdasarkan Titik Pantau</h5>
-                                            <canvas id="thread_sungai" width="300" height="300"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script src="https://code.highcharts.com/highcharts.js"></script>
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
-
-
-                                <!-- GRAFIK 1 LAGI -->
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Pij Pencemaran Air Berdasarkan Periode</h5>
-                                            <canvas id="pij_tanggal" width="300" height="300"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script src="https://code.highcharts.com/highcharts.js"></script>
+                                <!-- END JUMLAH IKA -->
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
                             </div>
                         </div>
                     </section>
                 </div>
+                <!-- END GRAFIK IKA -->
 
                 <!-- GRAFIK IPA -->
                 <div class="grafikitem filter-ipa">
                     <section class="section">
                         <div class="grafik">
                             <div class="row">
-                                <!-- GRAFIK 1 LAGI -->
-                                <div class="col-lg-6">
+                                <!-- PIJ -->
+                                <div>
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Index Pencemaran Air</h5>
-                                            <canvas id="index_pencemaran_air" width="300" height="300"></canvas>
+                                            <!-- <canvas id="index_pencemaran_air" width="300" height="300"></canvas> -->
+                                            <!-- <div id="chart"></div> -->
+                                            <div id="IPA"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <script src="https://code.highcharts.com/highcharts.js"></script>
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+
+                                <!-- STATUS PENCEMARAN AIR-->
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Status Pencemaran Air</h5>
+                                            <div id="SPA"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -218,324 +205,171 @@
 <?= $this->section('script') ?>
 <script src="<?= base_url('chartjs/Chart.bundle.min.js') ?>"></script>
 <script>
-    var label_thread_sungai = [];
-    var data_thread_pij = [];
-
-
+    // START IKA
+    // NILAI IKA
     <?php
     $chartData = [];
-    foreach ($thread_per_sungai->getResult() as $key => $value) : {
+    foreach ($nilaiIKA->getResult() as $key => $value) : {
             $chartData[] = [
-                'label' => $value->sungai,
-                'value' => $value->Nilai_pij
+                'label' => $value->tahun_ika,
+                'value' => $value->nilai_ika
             ];
         };
-
     endforeach ?>
 
     const chartData = <?= json_encode($chartData); ?>;
-
-    //STEP 3 - Chart Configurations
     const chartConfig = {
-        type: 'column3d',
-        renderAt: 'chart-container',
+        type: 'spline',
+        renderAt: 'NilaiIKA',
         width: '100%',
-        height: '400',
+        height: '300%',
         dataFormat: 'json',
         dataSource: {
-            // Chart Configuration
             "chart": {
-
+                showvalues: "1",
+                showpercentintooltip: "0",
+                enablemultislicing: "1",
+                theme: "fusion"
             },
             data: chartData
-        }
+        },
     };
-
-
     FusionCharts.ready(function() {
         var fusioncharts = new FusionCharts(chartConfig);
         fusioncharts.render();
     });
 
-    // COBA
-    var thread_sungai = document.getElementById('thread_sungai');
-    var label_thread_sungai = [];
-    var data_thread_pij = [];
-
-    <?php foreach ($thread_per_sungai->getResult() as $key => $value) : ?>
-        label_thread_sungai.push('<?= $value->sungai ?>');
-        data_thread_pij.push('<?= $value->Nilai_pij ?>');
-    <?php endforeach ?>
-
-    var data_thread_per_sungai = {
-        datasets: [{
-            // data: data_thread_sungai,
-            data: data_thread_pij,
-            backgroundColor: [
-                'rgba(255,99,132,0.8)',
-                'rgba(54,162,235,0.8)',
-                'rgba(255,206,86,0.8)',
-                'rgb(152,251,153,0.8)',
-                'rgb(64,224,208,0.8)',
-                'rgb(138, 43, 226,0.8)',
-                'rgb(220, 20, 60,0.8)',
-                'rgb(85, 107, 47,0.8)',
-                'rgb(249, 19, 147,0.8)',
-                'rgb(253, 215, 3,0.8)',
-                'rgb(23, 25, 3,0.8)',
-                'rgb(123, 115, 23,0.8)',
-                'rgb(153, 215, 13,0.8)',
-                'rgb(255, 115, 53,0.8)',
-                'rgba(25,199,152,0.8)',
-            ],
-        }],
-        labels: label_thread_sungai,
-    }
-
-
-
-    var chart_thread_sungai = new Chart(thread_sungai, {
-        type: 'doughnut',
-        data: data_thread_per_sungai
-
+    // END NILAI IKA 
+    // START JUMLAH IKA
+    <?php
+    $chart = [];
+    foreach ($jumlahIKA->getResult() as $key => $value) : {
+            $chart[] = [
+                'label' => $value->tahun_ika,
+                'value' => $value->jumlah_ika
+            ];
+        };
+    endforeach ?>
+    const chart = <?= json_encode($chart); ?>;
+    FusionCharts.ready(function() {
+        var myChart = new FusionCharts({
+            type: "line",
+            renderAt: "JumlahIKA",
+            width: "100%",
+            height: "300%",
+            dataFormat: "json",
+            dataSource: {
+                "chart": {
+                    showvalues: "1",
+                    showpercentintooltip: "0",
+                    enablemultislicing: "1",
+                    numvisibleplot: "12",
+                    theme: "fusion"
+                },
+                data: chart
+            },
+        }).render();
     });
-
-
-    // Pij tanggal
-    var thread_sungai = document.getElementById('pij_tanggal');
-    var label_thread_sungai = [];
-    var data_thread_pij = [];
-
-    <?php foreach ($thread_per_periode->getResult() as $key => $value) : ?>
-        label_thread_sungai.push('<?= $value->sungai ?>');
-        data_thread_pij.push('<?= $value->Nilai_pij ?>');
-    <?php endforeach ?>
-
-    var data_thread_per_sungai = {
-        datasets: [{
-            // data: data_thread_sungai,
-            data: data_thread_pij,
-            borderColor: 'rgb(61, 105, 136)',
-            backgroundColor: 'rgba(62,207,235,0.5)',
-
-
+    // END JUMLAH IKA
+    // END START IKA
+    // START IPA
+    const dataSource = {
+        chart: {
+            showvalues: "1",
+            formatnumberscale: "1",
+            theme: "fusion",
+            drawcrossline: "1"
+        },
+        categories: [{
+            category: [{
+                    label: "Citarum"
+                },
+                {
+                    label: "2013"
+                },
+                {
+                    label: "2014"
+                },
+                {
+                    label: "2015"
+                },
+                {
+                    label: "2016"
+                }
+            ]
         }],
-        labels: label_thread_sungai,
-    }
-
-    var chart_thread_sungai = new Chart(thread_sungai, {
-        type: 'line',
-        data: data_thread_per_sungai
-    });
-
-    // IPA
-    var ipa = document.getElementById('index_pencemaran_air');
-    var data_ipa = [];
-    var label_katagori_pencemaran = [];
-
-    <?php foreach ($Index_Pencemaran_air->getResult() as $key => $value) : ?>
-        data_ipa.push(<?= $value->Nilai_ipa ?>);
-        label_katagori_pencemaran.push('<?= $value->katagori_pencemaran ?>');
-    <?php endforeach ?>
-
-    var Index_Pencemaran_air = {
-        datasets: [{
-            label: 'Nilai Ipa',
-            data: data_ipa,
-
-            backgroundColor: [
-                'rgba(255,99,132,0.8)',
-                'rgba(54,162,235,0.8)',
-                'rgba(255,206,86,0.8)',
-                'rgb(152,251,153,0.8)',
-                'rgb(64,224,208,0.8)',
-            ],
-
-        }],
-
-        labels: label_katagori_pencemaran,
-    }
-
-    var chart_katagori_pencemaran = new Chart(ipa, {
-        type: 'bar',
-        data: Index_Pencemaran_air
-    });
-
-    // STATUS MUTU AIR
-    // var status_mutu_air = document.getElementById('status_mutu_air');
-    // var label_status_mutu_air = [];
-    // var data_status_mutu = [];
-
-
-
-    // var data_status_mutu_air = {
-    //     datasets: [{
-    //         data: data_status_mutu,
-    //         backgroundColor: [
-    //             'rgba(255,99,132,0.8)',
-    //             'rgba(54,162,235,0.8)',
-    //             'rgba(255,206,86,0.8)',
-    //             'rgb(152,251,153,0.8)',
-    //             'rgb(64,224,208,0.8)',
-    //             'rgb(138, 43, 226,0.8)',
-    //             'rgb(220, 20, 60,0.8)',
-    //             'rgb(85, 107, 47,0.8)',
-    //             'rgb(249, 19, 147,0.8)',
-    //             'rgb(253, 215, 3,0.8)',
-    //             'rgb(23, 25, 3,0.8)',
-    //             'rgb(123, 115, 23,0.8)',
-    //             'rgb(153, 215, 13,0.8)',
-    //             'rgb(255, 115, 53,0.8)',
-    //             'rgba(25,199,152,0.8)',
-    //         ],
-    //     }],
-    //     labels: label_status_mutu_air,
-    // }
-
-    // var chart_status_mutu_air = new Chart(status_mutu_air, {
-    //     type: 'pie',
-    //     data: data_status_mutu_air
-    // });
-
-
-    // JUMLAH IPA
-    var jumlah_ipa = document.getElementById('jumlah_pencemaran_air');
-    var data_jumlah_ipa = [];
-    var label_katagori_pencemaran = [];
-
-    <?php foreach ($Jumlah_Pencemaran_air->getResult() as $key => $value) : ?>
-        data_jumlah_ipa.push(<?= $value->Jumlah_ipa ?>);
-        label_katagori_pencemaran.push('<?= $value->katagori_pencemaran ?>');
-    <?php endforeach ?>
-
-    var Jumlah_Pencemaran_air = {
-        datasets: [{
-            label: 'Jumlah Ipa',
-            data: data_jumlah_ipa,
-
-            backgroundColor: [
-                'rgba(255,99,132,0.8)',
-                'rgba(54,162,235,0.8)',
-                'rgba(255,206,86,0.8)',
-                'rgb(64,224,208,0.8)',
-            ],
-            toolbar: {
-                show: true
+        dataset: [{
+                seriesname: "Hulu",
+                data: [{
+                        value: "125000"
+                    },
+                    {
+                        value: "300000"
+                    },
+                    {
+                        value: "480000"
+                    },
+                    {
+                        value: "800000"
+                    },
+                    {
+                        value: "1100000"
+                    }
+                ]
+            },
+            {
+                seriesname: "Tengah",
+                data: [{
+                        value: "70000"
+                    },
+                    {
+                        value: "150000"
+                    },
+                    {
+                        value: "350000"
+                    },
+                    {
+                        value: "600000"
+                    },
+                    {
+                        value: "1400000"
+                    }
+                ]
+            },
+            {
+                seriesname: "Hilir",
+                data: [{
+                        value: "10000"
+                    },
+                    {
+                        value: "100000"
+                    },
+                    {
+                        value: "300000"
+                    },
+                    {
+                        value: "600000"
+                    },
+                    {
+                        value: "900000"
+                    }
+                ]
             }
+        ]
+    };
 
-        }],
-
-        labels: label_katagori_pencemaran,
-    }
-
-    var chart_katagori_pencemaran = new Chart(jumlah_ipa, {
-        type: 'pie',
-        data: Jumlah_Pencemaran_air
+    FusionCharts.ready(function() {
+        var myChart = new FusionCharts({
+            type: "mscolumn3d",
+            renderAt: "IPA",
+            width: "100%",
+            height: "300%",
+            // showvalues: "1",
+            dataFormat: "json",
+            dataSource
+        }).render();
     });
 
-    // bod eksinting
-    var Bodgraf = document.getElementById('Bodgraf');
-    var label_Bodgraf = [];
-    var data_Bodgraf = [];
-
-    <?php foreach ($Bodgraf->getResult() as $key => $value) : ?>
-        label_Bodgraf.push('<?= $value->bod_potensial ?>');
-        data_Bodgraf.push('<?= $value->Nilai_domestik ?>');
-    <?php endforeach ?>
-
-    var data_Bodgraf = {
-        datasets: [{
-            // data: data_thread_sungai,
-            data: data_Bodgraf,
-            // borderColor: 'rgb(61, 105, 136)',
-            // backgroundColor: 'rgba(245,183,105,0.8)',
-            backgroundColor: [
-                'rgba(255,99,132,0.8)',
-                'rgba(54,162,235,0.8)',
-                'rgba(255,206,86,0.8)',
-                'rgb(152,251,153,0.8)',
-                'rgb(64,224,208,0.8)',
-                'rgb(138, 43, 226,0.8)',
-            ],
-        }],
-        labels: label_Bodgraf,
-    }
-
-    var chart_Bodgraf = new Chart(Bodgraf, {
-        type: 'bar',
-        data: data_Bodgraf
-    });
-
-    // BOD AKTUAL
-    var modelBodAktualgrafik = document.getElementById('modelBodAktualgrafik');
-    var label_modelBodAktualgrafik = [];
-    var data_modelBodAktualgrafik = [];
-
-    <?php foreach ($modelBodAktualgrafik->getResult() as $key => $value) : ?>
-        label_modelBodAktualgrafik.push('<?= $value->bod_aktual ?>');
-        data_modelBodAktualgrafik.push('<?= $value->Bod_aktual ?>');
-    <?php endforeach ?>
-
-    var data_modelBodAktualgrafik = {
-        datasets: [{
-            // data: data_thread_sungai,
-            data: data_modelBodAktualgrafik,
-            borderColor: 'rgb(61, 105, 136)',
-            backgroundColor: [
-                'rgba(255,99,132,0.8)',
-                'rgba(54,162,235,0.8)',
-                'rgba(255,206,86,0.8)',
-                'rgb(152,251,153,0.8)',
-                'rgb(64,224,208,0.8)',
-                'rgb(138, 43, 226,0.8)',
-                'rgb(220, 20, 60,0.8)',
-                'rgb(85, 107, 47,0.8)',
-                'rgb(249, 19, 147,0.8)',
-                'rgb(253, 215, 3,0.8)',
-            ]
-        }],
-        labels: label_modelBodAktualgrafik,
-    }
-
-    var chart_modelBodAktualgrafik = new Chart(modelBodAktualgrafik, {
-        type: 'doughnut',
-        data: data_modelBodAktualgrafik
-    });
-
-    // TSS AKTUAL
-    var modelTssAktualgrafik = document.getElementById('modelTssAktualgrafik');
-    var label_modelTssAktualgrafik = [];
-    var data_modelTssAktualgrafik = [];
-
-    <?php foreach ($modelTssAktualgrafik->getResult() as $key => $value) : ?>
-        label_modelTssAktualgrafik.push('<?= $value->titik_pantau ?>');
-        data_modelTssAktualgrafik.push('<?= $value->tss_aktual ?>');
-    <?php endforeach ?>
-
-    var data_modelTssAktualgrafik = {
-        datasets: [{
-            // data: data_thread_sungai,
-            data: data_modelTssAktualgrafik,
-            borderColor: 'rgb(61, 105, 136)',
-            backgroundColor: [
-                'rgba(25,199,132,0.2)',
-                // 'rgba(54,162,235,0.8)',
-                // 'rgba(255,206,86,0.8)',
-                // 'rgb(152,251,153,0.8)',
-                // 'rgb(64,224,208,0.8)',
-                // 'rgb(138, 43, 226,0.8)',
-                // 'rgb(220, 20, 60,0.8)',
-                // 'rgb(85, 107, 47,0.8)',
-                // 'rgb(249, 19, 147,0.8)',
-                // 'rgb(253, 215, 3,0.8)',
-            ]
-        }],
-        labels: label_modelTssAktualgrafik,
-    }
-
-    var chart_modelTssAktualgrafik = new Chart(modelTssAktualgrafik, {
-        type: 'line',
-        data: data_modelTssAktualgrafik
-    });
+    // END START IPA
 </script>
 <?= $this->endSection() ?>
