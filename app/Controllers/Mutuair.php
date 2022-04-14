@@ -30,27 +30,41 @@ class Mutuair extends BaseController
         return redirect()->to('/Mutuair/index');
     }
 
-    public function update($id)
+    // public function update()
+    // {
+    //     $this->Titikpantau->update([
+    //         'id_tikpan' => $this->request->getVar('id_tikpan'),
+    //         'Param_1' => $this->request->getVar('coltss'),
+    //         'Param_2' => $this->request->getVar('colbod'),
+    //         'Param_3' => $this->request->getVar('colcod'),
+    //         'Param_4' => $this->request->getVar('colfosfat'),
+    //         'Param_5' => $this->request->getVar('colcoliform'),
+    //         'Param_6' => $this->request->getVar('colferal'),
+    //         'Param_7' => $this->request->getVar('coldo'),
+    //         'Nama_sungai' => $this->request->getVar('collist'),
+    //         'periode_pantau' => $this->request->getVar('periode'),
+    //         'tanggal_pantau' => $this->request->getVar('inputtanggal'),
+    //         'status_mutu' => $this->request->getVar('colstatus'),
+    //         'Nilai_pij' => $this->request->getVar('colpij'),
+
+    //     ]);
+
+    //     return redirect()->to('/mutuair');
+    // }
+    public function update()
     {
-        $this->Titikpantau->update([
-
-            'Param_1' => $this->request->getVar('coltss'),
-            'Param_2' => $this->request->getVar('colbod'),
-            'Param_3' => $this->request->getVar('colcod'),
-            'Param_4' => $this->request->getVar('colfosfat'),
-            'Param_5' => $this->request->getVar('colcoliform'),
-            'Param_6' => $this->request->getVar('colferal'),
-            'Param_7' => $this->request->getVar('coldo'),
-            'Nama_sungai' => $this->request->getVar('collist'),
-            'periode_pantau' => $this->request->getVar('periode'),
-            'tanggal_pantau' => $this->request->getVar('inputtanggal'),
-            'status_mutu' => $this->request->getVar('colstatus'),
-            'Nilai_pij' => $this->request->getVar('colpij'),
-
-        ]);
-
-        return redirect()->to('/mutuair');
+        $model = new Titikpantau();
+        $session = session();
+        $data = [
+            'id_tikpan' => $this->request->getVar('id'),
+        ];
+        $model->save($data);
+        $session->setFlashdata('pesan', 'Data berhasil diubah');
+        return redirect()->to('/Mutuair/index');
     }
+
+
+
 
 
     public function tampilEdit($id)
@@ -59,7 +73,7 @@ class Mutuair extends BaseController
         $data = [
             'Pantau' => $Pantau->getPantau($id),
         ];
-        return view('update', $data);
+        return view('main/update', $data);
     }
 
 

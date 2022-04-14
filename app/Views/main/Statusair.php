@@ -90,23 +90,22 @@
                                         <?php foreach ($Pantau as $u) : ?>
                                             <tr>
                                                 <td><?= $u['id_tikpan']; ?></td>
-                                                <td><?= $u['koord_tikpan']; ?></td>
-                                                <td><?= $u['periode_pantau']; ?></td>
-                                                <td>
-                                                    <!-- <button class=" btn btn-success btn-sm text-white detail" data-id="" style="font-weight: 600;"><i class="bi bi-info-circle-fill"></i>&nbsp;Detail</button> | -->
-                                                    <!-- <div class="button__action__container">
+
+
+
+                                                <!-- <button class=" btn btn-success btn-sm text-white detail" data-id="" style="font-weight: 600;"><i class="bi bi-info-circle-fill"></i>&nbsp;Detail</button> | -->
+                                                <!-- <div class="button__action__container">
                                                         <button type="button" class="btn btn-primary custom__button__edit">Update</button>
                                                         <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
                                                     </div> -->
                                                 <td><?= $u['Nama_sungai']; ?></td>
                                                 <td><?= $u['Nilai_pij']; ?></td>
                                                 <td><?= $u['status_mutu']; ?></td>
-                                                <td><?= $u['tanggal_pantau']; ?></td>
-
+                                                <td><?= $u['periode_pantau']; ?></td>
                                                 <td>
 
                                                     <div class="button__action__container">
-                                                        <form action="/Mutuair/update<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
+                                                        <form action="/Mutuair/tampilEdit/<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
                                                             <?= csrf_field(); ?>
                                                             <input type="hidden" name="_method" value="POST">
                                                             <button type="button" class="btn btn-primary custombuttonedit">Update</button>
@@ -123,6 +122,12 @@
 
                                                 </td>
                                             </tr>
+                                            <form action="/Mutuair/tampilEdit/<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="POST">
+                                                <button type="submit" class="btn btn-primary"><i class="fas fa-pen"></i> Ubah</button>
+                                            </form>
+
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
