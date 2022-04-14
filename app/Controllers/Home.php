@@ -199,6 +199,11 @@ class Home extends BaseController
         return view('/main/createtss');
     }
 
+    public function update()
+    {
+        return view('/main/update');
+    }
+
 
     public function bnpencemaran()
     {

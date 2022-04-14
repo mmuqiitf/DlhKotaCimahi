@@ -7,7 +7,7 @@
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Hi Oki Kurniawan,</h1>
-        <h4>Perhitungan Mutu Air</h4>
+        <h4> Update Perhitungan Mutu Air</h4>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
@@ -39,8 +39,7 @@
                             </select>
 
                             <script>
-                                function getSelectValue()
-                                {
+                                function getSelectValue() {
                                     var selectedValue = document.getElementById("list").value;
 
                                     document.getElementById("collist").value = selectedValue;
@@ -48,25 +47,25 @@
                                 }
                             </script>
 
-                
+
                         </div>
                     </div>
-                   
+
                     <div class="cardsampling">
                         <div class="card-bodysampling">
                             <!-- General Form Elements -->
-                            ` <form action = "/mutuair/update" method = "post">
-                            <div class="cardtitikpantau">
-                        <div class="card-bodytitik">
-                        <label for="inputNumber" class="col-sm-2 col-form-label">ID Sungai</label>
-                                        <input value="<?=$Pantau['id_tikpan']?>" class="form-control" id="collist" readonly  name="collist">
-                                  
-                        </div>
-                    </div>
+                            ` <form action="/mutuair/update" method="post">
+                                <div class="cardtitikpantau">
+                                    <div class="card-bodytitik">
+                                        <label for="inputNumber" class="col-sm-2 col-form-label">ID Sungai</label>
+                                        <input value="<?= $Pantau['id_tikpan'] ?>" class="form-control" id="collist" readonly name="collist">
+
+                                    </div>
+                                </div>
                                 <div class="row mb-3">
                                     <label for="inputDate" class="col-sm-2 col-form-label">Tanggal</label>
                                     <div class="col-sm-4">
-                                        <input value="<?=$Pantau['tanggal_pantau']?>" type="date" class="form-control" id="inputtanggal" name="inputtanggal">
+                                        <input value="<?= $Pantau['tanggal_pantau'] ?>" type="date" class="form-control" id="inputtanggal" name="inputtanggal">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -103,7 +102,7 @@
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Fosfat(m3/s)</label>
                                     <div class="col-sm-4">
-                                        <input type="number"step="any" class="form-control" id="colfosfat" name="colfosfat">
+                                        <input type="number" step="any" class="form-control" id="colfosfat" name="colfosfat">
                                     </div>
                                 </div>
 
@@ -142,7 +141,7 @@
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Status Mutu Air</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control" id="colstatus" readonly  name="colstatus">
+                                        <input class="form-control" id="colstatus" readonly name="colstatus">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -168,75 +167,75 @@
 </main>
 
 <script>
-function hitung() {
-    var coltss, colbod, colcod, colfosfat, colcoliform, colfecal, coldo, bktss, bkbod, bkcod, bkfosfat, bkcoliform,
-        bkfecal, bkdo, nilai1, nilai2, nilai3, nilai4, nilai5, nilai6, nilai7, nl1, nl2, nl3, nl4, nl5, nl6, nl7,
-        nilairata, nilaimax, nilairata2, nilaimax2, nilaipij, statusmutu;
-    bktss = 50;
-    bkdo = 4;
-    bkbod = 3;
-    bkcod = 25;
-    bkfosfat = 0.2;
-    bkfecal = 1000;
-    bkcoliform = 5000;
-    coltss = document.getElementById("coltss").value;
-    colbod = document.getElementById("colbod").value;
-    colcod = document.getElementById("colcod").value;
-    colfosfat = document.getElementById("colfosfat").value;
-    colcoliform = document.getElementById("colcoliform").value;
-    colfecal = document.getElementById("colferal").value;
-    coldo = document.getElementById("coldo").value;
+    function hitung() {
+        var coltss, colbod, colcod, colfosfat, colcoliform, colfecal, coldo, bktss, bkbod, bkcod, bkfosfat, bkcoliform,
+            bkfecal, bkdo, nilai1, nilai2, nilai3, nilai4, nilai5, nilai6, nilai7, nl1, nl2, nl3, nl4, nl5, nl6, nl7,
+            nilairata, nilaimax, nilairata2, nilaimax2, nilaipij, statusmutu;
+        bktss = 50;
+        bkdo = 4;
+        bkbod = 3;
+        bkcod = 25;
+        bkfosfat = 0.2;
+        bkfecal = 1000;
+        bkcoliform = 5000;
+        coltss = document.getElementById("coltss").value;
+        colbod = document.getElementById("colbod").value;
+        colcod = document.getElementById("colcod").value;
+        colfosfat = document.getElementById("colfosfat").value;
+        colcoliform = document.getElementById("colcoliform").value;
+        colfecal = document.getElementById("colferal").value;
+        coldo = document.getElementById("coldo").value;
 
-    nilai1 = coltss / bktss;
-    nilai2 = ((7 - coldo) / (7 - bkdo)) / bkdo;
-    nilai3 = colbod / bkbod;
-    nilai4 = colcod / bkcod;
-    nilai5 = colfosfat / bkfosfat;
-    nilai6 = colfecal / bkfecal;
-    nilai7 = colcoliform / bkcoliform;
-
-
-    nl1 = nilai1;
-    // 1 + (5 * (Math.log10(coltss / bktss)));
-    nl2 = nilai2;
-    // 1 + (5 * (Math.log10(coldo / bkdo)));
-    nl3 = 1 + (5 * (Math.log10(colbod / bkbod)));
-    nl4 = nilai4;
-    // 1 + (5 * (Math.log10(colcod / bkcod)));
-    nl5 = nilai5;
-    // 1 + (5 * (Math.log10(colfosfat / bkfosfat)));
-    nl6 = 1 + (5 * (Math.log10(colfecal / bkfecal)));
-    nl7 = nilai7;
-    //  1 + (5 * (Math.log10(colcoliform / bkcoliform)));
+        nilai1 = coltss / bktss;
+        nilai2 = ((7 - coldo) / (7 - bkdo)) / bkdo;
+        nilai3 = colbod / bkbod;
+        nilai4 = colcod / bkcod;
+        nilai5 = colfosfat / bkfosfat;
+        nilai6 = colfecal / bkfecal;
+        nilai7 = colcoliform / bkcoliform;
 
 
-
-    nilairata = (nl1 + nl2 + nl3 + nl5 + nl6 + nl7) / 7;
-    nilaimax = Math.max(nl1, nl2, nl3, nl4, nl5, nl6, nl7);
-    nilairata2 = Math.pow(nilairata, 2);
-    nilaimax2 = Math.pow(nilaimax, 2);
+        nl1 = nilai1;
+        // 1 + (5 * (Math.log10(coltss / bktss)));
+        nl2 = nilai2;
+        // 1 + (5 * (Math.log10(coldo / bkdo)));
+        nl3 = 1 + (5 * (Math.log10(colbod / bkbod)));
+        nl4 = nilai4;
+        // 1 + (5 * (Math.log10(colcod / bkcod)));
+        nl5 = nilai5;
+        // 1 + (5 * (Math.log10(colfosfat / bkfosfat)));
+        nl6 = 1 + (5 * (Math.log10(colfecal / bkfecal)));
+        nl7 = nilai7;
+        //  1 + (5 * (Math.log10(colcoliform / bkcoliform)));
 
 
 
-    nilaipij = Math.sqrt((nilairata2 + nilaimax2) / 2);
+        nilairata = (nl1 + nl2 + nl3 + nl5 + nl6 + nl7) / 7;
+        nilaimax = Math.max(nl1, nl2, nl3, nl4, nl5, nl6, nl7);
+        nilairata2 = Math.pow(nilairata, 2);
+        nilaimax2 = Math.pow(nilaimax, 2);
 
 
 
-    if (nilaipij <= 1) {
-        statusmutu = "Baik";
-    } else if (nilaipij <= 5) {
-        statusmutu = "Tercemar Ringan";
-    } else if (nilaipij <= 10) {
-        statusmutu = "Tercemar Sedang";
-    } else if (nilaipij > 10) {
-        statusmutu = "Tercemar Berat";
+        nilaipij = Math.sqrt((nilairata2 + nilaimax2) / 2);
+
+
+
+        if (nilaipij <= 1) {
+            statusmutu = "Baik";
+        } else if (nilaipij <= 5) {
+            statusmutu = "Tercemar Ringan";
+        } else if (nilaipij <= 10) {
+            statusmutu = "Tercemar Sedang";
+        } else if (nilaipij > 10) {
+            statusmutu = "Tercemar Berat";
+        }
+
+
+
+        document.getElementById("colstatus").value = statusmutu;
+        document.getElementById("colpij").value = nilaipij;
     }
-
-
-
-    document.getElementById("colstatus").value = statusmutu;
-    document.getElementById("colpij").value = nilaipij;
-}
 </script>
 <!-- End #main -->
 
