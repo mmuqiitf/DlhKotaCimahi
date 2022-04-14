@@ -114,7 +114,7 @@
                                                         <form action="/Mutuair/hapusPantau/<?= $u['id_tikpan']; ?>" method="post" class="d-inline">
                                                             <?= csrf_field(); ?>
                                                             <input type="hidden" name="_method" value="DELETE">
-                                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?');"><i class="fas fa-trash"></i> Hapus</button>
                                                         </form>
 
 

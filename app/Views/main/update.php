@@ -7,7 +7,7 @@
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Hi Oki Kurniawan,</h1>
-        <h4>Perhitungan Mutu Air</h4>
+        <h4> Update Perhitungan Mutu Air</h4>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
@@ -58,6 +58,10 @@
                                     <div class="card-bodytitik">
                                         <label for="inputNumber" class="col-sm-2 col-form-label">ID Sungai</label>
                                         <input value="<?= $Pantau['id_tikpan'] ?>" class="form-control" id="id" readonly name="collist">
+
+                                        <input value="<?= $Pantau['id_tikpan'] ?>" class="form-control" id="collist" readonly name="collist">
+
+
                                     </div>
                                 </div>
                                 <div class="row mb-3">

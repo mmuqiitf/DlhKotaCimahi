@@ -55,6 +55,8 @@ $routes->get('/BODEksisting', 'Home::BODEksisting', ['filter' => 'auth']);
 $routes->get('/BODPotensial', 'Home::BODPotensial', ['filter' => 'auth']);
 $routes->get('/BODEksisting', 'BODEksisting::index', ['filter' => 'auth']);
 $routes->get('/BODEksisting/create', 'BODEksisting::create', ['filter' => 'auth']);
+// $routes->add('/update/(:any)', 'Mutuair::update/$1');
+$routes->add('/update', 'Home::update', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

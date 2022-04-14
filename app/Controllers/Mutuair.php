@@ -73,28 +73,16 @@ class Mutuair extends BaseController
         $data = [
             'Pantau' => $Pantau->getPantau($id),
         ];
+
         return view('main/update', $data);
+
+        return view('/update', $data);
     }
 
 
 
 
 
-
-    public function delete_tss()
-    {
-        $data = $this->request->getvar('id_tikpan');
-        $this->Titikpantau->delete_tss($data);
-        session()->setFlashdata('pesan', 'data berhasil dihapus');
-        return redirect()->to('/mutuair');
-    }
-    public function delete_tss1($id)
-    {
-        $tss = $this->Titikpantau->searchBy('id_tikpan', $id);
-        $this->Titikpantau->delete($tss);
-        session()->setFlashdata('success', 'Data berhasil dihapus', $tss);
-        return redirect()->to('/mutuair');
-    }
 
     // public function delete_bod()
     // {
@@ -113,28 +101,13 @@ class Mutuair extends BaseController
     //     return $data;
     // }
 
-    public function delete()
+
+
+
+
+    public function update($id)
     {
-        $this->Titikpantau->delete($id_tikpan);
-        return redirect()->to('/main/Statusair');
-    }
-
-
-
-    public function delete_bod()
-    {
-
-        //dd($data);
-        $this->BodEksistingModel->delete($data);
-        session()->setFlashdata('success', 'Data berhasil dihapus');
-        return redirect()->to('/BODEksisting/listbod');
-    }
-
-
-
-    public function save()
-    {
-        $this->Titikpantau->save([
+        $this->Titikpantau->update([
             'Param_1' => $this->request->getVar('coltss'),
             'Param_2' => $this->request->getVar('colbod'),
             'Param_3' => $this->request->getVar('colcod'),
@@ -150,7 +123,7 @@ class Mutuair extends BaseController
 
         ]);
 
-        return redirect()->to('/statusair');
+        return redirect()->to('/Mutuair/index');
     }
 
 
