@@ -31,6 +31,7 @@ endforeach;
         responsive: true,
         data: {
             labels: [<?= $na ?>],
+
             datasets: [{
                 label: 'Nilai Pij',
                 backgroundColor: [
@@ -61,7 +62,16 @@ endforeach;
                 ],
                 fill: false,
                 data: [<?= $total ?>]
-
+            }, {
+                label: 'Nilai hulu',
+                data: [10, 17, 7, 9, 2, 2, 4, 5, 6, 7],
+                borderColor: "green",
+                fill: false
+            }, {
+                label: 'Nilai hilir',
+                data: [3, 7, 2, 5, 6, 4, 2, 1, 2, 1],
+                borderColor: "blue",
+                fill: false
             }],
             options: {
                 formatter: function(value) {
