@@ -51,11 +51,11 @@
   padding: 8px 25px;
   transition: 0.2s;
 }
-.input__container button:hover{
+.input__container button:hover {
   background: #fff;
   color: #3d6988;
 }
-.select__custom__container button{
+.select__custom__container button {
   background: #3d6988;
   border: none;
   border-radius: 100px;
@@ -68,7 +68,7 @@
   transition: 0.2s;
 }
 
-.select__custom__container button:hover{
+.select__custom__container button:hover {
   background: #fff;
   color: #3d6988;
   outline-style: solid;
@@ -210,10 +210,15 @@
 .custom__button__edit {
   background: #3d6988;
   border: none;
-  border-radius: 15px;
-  padding: 8px 25px;
+  border-radius: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 13px;
   font-weight: 600;
+  width: 40px;
+  height: 40px;
 }
 
 .custom__button__edit:hover {
@@ -231,10 +236,14 @@
 .custom__button__delete {
   background: #ff5c5c;
   border: none;
-  border-radius: 15px;
-  padding: 8px 25px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 13px;
   font-weight: 600;
+  width: 40px;
+  height: 40px;
 }
 
 .custom__header__create {
@@ -353,4 +362,21 @@
 
 .pager_custom {
   margin: 25px 0px;
+}
+
+.custom__btn__excell {
+  width: 140px;
+}
+
+.button__excell {
+  width: 160px;
+  height: 60px;
+  background: white !important;
+  color: #3d6988 !important;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+
+.custom__modal__content__excell {
+  padding: 25px;
 }

@@ -68,8 +68,8 @@
                     <div class="col px-2 d-flex align-items-start justify-content-end">
                         <?= form_open_multipart('BODEksisting/importexcel'); ?>
                         <form action="<?= base_url('BODEksisting/importexcel'); ?>" method="post">
-                            <input class="form-control" name="file_excel" type="file" accept=".xlsx, .xls">
-                            <button type="submit" class="btn btn-primary mt-2">Import Excel...</button>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalExcell" class="btn btn-primary custom__btn__excell">Import Excel...</button>
+                            <?= $this->include('/feedback/importExcell__modal') ?>
                             <?= form_close(); ?>
                     </div>
                 </div>
@@ -80,10 +80,13 @@
                 <table class="custom__table">
                     <thead>
                         <tr>
-                            <th scope="col">No.id</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Nama Sungai</th>
                             <th scope="col">Titik Pantau</th>
                             <th scope="col">Tanggal Sampling</th>
+                            <th scope="col">Debit</th>
+                            <th scope="col">BOD</th>
+                            <th scope="col">Beban Pencemar</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -96,10 +99,13 @@
                                     <td><?= $bodeks['nama_sungai'] ?></td>
                                     <td><?= $bodeks['titik_pantau'] ?></td>
                                     <td><?= $bodeks['waktu_sampling'] ?></td>
+                                    <td><?= $bodeks['Debit'] ?></td>
+                                    <td><?= $bodeks['BOD'] ?></td>
+                                    <td><?= $bodeks['beban_pencemar'] ?></td>
                                     <td>
                                         <div class="button__action__container">
-                                            <a href="/BODEksisting/update_list_bod/<?= $bodeks['ID_BOD_Eksisting'] ?>" class="btn btn-primary custom__button__edit">Update</a>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn btn-danger custom__button__delete">Delete</button>
+                                            <a href="/BODEksisting/update_list_bod/<?= $bodeks['ID_BOD_Eksisting'] ?>" class="btn btn-primary custom__button__edit"><i class="bi bi-pencil-square"></i></a>
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn btn-danger custom__button__delete"><i class="bi bi-trash"></i></button>
                                             <input type="hidden" name="ID_BOD_Eksisting" value="<?= $bodeks['ID_BOD_Eksisting']; ?>">
                                             <?= $this->include('/feedback/delete__modal') ?>
                                         </div>
