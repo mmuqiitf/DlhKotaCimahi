@@ -50,11 +50,8 @@
                             <div class="col px-1">
                                 <button class="btn btn-primary" type="submit" name="submit">Cari...</button>
                             </div>
-
                         </div>
-
                     </div>
-
         </form>
     </div>
     </div>
@@ -71,23 +68,27 @@
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modalExcell" class="btn btn-primary custom__btn__excell">Import Excel...</button>
                             <?= $this->include('/feedback/importExcell__modal') ?>
                             <?= form_close(); ?>
+
                     </div>
                 </div>
 
             </div>
+            <small class="invalid-feedback px-2 d-flex justify-content-end">
+                <?= $validation->getError('file_excel'); ?>
+            </small>
 
             <div class="table__wrapper">
-                <table class="custom__table">
+                <table id="listbod" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nama Sungai</th>
-                            <th scope="col">Titik Pantau</th>
-                            <th scope="col">Tanggal Sampling</th>
-                            <th scope="col">Debit</th>
-                            <th scope="col">BOD</th>
-                            <th scope="col">Beban Pencemar</th>
-                            <th scope="col">Aksi</th>
+                            <th>ID</th>
+                            <th>Nama Sungai</th>
+                            <th>Titik Pantau</th>
+                            <th>Tanggal Sampling</th>
+                            <th>Debit(m3/s)</th>
+                            <th>BOD (mg/L)</th>
+                            <th>Beban Pencemar (Kg/hari)</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -127,15 +128,6 @@
 
         </div>
     </div>
-
-
-
-
-
-
-
-
-
 </main>
 
 

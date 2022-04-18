@@ -38,6 +38,7 @@ class BODEksisting extends BaseController
             $bod = $this->BodEksistingModel->paginate(5, "bod_eksisting");
         }
         $data = [
+            'validation' => \Config\Services::validation(),
             'title' => 'BOD Eksisting',
             'bod' => $bod,
             'pager' => $this->BodEksistingModel->pager,
@@ -329,7 +330,19 @@ class BODEksisting extends BaseController
     }
     public function importexcel()
     {
-
+        //validation
+        if(!$this->validate([
+            'file_excel' => [
+                'rules' => 'uploaded[file_excel]|ext_in[file_excel,xlsx,xls]|max_size[file_excel,1024]',
+                'errors' => [
+                    'uploaded' => 'File harus di upload',
+                    'ext_in' => 'Ekstensi file tidak di izinkan',
+                    'max_size' => 'Ukuran file terlalu besar'
+                ]
+            ]
+        ])){
+            return redirect()->to('/BODEksisting/listbod/')->withInput()->with('errors', $this->validator->getErrors());
+        }
         $file = $this->request->getFile('file_excel');
         //d($file);
         $ext = $file->getClientExtension();
