@@ -16,10 +16,4 @@
 
  <!-- Template Main CSS File -->
  <link href="/assets/css/style.css" rel="stylesheet">
- <!-- <link href="/assets/css/respon.css" rel="stylesheet"> -->
-
- <!-- Include fusioncharts core library -->
- <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
- <!-- Include fusion theme -->
- <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
- <script src="<?= base_url() ?>/plugins/jquery/jquery.min.js"></script>
+ <link href="/assets/css/respon.css" rel="stylesheet">

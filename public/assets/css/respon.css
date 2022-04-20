@@ -43,5 +43,69 @@
   background-color: #ffffff;
   }
 
+  /* card */
+  .dashboard .info-card {
+    /* padding-bottom: 30px;
+    padding-top: 10px; */
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    border-radius: 20px;
+    background: #f6f6fe;
+    transition: ease-in-out 0.7s;
+  }
+
+  .dashboard .info-card .card-icon {
+    font-size: 32px;
+    line-height: 0;
+    margin-top: 15%;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    color: #f6f6fe;
+    background: #3d6988;
+  }
+  .dashboard .info-card h6 {
+    font-size: 16px;
+    color: #012970;
+    font-weight: 1000;
+    margin-top: 50px;
+  }
+  
+  /* card */
+
+  .Grafikpilihan #grafik-flters {
+    margin-top: -50%;
+    list-style: none;
+    text-align: center;
+    border-radius: 50px;
+  }
+
+  .Grafikpilihan #grafik-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px 18px 10px 18px;
+    font-size: 16px;
+    line-height: 1;
+    margin: 0 3px 10px 3px;
+    transition: all ease-in-out 0.3s;
+    font-weight: 800;
+    color: #3d6988;
+    align-items: center;
+    width: 90%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background: #f6f6fe;
+  }
+
+  /* grafik */
+.grafik {
+  margin-top: -5%;
+width: 100%;
+  position: relative;
+  transition: 3s;
+
+}
 
 }

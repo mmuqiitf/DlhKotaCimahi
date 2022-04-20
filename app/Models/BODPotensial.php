@@ -10,6 +10,7 @@ class BODPotensial extends Model
     protected $primaryKey = 'id_potensial';
     protected $allowedFields = [
         'Tahun_domestik',
-        'Nilai_domestik',
+        'Nilai_domesitk',
     ];
+    protected $useTimestamps = false;
 }

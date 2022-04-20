@@ -9,7 +9,6 @@ use App\Models\GrafikModel;
 use \App\Models\ThreadModel;
 use \App\Models\SungaiModel;
 use App\Models\BODPotensial;
-use App\Models\BodEksisting;
 use App\Models\TssAktualGrafikModel;
 
 class Home extends BaseController
@@ -18,8 +17,6 @@ class Home extends BaseController
     {
         $modelUser = new Users();
         $modelIka = new IkaModel();
-        $modelBodEksisting = new BodEksisting();
-
         $modelSungai = new SungaiModel();
         $modelThread = new ThreadModel();
         $modelBODPotensial = new BODPotensial();
@@ -32,6 +29,7 @@ class Home extends BaseController
 
         $jumlah_thread = $modelThread->countAllResults();
         $jumlah_user = $modelUser->countAllResults();
+
 
         // $thread_per_sungai = $modelThread->select('COUNT(thread.id) AS jumlah, sungai.nama_sungai AS sungai,thread.Nilai_pij AS Nilai_pij')
         //     ->join('sungai', 'thread.id_sungai=sungai.id_sungai')
@@ -56,11 +54,11 @@ class Home extends BaseController
 
         // START BOD
         // BOD EKSISTING
-        $bodEKSISTING =  $modelBodEksisting->select('COUNT(bod_eksisting.ID_BOD_Eksisting) AS beban_pencemar, bod_eksisting.nama_sungai AS nama_sungai ,bod_eksisting.titik_pantau AS titik_pantau,bod_eksisting.beban_pencemar AS beban_pencemar')
-            ->groupBy('bod_eksisting.nama_sungai')
-            ->groupBy('bod_eksisting.titik_pantau')
-            ->groupBy('bod_eksisting.beban_pencemar')
-            ->get();
+        // $bodEKSISTING =  $modelBodEksisting->select('COUNT(bod_eksisting.ID_BOD_Eksisting) AS beban_pencemar, bod_eksisting.nama_sungai AS nama_sungai ,bod_eksisting.titik_pantau AS titik_pantau,bod_eksisting.beban_pencemar AS beban_pencemar')
+        //     ->groupBy('bod_eksisting.nama_sungai')
+        //     ->groupBy('bod_eksisting.titik_pantau')
+        //     ->groupBy('bod_eksisting.beban_pencemar')
+        //     ->get();
         // END BOD EKSISTING
 
         // BOD POTENSIAL
@@ -127,7 +125,7 @@ class Home extends BaseController
             'jumlah_user' => $jumlah_user,
             'nilaiIKA' => $nilaiIKA,
             'jumlahIKA' => $jumlahIKA,
-            'bodEKSISTING' => $bodEKSISTING,
+            // 'bodEKSISTING' => $bodEKSISTING,
             'BodPOTENSIAL' => $BodPOTENSIAL,
 
 
@@ -148,6 +146,224 @@ class Home extends BaseController
         ]);
     }
 
+    // BISMILAH IPA PILIH
+    // api  index pencemarn
+    public function IndexPencemaran(Type $var = null)
+    {
+        $ModelIpaModel = new IpaModel();
+        $bulan = $this->request->getPost('bulan');
+
+        $db = \Config\Database::connect();
+
+        $query = $db->query("SELECT periode AS tgl,Titik_pantau,Nilai_pij FROM ipa WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
+        $category = $db->table('ipa')->select('Nama_sungai')->whereNotIn("Nama_sungai", [""])->distinct()->get()->getResult();
+        if ($category != null) {
+            foreach ($category as $key => $value) {
+                $resultCategory[] = [
+                    "label" => $value->Nama_sungai,
+                ];
+            }
+        }
+
+        $seriesName = ["Hulu", "Tengah", "Hilir"];
+        foreach ($seriesName as $key => $value) {
+            $resultDataSet[] = [
+                "seriesname" => $value,
+                "data" => $this->checkNilaiPij($value, $bulan),
+            ];
+        }
+        $respon = [
+            'category' => $resultCategory,
+            "dataset" => $resultDataSet,
+            "bulan" => $bulan,
+        ];
+        echo json_encode($respon);
+    }
+    // use for check location
+    public function checkNilaiPij($titik_pantau, $bulan)
+    {
+        $db = \Config\Database::connect();
+        $nilai_pij = $db->table('ipa')->select('Nilai_pij')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(periode,1,7)", $bulan)->get()->getResult();
+        $result = [];
+        if ($nilai_pij != null) {
+            foreach ($nilai_pij as $key => $value) {
+                $result[] = [
+                    "value" => $value->Nilai_pij,
+                ];
+            }
+        }
+        return $result;
+    }
+    // END IPA PILIH
+
+    // START STATUS MUTU AIR
+    public function StatusMutuAir(Type $var = null)
+    {
+        $bulan = $this->request->getPost('bulan');
+
+        $db = \Config\Database::connect();
+
+        $query = $db->query("SELECT periode AS tgl,Titik_pantau,Nilai_pij FROM ipa WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
+        $category = $db->table('statusmutuair')->select('Periode')->whereNotIn("Periode", [""])->distinct()->get()->getResult();
+        if ($category != null) {
+            foreach ($category as $key => $value) {
+                $resultCategory[] = [
+                    "label" => $value->Periode,
+                ];
+            }
+        }
+
+        $seriesName = ["Hulu", "Tengah", "Hilir"];
+        foreach ($seriesName as $key => $value) {
+            $resultDataSet[] = [
+                "seriesname" => $value,
+                "data" => $this->checkNilaiPi($value, $bulan),
+            ];
+        }
+        $respon = [
+            'category' => $resultCategory,
+            "dataset" => $resultDataSet,
+            "bulan" => $bulan,
+        ];
+        echo json_encode($respon);
+    }
+
+    public function checkNilaiPi($titik_pantau, $bulan)
+    {
+        $db = \Config\Database::connect();
+        $nilai_pij = $db->table('statusmutuair')->select('Nilai_pij')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(periode,1,7)", $bulan)->get()->getResult();
+        $result = [];
+        if ($nilai_pij != null) {
+            foreach ($nilai_pij as $key => $value) {
+                $result[] = [
+                    "value" => $value->Nilai_pij,
+                ];
+            }
+        }
+        return $result;
+    }
+    // END STATUS MUTU AIR
+
+
+    // START BOD EKSISTING
+    public function bodeksisting(Type $var = null)
+    {
+        $bulan = $this->request->getPost('bulan');
+
+        $db = \Config\Database::connect();
+
+        $query = $db->query("SELECT periode AS tgl,Titik_pantau,Nilai_bodek FROM eksisting WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
+        $category = $db->table('eksisting')->select('Nama_sungai')->whereNotIn("Nama_sungai", [""])->distinct()->get()->getResult();
+        if ($category != null) {
+            foreach ($category as $key => $value) {
+                $resultCategory[] = [
+                    "label" => $value->Nama_sungai,
+                ];
+            }
+        }
+
+        $seriesName = ["Hulu", "Tengah", "Hilir"];
+        foreach ($seriesName as $key => $value) {
+            $resultDataSet[] = [
+                "seriesname" => $value,
+                "data" => $this->checkNilaiBodek($value, $bulan),
+            ];
+        }
+        $respon = [
+            'category' => $resultCategory,
+            "dataset" => $resultDataSet,
+            "bulan" => $bulan,
+        ];
+        echo json_encode($respon);
+    }
+
+    public function checkNilaiBodek($titik_pantau, $bulan)
+    {
+        $db = \Config\Database::connect();
+        $nilai_bodek = $db->table('Eksisting')->select('Nilai_bodek')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(periode,1,7)", $bulan)->get()->getResult();
+        $result = [];
+        if ($nilai_bodek != null) {
+            foreach ($nilai_bodek as $key => $value) {
+                $result[] = [
+                    "value" => $value->Nilai_bodek,
+                ];
+            }
+        }
+        return $result;
+    }
+    // END EKSISTING
+
+
+    // START TSS EKSISTING
+    public function tsseksisting(Type $var = null)
+    {
+        $bulan = $this->request->getPost('bulan');
+
+        $db = \Config\Database::connect();
+
+        $query = $db->query("SELECT periode AS tgl,Titik_pantau,Nilai_tssek FROM eksisting WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
+        $category = $db->table('eksisting')->select('Nama_sungai')->whereNotIn("Nama_sungai", [""])->distinct()->get()->getResult();
+        if ($category != null) {
+            foreach ($category as $key => $value) {
+                $resultCategory[] = [
+                    "label" => $value->Nama_sungai,
+                ];
+            }
+        }
+
+        $seriesName = ["Hulu", "Tengah", "Hilir"];
+        foreach ($seriesName as $key => $value) {
+            $resultDataSet[] = [
+                "seriesname" => $value,
+                "data" => $this->checkNilaiTssek($value, $bulan),
+            ];
+        }
+        $respon = [
+            'category' => $resultCategory,
+            "dataset" => $resultDataSet,
+            "bulan" => $bulan,
+        ];
+        echo json_encode($respon);
+    }
+
+    public function checkNilaiTssek($titik_pantau, $bulan)
+    {
+        $db = \Config\Database::connect();
+        $nilai_bodek = $db->table('Eksisting')->select('Nilai_tssek')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(periode,1,7)", $bulan)->get()->getResult();
+        $result = [];
+        if ($nilai_bodek != null) {
+            foreach ($nilai_bodek as $key => $value) {
+                $result[] = [
+                    "value" => $value->Nilai_tssek,
+                ];
+            }
+        }
+        return $result;
+    }
+    // END EKSISTING
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // INDEX PENCEMARAN AIR
@@ -159,20 +375,20 @@ class Home extends BaseController
         $db = \Config\Database::connect();
 
         $query = $db->query("SELECT periode AS tgl,Titik_pantau,Nilai_pij FROM ipa WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
-        // $query = $db->query("SELECT tglfaktur AS tgl,nama,totalharga FROM barangmasuk WHERE DATE_FORMAT(tglfaktur,'%Y-%m') = '$bulan' ORDER BY tglfaktur ASC")->getResult();
-
-
 
         $data = [
             'grafik' => $query
         ];
 
         $chartData = [
-            'data' => view('pages/Grafik/GrafikBebanPencemaran', $data)
+            'data' => view('/pages/Grafik/GrafikBebanPencemaran', $data)
         ];
 
         echo json_encode($chartData);
     }
+
+
+
 
     // END INDEX PENCEMARAN AIR
 
@@ -215,10 +431,10 @@ class Home extends BaseController
         return view('/main/bebanpencemaran');
     }
 
-    public function BODEksisting()
-    {
-        return view('/pages/BODEksisting/index');
-    }
+    // public function BODEksisting()
+    // {
+    //     return view('/pages/BODEksisting/index');
+    // }
     public function BODPotensial()
     {
         return view('/pages/BODPotensial');

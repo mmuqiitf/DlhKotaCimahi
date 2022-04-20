@@ -57,6 +57,13 @@ $routes->get('/BODEksisting', 'BODEksisting::index', ['filter' => 'auth']);
 $routes->get('/BODEksisting/create', 'BODEksisting::create', ['filter' => 'auth']);
 // $routes->add('/update/(:any)', 'Mutuair::update/$1');
 $routes->add('/update', 'Home::update', ['filter' => 'auth']);
+
+// API
+$routes->post('/api/indexPencemaran/', 'Home::IndexPencemaran');
+$routes->post('/api/StatusMutuAir/', 'Home::StatusMutuAir');
+$routes->post('api/bodeksisting', 'Home::bodeksisting');
+$routes->post('api/tsseksisting', 'Home::tsseksisting');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
