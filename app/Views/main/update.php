@@ -18,7 +18,6 @@
                     <div class="cardsungaimutu">
                         <div class="card-bodysungai">
                             <select id="list" name="list" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onclick="getSelectValue()">
-
                                 <option selected>Nama Sungai</option>
                                 <option value="Sungai Cisangkan Hulu">Sungai Cisangkan Hulu</option>
                                 <option value="Sungai Cisangkan Tengah">Sungai Cisangkan Tengah</option>
@@ -58,7 +57,10 @@
                                 <div class="cardtitikpantau">
                                     <div class="card-bodytitik">
                                         <label for="inputNumber" class="col-sm-2 col-form-label">ID Sungai</label>
+                                        <input value="<?= $Pantau['id_tikpan'] ?>" class="form-control" id="id" readonly name="collist">
+
                                         <input value="<?= $Pantau['id_tikpan'] ?>" class="form-control" id="collist" readonly name="collist">
+
 
                                     </div>
                                 </div>
@@ -72,6 +74,7 @@
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Periode Pantau</label>
                                     <div class="col-sm-4">
                                         <input value="<?= $Pantau['periode_pantau'] ?>" type="number" class="form-control" id="periode" name="periode">
+
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -150,6 +153,7 @@
                                         <button type="submit" class="tombol3 btn btn-primary">Simpan
                                             Hasil</button>
                                         <!-- <button type="submit" class="btn btn-primary">Simpan Hasil</button> -->
+                                        <button type="submit" class="btn rounded-pill button-login">Simpan</button>
                                     </div>
                                 </div>
                             </form>
