@@ -56,27 +56,6 @@ class BODEksisting extends BaseController
     }
 
 
-    public function update($id)
-    {
-        $this->Titikpantau->update([
-            'Param_1' => $this->request->getVar('coltss'),
-            'Param_2' => $this->request->getVar('colbod'),
-            'Param_3' => $this->request->getVar('colcod'),
-            'Param_4' => $this->request->getVar('colfosfat'),
-            'Param_5' => $this->request->getVar('colcoliform'),
-            'Param_6' => $this->request->getVar('colferal'),
-            'Param_7' => $this->request->getVar('coldo'),
-            'Nama_sungai' => $this->request->getVar('collist'),
-            'periode_pantau' => $this->request->getVar('periode'),
-            'tanggal_pantau' => $this->request->getVar('inputtanggal'),
-            'status_mutu' => $this->request->getVar('colstatus'),
-            'Nilai_pij' => $this->request->getVar('colpij'),
-
-        ]);
-
-        return redirect()->to('/mutuair');
-    }
-
 
 
 
@@ -90,4 +69,15 @@ class BODEksisting extends BaseController
         ];
         echo view('pages/mutuair', $data);
     }
+
+    // function updatedata()
+    // {
+    //     $model = new Titikpantau();
+    //     $data = [
+    //         'Pantau' => 'Form Ubah Data Komik',
+    //         'Pantau' => \Config\Services::validation(),
+    //         'Nama_sungai' => $this->id_tikpan->get($id)
+    //     ];
+    //     echo view('pages/mutuair', $data);
+    // }
 }
