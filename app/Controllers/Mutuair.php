@@ -35,11 +35,12 @@ class Mutuair extends BaseController
 
     public function tampilEdit($id)
     {
-        $Pantau = new Titikpantau;
+
+        $Pantau = new Titikpantau();
         $data = [
             'Pantau' => $Pantau->getPantau($id),
         ];
-        return view('/update', $data);
+        return view('main/update', $data);
     }
 
 
@@ -70,7 +71,9 @@ class Mutuair extends BaseController
 
     public function update($id)
     {
-        $this->Titikpantau->update([
+
+        $this->Titikpantau->save([
+            'id_tikpan' => $id,
             'Param_1' => $this->request->getVar('coltss'),
             'Param_2' => $this->request->getVar('colbod'),
             'Param_3' => $this->request->getVar('colcod'),

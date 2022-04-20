@@ -201,6 +201,7 @@ class Home extends BaseController
 
     public function update()
     {
+
         return view('/main/update');
     }
 
