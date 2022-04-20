@@ -169,16 +169,16 @@
                             </div>
                             <!-- END JUMLAH IKA -->
                             <!-- STATUS MUTU AIR -->
-                            <!-- <div>
+                            <div>
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Jumlah Status Mutu Air</h5>
-                                        <div id="SMA"></div>
+                                        <div id="jumlahmutu"></div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
 
-                            <div>
+                            <!-- <div>
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Status Mutu Air</h5>
@@ -192,7 +192,7 @@
                                         <div id="viewTampilSMA"></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- END STATUS MUTU AIR -->
                         </div>
                     </div>
@@ -552,6 +552,7 @@
         FusionCharts.ready(function() {
             var myChart = new FusionCharts({
                 type: "mscolumn3d",
+                // type: "msline",
                 renderAt: "viewTampilGrafik",
                 width: "100%",
                 height: "190%",
@@ -698,5 +699,35 @@
         getDataTssEksisting()
     });
     // END TSS EKSISTING
+
+    // JUMLAH MUTU SEMENTARA
+    <?php
+    $Dataaa = [];
+    foreach ($jumlahMUTU->getResult() as $key => $value) : {
+            $Dataaa[] = [
+                'label' => $value->katagori,
+                'value' => $value->jumlah
+            ];
+        };
+    endforeach ?>
+
+    const Dataaa = <?= json_encode($Dataaa); ?>;
+    FusionCharts.ready(function() {
+        var myChart = new FusionCharts({
+            type: "pie3d",
+            renderAt: "jumlahmutu",
+            width: "100%",
+            height: "300%",
+            dataFormat: "json",
+            dataSource: {
+                "chart": {
+                    showvalues: "1",
+                    theme: "fusion",
+                },
+                data: Dataaa,
+            },
+        }).render();
+    });
+    // END
 </script>
 <?= $this->endSection() ?>

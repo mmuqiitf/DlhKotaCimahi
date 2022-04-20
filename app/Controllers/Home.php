@@ -10,14 +10,18 @@ use \App\Models\ThreadModel;
 use \App\Models\SungaiModel;
 use App\Models\BODPotensial;
 use App\Models\TssAktualGrafikModel;
+use App\Models\Statusmutuair;
 
 class Home extends BaseController
 {
     public function index()
     {
         $modelUser = new Users();
+        $modelStatusmutuair = new Statusmutuair();
+
         $modelIka = new IkaModel();
         $modelSungai = new SungaiModel();
+
         $modelThread = new ThreadModel();
         $modelBODPotensial = new BODPotensial();
         $modelTssAktualgrafik = new TssAktualGrafikModel();
@@ -48,9 +52,16 @@ class Home extends BaseController
             ->groupBy('ika.tahun_ika')
             ->groupBy('ika.jumlah_ika')
             ->get();
+
         // END JUMLAH IKA
         // ===END START IKA===
 
+        // JUMLAH MUTU
+        $jumlahMUTU =  $modelStatusmutuair->select('COUNT(statusmutuair.id_mutuair) AS jumlah, statusmutuair.katagori AS katagori ,statusmutuair.jumlah AS jumlah')
+            ->groupBy('statusmutuair.katagori')
+            ->groupBy('statusmutuair.jumlah')
+            ->get();
+        // END 
 
         // START BOD
         // BOD EKSISTING
@@ -125,6 +136,7 @@ class Home extends BaseController
             'jumlah_user' => $jumlah_user,
             'nilaiIKA' => $nilaiIKA,
             'jumlahIKA' => $jumlahIKA,
+            'jumlahMUTU' =>  $jumlahMUTU,
             // 'bodEKSISTING' => $bodEKSISTING,
             'BodPOTENSIAL' => $BodPOTENSIAL,
 
@@ -203,7 +215,7 @@ class Home extends BaseController
 
         $db = \Config\Database::connect();
 
-        $query = $db->query("SELECT periode AS tgl,Titik_pantau,Nilai_pij FROM ipa WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
+        $query = $db->query("SELECT periode AS tgl,Titik_pantau,Nilai_pij FROM statusmutuair WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
         $category = $db->table('statusmutuair')->select('Periode')->whereNotIn("Periode", [""])->distinct()->get()->getResult();
         if ($category != null) {
             foreach ($category as $key => $value) {
@@ -248,11 +260,11 @@ class Home extends BaseController
     // START BOD EKSISTING
     public function bodeksisting(Type $var = null)
     {
-        $bulan = $this->request->getPost('bulan');
+        $bulann = $this->request->getPost('bulan');
 
         $db = \Config\Database::connect();
 
-        $query = $db->query("SELECT periode AS tgl,Titik_pantau,Nilai_bodek FROM eksisting WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
+        $query = $db->query("SELECT Periode AS tgl,Titik_pantau,Nilai_bodek FROM eksisting WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulann' ORDER BY periode ASC")->getResult();
         $category = $db->table('eksisting')->select('Nama_sungai')->whereNotIn("Nama_sungai", [""])->distinct()->get()->getResult();
         if ($category != null) {
             foreach ($category as $key => $value) {
@@ -266,21 +278,21 @@ class Home extends BaseController
         foreach ($seriesName as $key => $value) {
             $resultDataSet[] = [
                 "seriesname" => $value,
-                "data" => $this->checkNilaiBodek($value, $bulan),
+                "data" => $this->checkNilaiBodek($value, $bulann),
             ];
         }
         $respon = [
             'category' => $resultCategory,
             "dataset" => $resultDataSet,
-            "bulan" => $bulan,
+            "bulan" => $bulann,
         ];
         echo json_encode($respon);
     }
 
-    public function checkNilaiBodek($titik_pantau, $bulan)
+    public function checkNilaiBodek($titik_pantau, $bulann)
     {
         $db = \Config\Database::connect();
-        $nilai_bodek = $db->table('Eksisting')->select('Nilai_bodek')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(periode,1,7)", $bulan)->get()->getResult();
+        $nilai_bodek = $db->table('eksisting')->select('Nilai_bodek')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(periode,1,7)", $bulann)->get()->getResult();
         $result = [];
         if ($nilai_bodek != null) {
             foreach ($nilai_bodek as $key => $value) {
@@ -298,10 +310,8 @@ class Home extends BaseController
     public function tsseksisting(Type $var = null)
     {
         $bulan = $this->request->getPost('bulan');
-
         $db = \Config\Database::connect();
-
-        $query = $db->query("SELECT periode AS tgl,Titik_pantau,Nilai_tssek FROM eksisting WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
+        $query = $db->query("SELECT Periode AS tgl,Titik_pantau,Nilai_tssek FROM eksisting WHERE DATE_FORMAT(Periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
         $category = $db->table('eksisting')->select('Nama_sungai')->whereNotIn("Nama_sungai", [""])->distinct()->get()->getResult();
         if ($category != null) {
             foreach ($category as $key => $value) {
@@ -310,7 +320,6 @@ class Home extends BaseController
                 ];
             }
         }
-
         $seriesName = ["Hulu", "Tengah", "Hilir"];
         foreach ($seriesName as $key => $value) {
             $resultDataSet[] = [
@@ -325,11 +334,10 @@ class Home extends BaseController
         ];
         echo json_encode($respon);
     }
-
     public function checkNilaiTssek($titik_pantau, $bulan)
     {
         $db = \Config\Database::connect();
-        $nilai_bodek = $db->table('Eksisting')->select('Nilai_tssek')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(periode,1,7)", $bulan)->get()->getResult();
+        $nilai_bodek = $db->table('eksisting')->select('Nilai_tssek')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(Periode,1,7)", $bulan)->get()->getResult();
         $result = [];
         if ($nilai_bodek != null) {
             foreach ($nilai_bodek as $key => $value) {
