@@ -16,6 +16,67 @@
 CREATE DATABASE IF NOT EXISTS `dlh_cimahi` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `dlh_cimahi`;
 
+-- Dumping structure for table dlh_cimahi.backupeksiting
+CREATE TABLE IF NOT EXISTS `backupeksiting` (
+  `id_eksisting` int(11) NOT NULL AUTO_INCREMENT,
+  `Nama_sungai` varchar(50) NOT NULL,
+  `Titik_pantau` varchar(50) NOT NULL,
+  `Periode` date NOT NULL,
+  `Nilai_bodek` double(22,0) NOT NULL DEFAULT 0,
+  `Nilai_Tssek` double(22,0) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id_eksisting`)
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table dlh_cimahi.backupeksiting: ~45 rows (approximately)
+/*!40000 ALTER TABLE `backupeksiting` DISABLE KEYS */;
+INSERT INTO `backupeksiting` (`id_eksisting`, `Nama_sungai`, `Titik_pantau`, `Periode`, `Nilai_bodek`, `Nilai_Tssek`) VALUES
+	(1, 'Cisangkan', 'Hulu', '2020-02-20', 12, 29),
+	(2, 'Cisangkan', 'Tengah', '2020-02-18', 279, 443),
+	(3, 'Cisangkan', 'Hilir', '2020-02-18', 3, 2),
+	(4, 'Cibaligo', 'Hulu', '2020-02-19', 1, 423),
+	(5, 'Cibaligo', 'Tengah', '2020-02-19', 954, 622),
+	(6, 'Cibaligo', 'Hilir', '2020-02-19', 420, 482),
+	(7, 'Cibeureum', 'Hulu', '2020-02-17', 5, 40),
+	(8, 'Cibeureum', 'Tengah', '2020-02-17', 1, 9),
+	(9, 'Cibeureum', 'Hilir', '2020-02-17', 9, 54),
+	(10, 'Cibabat', 'Hulu', '2020-02-20', 1, 2),
+	(11, 'Cibabat', 'Tengah', '2020-02-17', 197, 124),
+	(12, 'Cibabat', 'Hilir', '2020-02-19', 81, 22),
+	(13, 'Cimahi', 'Hulu', '2020-02-20', 2, 6),
+	(14, 'Cimahi', 'Tengah', '2020-02-18', 3, 41),
+	(15, 'Cimahi', 'Hilir', '2020-02-18', 0, 0),
+	(16, 'Cisangkan', 'Hulu', '2020-07-16', 894, 211),
+	(17, 'Cisangkan', 'Tengah', '2020-07-16', 701, 955),
+	(18, 'Cisangkan', 'Hilir', '2020-07-16', 3, 4),
+	(19, 'Cibaligo', 'Hulu', '2020-07-15', 1, 2),
+	(20, 'Cibaligo', 'Tengah', '2020-07-15', 262, 394),
+	(21, 'Cibaligo', 'Hilir', '2020-07-15', 835, 943),
+	(22, 'Cibeureum', 'Hulu', '2020-07-15', 992, 2),
+	(23, 'Cibeureum', 'Tengah', '2020-07-16', 575, 1),
+	(24, 'Cibeureum', 'Hilir', '2020-07-15', 2, 4),
+	(25, 'Cibabat', 'Hulu', '2020-07-15', 571, 632),
+	(26, 'Cibabat', 'Tengah', '2020-07-15', 194, 323),
+	(27, 'Cibabat', 'Hilir', '2020-07-15', 1, 2),
+	(28, 'Cimahi', 'Hulu', '2020-07-15', 510, 964),
+	(29, 'Cimahi', 'Tengah', '2020-07-16', 799, 3),
+	(30, 'Cimahi', 'Hilir', '2020-07-16', 540, 507),
+	(31, 'Cisangkan', 'Hulu', '2020-10-22', 39, 47),
+	(32, 'Cisangkan', 'Tengah', '2020-10-22', 70, 50),
+	(33, 'Cisangkan', 'Hilir', '2020-10-22', 423, 421),
+	(34, 'Cibaligo', 'Hulu', '2020-10-21', 274, 421),
+	(35, 'Cibaligo', 'Tengah', '2020-10-21', 412, 855),
+	(36, 'Cibaligo', 'Hilir', '2020-10-21', 296, 1),
+	(37, 'Cibeureum', 'Hulu', '2020-10-21', 948, 1),
+	(38, 'Cibeureum', 'Tengah', '2020-10-22', 2, 9),
+	(39, 'Cibeureum', 'Hilir', '2020-10-21', 2, 4),
+	(40, 'Cibabat', 'Hulu', '2020-10-21', 127, 251),
+	(41, 'Cibabat', 'Tengah', '2020-10-21', 210, 254),
+	(42, 'Cibabat', 'Hilir', '2020-10-21', 280, 342),
+	(43, 'Cimahi', 'Hulu', '2020-10-21', 4, 23),
+	(44, 'Cimahi', 'Tengah', '2020-10-22', 284, 1),
+	(45, 'Cimahi', 'Hilir', '2020-10-22', 618, 1);
+/*!40000 ALTER TABLE `backupeksiting` ENABLE KEYS */;
+
 -- Dumping structure for table dlh_cimahi.bod_aktual
 CREATE TABLE IF NOT EXISTS `bod_aktual` (
   `id_bodaktual` int(11) NOT NULL AUTO_INCREMENT,
@@ -80,6 +141,37 @@ INSERT INTO `bod_potensial` (`id_potensial`, `Tahun_domestik`, `Nilai_domestik`)
 	(6, '2026', 3533);
 /*!40000 ALTER TABLE `bod_potensial` ENABLE KEYS */;
 
+-- Dumping structure for table dlh_cimahi.eksisting
+CREATE TABLE IF NOT EXISTS `eksisting` (
+  `id_eksisting` int(11) NOT NULL AUTO_INCREMENT,
+  `Nama_sungai` varchar(50) NOT NULL,
+  `Titik_pantau` varchar(50) NOT NULL,
+  `Periode` date NOT NULL,
+  `Nilai_bodek` double(22,0) NOT NULL DEFAULT 0,
+  `Nilai_Tssek` double(22,0) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id_eksisting`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table dlh_cimahi.eksisting: ~0 rows (approximately)
+/*!40000 ALTER TABLE `eksisting` DISABLE KEYS */;
+INSERT INTO `eksisting` (`id_eksisting`, `Nama_sungai`, `Titik_pantau`, `Periode`, `Nilai_bodek`, `Nilai_Tssek`) VALUES
+	(1, 'Cisangkan', 'Hulu', '2022-04-21', 29, 43),
+	(2, 'Cisangkan', 'Tengah', '2022-04-21', 76, 22),
+	(3, 'Cisangkan', 'Hilir', '2022-04-21', 23, 56),
+	(4, 'Cibaligo', 'Hulu', '2022-04-02', 12, 32),
+	(5, 'Cibaligo', 'Tengah', '2022-04-13', 34, 41),
+	(6, 'Cibaligo', 'Hilir', '2022-04-23', 123, 43),
+	(7, 'Cibeureum', 'Hulu', '2022-04-12', 76, 12),
+	(8, 'Cibeureum', 'Tengah', '2022-04-19', 13, 45),
+	(9, 'Cibeureum', 'Hilir', '2022-04-28', 98, 112),
+	(10, 'Cibabat', 'Hulu', '2022-04-12', 56, 24),
+	(11, 'Cibabat', 'Tengah', '2022-04-14', 54, 64),
+	(12, 'Cibabat', 'Hilir', '2022-04-16', 76, 43),
+	(13, 'Cimahi', 'Hulu', '2022-04-22', 85, 21),
+	(14, 'Cimahi', 'Tengah', '2022-04-20', 55, 43),
+	(15, 'Cimahi', 'Hilir', '2022-04-21', 32, 65);
+/*!40000 ALTER TABLE `eksisting` ENABLE KEYS */;
+
 -- Dumping structure for table dlh_cimahi.ika
 CREATE TABLE IF NOT EXISTS `ika` (
   `id_ika` int(11) NOT NULL AUTO_INCREMENT,
@@ -130,36 +222,36 @@ CREATE TABLE IF NOT EXISTS `ipa` (
 -- Dumping data for table dlh_cimahi.ipa: ~90 rows (approximately)
 /*!40000 ALTER TABLE `ipa` DISABLE KEYS */;
 INSERT INTO `ipa` (`id_ipa`, `Nama_sungai`, `Titik_pantau`, `Periode`, `Nilai_pij`) VALUES
-	(1, '', 'Cimahi Hulu', '2019-04-05', 11.63),
-	(2, '', 'Cimahi Tengah', '2019-04-01', 9.28),
-	(3, '', 'Cimahi Hilir', '2019-04-05', 11.64),
-	(4, '', 'Cisangkan Hulu', '2019-04-01', 10.28),
-	(5, '', 'Cisangkan Tengah', '2019-04-01', 11.67),
-	(6, '', 'Cisangkan Hilir', '2019-04-02', 7.94),
-	(7, '', 'Cibabat Hulu', '2019-04-04', 11.66),
-	(8, '', 'Cibabat Tengah', '2019-04-04', 11.76),
-	(9, '', 'Cibabat Hilir', '2019-04-05', 11.83),
-	(10, '', 'Cibaligo Hulu', '2019-04-04', 11.75),
-	(11, '', 'Cibaligo Tengah', '2019-04-04', 11.79),
-	(12, '', 'Cibaligo Hilir', '2019-04-02', 12.01),
-	(13, '', 'Cibeureum Hulu', '2019-04-01', 10.31),
-	(14, '', 'Cibeureum Tengah', '2019-04-02', 9.48),
-	(15, '', 'Cibeureum Hilir', '2019-04-02', 10.42),
-	(16, '', 'Cimahi Hulu', '2019-07-10', 1.6),
-	(17, '', 'Cimahi Tengah', '2019-07-10', 12.29),
-	(18, '', 'Cimahi Hilir', '2019-07-09', 15.15),
-	(19, '', 'Cisangkan Hulu', '2019-07-10', 14.48),
-	(20, '', 'Cisangkan Tengah', '2019-07-10', 15.67),
-	(21, '', 'Cisangkan Hilir', '2019-07-08', 15.81),
-	(22, '', 'Cibabat Hulu', '2019-07-12', 10.56),
-	(23, '', 'Cibabat Tengah', '2019-07-12', 14.92),
-	(24, '', 'Cibabat Hilir', '2019-07-16', 15.89),
-	(25, '', 'Cibaligo Hulu', '2019-07-16', 14.49),
-	(26, '', 'Cibaligo Tengah', '2019-07-15', 15.22),
-	(27, '', 'Cibaligo Hilir', '2019-07-08', 17.57),
-	(28, '', 'Cibeureum Hulu', '2019-07-09', 12.56),
-	(29, '', 'Cibeureum Tengah', '2019-07-08', 12.86),
-	(30, '', 'Cibeureum Hilir', '2019-07-08', 11.48),
+	(1, 'Cimahi', 'Hulu', '2019-04-05', 11.63),
+	(2, 'Cimahi', 'Tengah', '2019-04-01', 9.28),
+	(3, 'Cimahi', 'Hilir', '2019-04-05', 11.64),
+	(4, 'Cisangkan', 'Hulu', '2019-04-01', 10.28),
+	(5, 'Cisangkan', 'Tengah', '2019-04-01', 11.67),
+	(6, 'Cisangkan', 'Hilir', '2019-04-02', 7.94),
+	(7, 'Cibabat', 'Hulu', '2019-04-04', 11.66),
+	(8, 'Cibabat', 'Tengah', '2019-04-04', 11.76),
+	(9, 'Cibabat', 'Hilir', '2019-04-05', 11.83),
+	(10, 'Cibaligo', 'Hulu', '2019-04-04', 11.75),
+	(11, 'Cibaligo', 'Tengah', '2019-04-04', 11.79),
+	(12, 'Cibaligo', 'Hilir', '2019-04-02', 12.01),
+	(13, 'Cibeureum', 'Hulu', '2019-04-01', 10.31),
+	(14, 'Cibeureum', 'Tengah', '2019-04-02', 9.48),
+	(15, 'Cibeureum', 'Hilir', '2019-04-02', 10.42),
+	(16, 'Cimahi', 'Hulu', '2019-07-10', 1.6),
+	(17, 'Cimahi', 'Tengah', '2019-07-10', 12.29),
+	(18, 'Cimahi', 'Hilir', '2019-07-09', 15.15),
+	(19, 'Cisangkan', 'Hulu', '2019-07-10', 14.48),
+	(20, 'Cisangkan', 'Tengah', '2019-07-10', 15.67),
+	(21, 'Cisangkan', 'Hilir', '2019-07-08', 15.81),
+	(22, 'Cibabat', 'Hulu', '2019-07-12', 10.56),
+	(23, 'Cibabat', 'Tengah', '2019-07-12', 14.92),
+	(24, 'Cibabat', 'Hilir', '2019-07-16', 15.89),
+	(25, 'Cibaligo', 'Hulu', '2019-07-16', 14.49),
+	(26, 'Cibaligo', 'Tengah', '2019-07-15', 15.22),
+	(27, 'Cibaligo', 'Hilir', '2019-07-08', 17.57),
+	(28, 'Cibeureum', 'Hulu', '2019-07-09', 12.56),
+	(29, 'Cibeureum', 'Tengah', '2019-07-08', 12.86),
+	(30, 'Cibeureum', 'Hilir', '2019-07-08', 11.48),
 	(31, '', 'Cimahi Hulu', '2019-11-07', 7.44),
 	(32, '', 'Cimahi Tengah', '2019-11-05', 11.18),
 	(33, '', 'Cimahi Hilir', '2019-11-05', 15.59),
@@ -175,21 +267,21 @@ INSERT INTO `ipa` (`id_ipa`, `Nama_sungai`, `Titik_pantau`, `Periode`, `Nilai_pi
 	(43, '', 'Cibeureum Hulu', '2019-11-04', 13.31),
 	(44, '', 'Cibeureum Tengah', '2019-11-04', 14.23),
 	(45, '', 'Cibeureum Hilir', '2019-11-04', 12.15),
-	(46, '', 'Cimahi Hulu', '2020-02-20', 6.29),
-	(47, '', 'Cimahi Tengah', '2020-02-18', 9.57),
-	(48, '', 'Cimahi Hilir', '2020-02-18', 11.31),
-	(49, '', 'Cisangkan Hulu', '2020-02-20', 9.49),
-	(50, '', 'Cisangkan Tengah', '2020-02-18', 9.48),
-	(51, '', 'Cisangkan Hilir', '2020-02-18', 6.93),
-	(52, '', 'Cibabat Hulu', '2020-02-20', 9.16),
-	(53, '', 'Cibabat Tengah', '2020-02-17', 12.96),
-	(54, '', 'Cibabat Hilir', '2020-02-19', 12.14),
-	(55, '', 'Cibaligo Hulu', '2020-02-19', 11.24),
-	(56, '', 'Cibaligo Tengah', '2020-02-19', 11.68),
-	(57, '', 'Cibaligo Hilir', '2020-02-19', 13.77),
-	(58, '', 'Cibeureum Hulu', '2020-02-17', 10.8),
-	(59, '', 'Cibeureum Tengah', '2020-02-17', 10.86),
-	(60, '', 'Cibeureum Hilir', '2020-02-17', 9.02),
+	(46, 'Cimahi', 'Hulu', '2020-02-20', 6.29),
+	(47, 'Cimahi', 'Tengah', '2020-02-18', 9.57),
+	(48, 'Cimahi', 'Hilir', '2020-02-18', 11.31),
+	(49, 'Cisangkan', 'Hulu', '2020-02-20', 9.49),
+	(50, 'Cisangkan', 'Tengah', '2020-02-18', 9.48),
+	(51, 'Cisangkan', 'Hilir', '2020-02-18', 6.93),
+	(52, 'Cibabat', 'Hulu', '2020-02-20', 9.16),
+	(53, 'Cibabat', 'Tengah', '2020-02-17', 12.96),
+	(54, 'Cibabat', 'Hilir', '2020-02-19', 12.14),
+	(55, 'Cibaligo', 'Hulu', '2020-02-19', 11.24),
+	(56, 'Cibaligo', 'Tengah', '2020-02-19', 11.68),
+	(57, 'Cibaligo', 'Hilir', '2020-02-19', 13.77),
+	(58, 'Cibeureum', 'Hulu', '2020-02-17', 10.8),
+	(59, 'Cibeureum', 'Tengah', '2020-02-17', 10.86),
+	(60, 'Cibeureum', 'Hilir', '2020-02-17', 9.02),
 	(61, '', 'Cimahi Hulu', '2020-07-15', 15.47),
 	(62, '', 'Cimahi Tengah', '2020-07-16', 11.31),
 	(63, '', 'Cimahi Hilir', '2020-07-16', 12.12),
@@ -237,6 +329,23 @@ INSERT INTO `katagori_pencemaran` (`id_ipa`, `katagori`) VALUES
 	(3, 'Sedang'),
 	(4, 'Berat');
 /*!40000 ALTER TABLE `katagori_pencemaran` ENABLE KEYS */;
+
+-- Dumping structure for table dlh_cimahi.statusmutuair
+CREATE TABLE IF NOT EXISTS `statusmutuair` (
+  `id_mutuair` int(11) NOT NULL AUTO_INCREMENT,
+  `katagori` varchar(50) NOT NULL,
+  `jumlah` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_mutuair`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table dlh_cimahi.statusmutuair: ~4 rows (approximately)
+/*!40000 ALTER TABLE `statusmutuair` DISABLE KEYS */;
+INSERT INTO `statusmutuair` (`id_mutuair`, `katagori`, `jumlah`) VALUES
+	(1, 'Tercemar Ringan', '4'),
+	(2, 'Tercemar Sedang', '9'),
+	(3, 'Tercemar Berat', '17'),
+	(4, 'Memenuhi', '0');
+/*!40000 ALTER TABLE `statusmutuair` ENABLE KEYS */;
 
 -- Dumping structure for table dlh_cimahi.sungai
 CREATE TABLE IF NOT EXISTS `sungai` (
@@ -370,7 +479,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table dlh_cimahi.user: ~0 rows (approximately)
+-- Dumping data for table dlh_cimahi.user: ~1 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id_user`, `user_email`, `user_password`, `user_name`, `tanggal`) VALUES
 	(1, 'admin@gmail.com', '$2y$10$JmPsceG2lmEeFxCXuPRatebOZpbC/Uezg0Nzpu2M8Ry8b.fI4e7Wu', 'admin', '2022-03-30');
