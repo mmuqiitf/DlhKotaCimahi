@@ -370,7 +370,7 @@
 
 .button__excell {
   width: 160px;
-  height: 60px;
+  height: 40px;
   background: white !important;
   color: #3d6988 !important;
   font-weight: bold;
@@ -379,4 +379,15 @@
 
 .custom__modal__content__excell {
   padding: 25px;
+  height: 380px;
+}
+
+.button__download__template {
+  width: 200px !important;
+  height: 35px;
+  background: #3d6988 !important;
+  color: white !important;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
