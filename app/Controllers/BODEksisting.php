@@ -331,7 +331,7 @@ class BODEksisting extends BaseController
     public function importexcel()
     {
         //validation
-        if(!$this->validate([
+        if (!$this->validate([
             'file_excel' => [
                 'rules' => 'uploaded[file_excel]|ext_in[file_excel,xlsx,xls]|max_size[file_excel,1024]',
                 'errors' => [
@@ -340,7 +340,7 @@ class BODEksisting extends BaseController
                     'max_size' => 'Ukuran file terlalu besar'
                 ]
             ]
-        ])){
+        ])) {
             return redirect()->to('/BODEksisting/listbod/')->withInput()->with('errors', $this->validator->getErrors());
         }
         $file = $this->request->getFile('file_excel');
@@ -361,16 +361,16 @@ class BODEksisting extends BaseController
 
         foreach ($sheetData as $s => $excel) {
             //skip title row
-            if ($s <= 3) {
+            if ($s <= 11) {
                 continue;
             }
             $data = [
                 'nama_sungai' => $excel[1],
                 'titik_pantau' => $excel[2],
-                'waktu_sampling' => date("Y-m-d", strtotime($excel[43])),
+                'waktu_sampling' => date("Y-m-d", strtotime($excel[5])),
                 'BOD' => $excel[12],
                 'debit' => $excel[41],
-                'beban_pencemar' => $excel[42]
+                'beban_pencemar' => ($excel[12] * $excel[41]) * 86.4
             ];
             //convert date format
             //$data['waktu_sampling'] = $data['waktu_sampling'][1] . '-' . $data['waktu_sampling'][2] . '-' . $data['waktu_sampling'][0];
