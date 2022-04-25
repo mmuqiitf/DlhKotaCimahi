@@ -18,9 +18,16 @@
                             <div class="col-lg-12">
                                 <div class="col-md-6">
                                     <div class="beban">
+<<<<<<< Updated upstream
                                         <h2><b>Data Beban <br>Pencemaran <br>TTS Potensial</h2>
                                         <h5>Masukan Data TSS dengan Klik <br>Button di bawah ini!</h5>
                                         <button class="tombol1 btn btn-primary" type="submit" onclick="document.location.href='/BODPotensial'">Masukkan Data</button>                                
+=======
+                                        <h2><b>Data BOD <br> Potensial </h2>
+                                        <h5>Masukan Data dengan Klik <br>Button di bawah ini!</h5>
+                                        <button class="tombol1 btn btn-primary" type="submit"
+                                            onclick="document.location.href='/BODPotensial/listBOD'">Masukkan Data</button>
+>>>>>>> Stashed changes
                                     </div>
                                 </div>
                                 <div class="col-md-6">
