@@ -70,7 +70,7 @@
                             <?= form_close(); ?>
 
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -97,18 +97,18 @@
                             <?php foreach ($bod as $bodeks) : ?>
 
                                 <tr>
-                                    <td><?= $bodeks['ID_BOD_Eksisting'] ?></td>
+                                    <td><?= $bodeks['id'] ?></td>
                                     <td><?= $bodeks['nama_sungai'] ?></td>
-                                    <td><?= $bodeks['titik_pantau'] ?></td>
+                                    <td><?= $bodeks['nama_titikPantau'] ?></td>
                                     <td><?= $bodeks['waktu_sampling'] ?></td>
                                     <td><?= $bodeks['Debit'] ?></td>
                                     <td><?= $bodeks['BOD'] ?></td>
                                     <td><?= $bodeks['beban_pencemar'] ?></td>
                                     <td>
                                         <div class="button__action__container">
-                                            <a href="/BODEksisting/update_list_bod/<?= $bodeks['ID_BOD_Eksisting'] ?>" class="btn btn-primary custom__button__edit"><i class="bi bi-pencil-square"></i></a>
+                                            <a href="/BODEksisting/update_list_bod/<?= $bodeks['id'] ?>" class="btn btn-primary custom__button__edit"><i class="bi bi-pencil-square"></i></a>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" class="btn btn-danger custom__button__delete"><i class="bi bi-trash"></i></button>
-                                            <input type="hidden" name="ID_BOD_Eksisting" value="<?= $bodeks['ID_BOD_Eksisting']; ?>">
+                                            <input type="hidden" name="id" value="<?= $bodeks['id']; ?>">
                                             <?= $this->include('/feedback/delete__modal') ?>
                                         </div>
                                     </td>
@@ -121,7 +121,7 @@
                 </table>
 
                 <div class="pager_custom">
-                    <?= $pager->links("bod_eksisting", "eksisting_pager") ?>
+                    <?= $pager->links("tbltitikpantau", "eksisting_pager") ?>
                 </div>
 
 

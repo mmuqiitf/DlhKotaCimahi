@@ -12,8 +12,9 @@
  <link href="/assets/vendor/quill/quill.snow.css" rel="stylesheet">
  <link href="/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
  <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
- <!-- <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet"> -->
- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+ <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+ <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css"> -->
  <!-- <link href="/assets/vendor/bootstrap/datatable/dataTables.bootstrap5.min.css" rel="stylesheet"> -->
 
  <!-- Template Main CSS File -->

@@ -23,9 +23,23 @@
     <link href="/assets/vendor/quill/quill.snow.css" rel="stylesheet">
     <link href="/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="/assets/vendor/bootstrap/datatable/dataTables.bootstrap5.min.css" rel="stylesheet">
-    <!-- <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet"> -->
+    <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assets/vendor/css/leaflet.css" rel="stylesheet">
+    <script src="<?= base_url() ?>/assets/vendor/js/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenu/dist/metisMenu.min.css">
 
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
+        });
+    </script>
+
+    <!-- Template Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">

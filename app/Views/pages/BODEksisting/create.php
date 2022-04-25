@@ -70,14 +70,14 @@
                         <div class="custom__card">
                             <h3>Titik Pantau</h3>
                             <div class="row select__custom__container py-2">
-                                <select class="form-control <?= ($validation->hasError('titik_pantau')) ? 'is-invalid' : ''; ?>" name="titik_pantau" type="input" class="form-select">
+                                <select class="form-control <?= ($validation->hasError('nama_titikPantau')) ? 'is-invalid' : ''; ?>" name="nama_titikPantau" type="input" class="form-select">
                                     <option value="" selected disabled hidden>Pilih...</option>
                                     <option value="Hulu">Hulu</option>
                                     <option value="Tengah">Tengah</option>
                                     <option value="Hilir">Hilir</option>
                                 </select>
                                 <small class="text-danger justify-content-end">
-                                    <?= $validation->getError('titik_pantau'); ?>
+                                    <?= $validation->getError('nama_titikPantau'); ?>
                                 </small>
                             </div>
                         </div>

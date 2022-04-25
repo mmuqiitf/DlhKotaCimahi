@@ -30,12 +30,12 @@ class BODEksisting extends BaseController
 
     public function listbod()
     {
-        $bod = $this->BodEksistingModel->paginate(5, "bod_eksisting");
+        $bod = $this->BodEksistingModel->paginate(5, "tbltitikpantau");
         $keyword = $this->request->getVar('keyword');
         if ($keyword) {
             $bod = $this->BodEksistingModel->search($keyword);
         } else {
-            $bod = $this->BodEksistingModel->paginate(5, "bod_eksisting");
+            $bod = $this->BodEksistingModel->paginate(5, "tbltitikpantau");
         }
         $data = [
             'validation' => \Config\Services::validation(),
@@ -62,7 +62,7 @@ class BODEksisting extends BaseController
                     'required' => 'Nama Sungai harus diisi'
                 ]
             ],
-            'titik_pantau' => [
+            'nama_titikPantau' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Titik pantau harus diisi'
@@ -97,9 +97,9 @@ class BODEksisting extends BaseController
         }
         $data = [
 
-            'ID_BOD_Eksisting' => $this->request->getPost('ID_BOD_Eksisting'),
+            'id' => $this->request->getPost('id'),
             'nama_sungai' => $this->request->getPost('nama_sungai'),
-            'titik_pantau' => $this->request->getPost('titik_pantau'),
+            'nama_titikPantau' => $this->request->getPost('nama_titikPantau'),
             'BOD' => $this->request->getPost('BOD'),
             'Debit' => $this->request->getPost('Debit'),
             'beban_pencemar' => $this->request->getPost('beban_pencemar'),
@@ -113,8 +113,8 @@ class BODEksisting extends BaseController
 
     public function update_bod()
     {
-        $bod = $this->request->getvar('ID_BOD_Eksisting');
-        $data = $this->request->getvar(['nama_sungai', 'titik_pantau', 'BOD', 'Debit', 'beban_pencemar', 'waktu_sampling']);
+        $bod = $this->request->getvar('id');
+        $data = $this->request->getvar(['nama_sungai', 'nama_titikPantau', 'BOD', 'Debit', 'beban_pencemar', 'waktu_sampling']);
 
         //dd($data);
         $this->BodEksistingModel->update($bod, $data);
@@ -124,7 +124,7 @@ class BODEksisting extends BaseController
 
     public function delete_bod()
     {
-        $data = $this->request->getvar('ID_BOD_Eksisting');
+        $data = $this->request->getvar('id');
         //dd($data);
         $this->BodEksistingModel->delete($data);
         session()->setFlashdata('success', 'Data berhasil dihapus');
@@ -366,7 +366,7 @@ class BODEksisting extends BaseController
             }
             $data = [
                 'nama_sungai' => $excel[1],
-                'titik_pantau' => $excel[2],
+                'nama_titikPantau' => $excel[2],
                 'waktu_sampling' => date("Y-m-d", strtotime($excel[5])),
                 'BOD' => $excel[12],
                 'debit' => $excel[41],

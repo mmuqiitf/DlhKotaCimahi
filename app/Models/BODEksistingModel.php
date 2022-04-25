@@ -6,8 +6,8 @@ use CodeIgniter\Model;
 
 class BODEksistingModel extends Model
 {
-    protected $table = 'bod_eksisting';
-    protected $primaryKey = 'ID_BOD_Eksisting';
+    protected $table = 'tbltitikpantau';
+    protected $primaryKey = 'id';
     protected $allowedFields = [
         'nama_sungai',
         'titik_pantau',
@@ -19,7 +19,7 @@ class BODEksistingModel extends Model
     public function delete_bod($idbod)
     {
         $data = $this->where([
-            'ID_BOD_Eksisting' => $idbod
+            'id' => $idbod
         ])->first();
         return $data;
     }
@@ -35,13 +35,13 @@ class BODEksistingModel extends Model
     public function bod($idbod)
     {
         $data = $this->where([
-            'ID_BOD_Eksisting' => $idbod
+            'id' => $idbod
         ])->first();
         return $data;
     }
     public function dataBODEksisting()
     {
-        $query = $this->db->table('bod_eksisting')
+        $query = $this->db->table('tbltitikpantau')
             ->select('*')
             ->get();
         return $query->getResultArray();
@@ -49,15 +49,15 @@ class BODEksistingModel extends Model
 
     public function bod_eksisting_post($data)
     {
-        return $this->db->table('bod_eksisting')->insert($data);
+        return $this->db->table('tbltitikpantau')->insert($data);
     }
 
     public function search($keyword)
     {
-        return $this->table('bod_eksisting')->like('nama_sungai', $keyword)->orLike('titik_pantau', $keyword)->findAll();
+        return $this->table('tbltitikpantau')->like('nama_sungai', $keyword)->orLike('nama_titikPantau', $keyword)->findAll();
     }
     public function insertexceldata($data)
     {
-        $this->db->table('bod_eksisting')->insert($data);
+        $this->db->table('tbltitikpantau')->insert($data);
     }
 }
