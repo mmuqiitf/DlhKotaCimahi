@@ -27,6 +27,20 @@ $segment = $uri->getSegment(2);
             <a class="nav-link <?php  if($segment == 'bnpencemaran') {echo " ";} else {echo "collapsed";}   ?> " href="/bnpencemaran">
                 <i class="bx bx-line-chart"></i><span>Beban Pencemaran</span>
             </a>
+<<<<<<< Updated upstream
+=======
+            <div class="dropdown-container">
+                <a class="dropdown-item dropdown-btn" href="#">Data BOD</a>
+                <div class="dropdown-container">
+                    <a class="dropdown-item dropdown-btn" href="/BODPotensial/listbod">Data BOD Potensial</a>
+                    <a class="dropdown-item dropdown-btn" href="/BODEksisting/listbod">Data BOD Eksisting</a>
+                </div>
+
+                <a class="dropdown-item" href="#">Data TSS</a>
+            </div>
+
+
+>>>>>>> Stashed changes
         </li><!-- End Beban Pencemaran Nav -->
 
         <li class="nav-item">

@@ -17,11 +17,10 @@ $segment = $uri->getSegment(2);
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link <?php  if($segment == 'BODPotensial') {echo " ";} else {echo "collapsed";}   ?> " href="/BODPotensial">
+            <a class="nav-link <?php  if($segment == 'BODPotensial') {echo " ";} else {echo "collapsed";}   ?> " href="/BODPotensial/listBOD">
                 <i class="bx bxs-dashboard"></i><span>Pencemaran Potensial</span>
             </a>
         </li><!-- End Dashboard Nav -->
-
         <li class="nav-item">
             <a class="nav-link <?php  if($segment == 'BODEksisting') {echo " ";} else {echo "collapsed";}   ?> " href="/BODEksisting">
                 <i class="bx bx-line-chart"></i><span>Pencemaran Eksisting</span>

@@ -35,7 +35,11 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => '',
         'password' => '',
+<<<<<<< Updated upstream
         'database' => '',
+=======
+        'database' => 'dlh_cimahi_baru',
+>>>>>>> Stashed changes
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
