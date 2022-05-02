@@ -183,7 +183,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Status Mutu Air</h5>
                                         <div class="form-group">
-                                            <input type="month" class="form-control" id="bulan" value="<?= date('Y-m') ?>">
+                                            <input type="month" class="form-control" id="bulan" value="">
                                             <br>
                                             <button class="btntampil" onclick="getDataStatusMutu()">
                                                 Tampil
@@ -212,7 +212,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Beban Pencemar BOD Eksisting</h5>
                                         <div class="form-group">
-                                            <input type="month" class="form-control" id="bulan" value="<?= date('Y-m') ?>">
+                                            <input type="month" class="form-control" id="bulann" value="<?= date('Y-m') ?>">
                                             <br>
                                             <button class="btntampil" onclick="getDataBodEksisting()">
                                                 Tampil
@@ -250,7 +250,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Beban Pencemar TSS Eksisting</h5>
                                         <div class="form-group">
-                                            <input type="month" class="form-control" id="bulan" value="<?= date('Y-m') ?>">
+                                            <input type="month" class="form-control" id="bulantssek" value="<?= date('Y-m') ?>">
                                             <br>
                                             <button class="btntampil" onclick="getDataTssEksisting()">
                                                 Tampil
@@ -619,7 +619,7 @@
             type: "POST",
             url: "api/bodeksisting",
             data: {
-                bulan: $('#bulan').val()
+                bulan: $('#bulann').val()
             },
             dataType: "JSON",
             success: function(response) {
@@ -663,7 +663,7 @@
             type: "POST",
             url: "api/tsseksisting",
             data: {
-                bulan: $('#bulan').val()
+                bulan: $('#bulantssek').val()
             },
             dataType: "JSON",
             success: function(response) {

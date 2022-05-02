@@ -260,11 +260,11 @@ class Home extends BaseController
     // START BOD EKSISTING
     public function bodeksisting(Type $var = null)
     {
-        $bulann = $this->request->getPost('bulan');
+        $bulan = $this->request->getPost('bulan');
 
         $db = \Config\Database::connect();
 
-        $query = $db->query("SELECT Periode AS tgl,Titik_pantau,Nilai_bodek FROM eksisting WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulann' ORDER BY periode ASC")->getResult();
+        $query = $db->query("SELECT Periode AS tgl,Titik_pantau,Nilai_bodek FROM eksisting WHERE DATE_FORMAT(periode,'%Y-%m') = '$bulan' ORDER BY periode ASC")->getResult();
         $category = $db->table('eksisting')->select('Nama_sungai')->whereNotIn("Nama_sungai", [""])->distinct()->get()->getResult();
         if ($category != null) {
             foreach ($category as $key => $value) {
@@ -278,24 +278,24 @@ class Home extends BaseController
         foreach ($seriesName as $key => $value) {
             $resultDataSet[] = [
                 "seriesname" => $value,
-                "data" => $this->checkNilaiBodek($value, $bulann),
+                "data" => $this->checkNilaiBodek($value, $bulan),
             ];
         }
         $respon = [
             'category' => $resultCategory,
             "dataset" => $resultDataSet,
-            "bulan" => $bulann,
+            "bulan" => $bulan,
         ];
         echo json_encode($respon);
     }
 
-    public function checkNilaiBodek($titik_pantau, $bulann)
+    public function checkNilaiBodek($titik_pantau, $bulan)
     {
         $db = \Config\Database::connect();
-        $nilai_bodek = $db->table('eksisting')->select('Nilai_bodek')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(periode,1,7)", $bulann)->get()->getResult();
+        $Nilai_bodek = $db->table('eksisting')->select('Nilai_bodek')->where('Titik_pantau', $titik_pantau)->where("SUBSTR(periode,1,7)", $bulan)->get()->getResult();
         $result = [];
-        if ($nilai_bodek != null) {
-            foreach ($nilai_bodek as $key => $value) {
+        if ($Nilai_bodek != null) {
+            foreach ($Nilai_bodek as $key => $value) {
                 $result[] = [
                     "value" => $value->Nilai_bodek,
                 ];
