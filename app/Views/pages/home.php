@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="ps-3">
                                         <h6 class="card-title">Jumlah Karyawan</h6>
-                                        <h5 class="card-title">1</h5>
+                                        <h5 class="card-title"><?= $jumlah_user ?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -714,7 +714,7 @@
     const Dataaa = <?= json_encode($Dataaa); ?>;
     FusionCharts.ready(function() {
         var myChart = new FusionCharts({
-            type: "pie3d",
+            type: "doughnut3d",
             renderAt: "jumlahmutu",
             width: "100%",
             height: "300%",
