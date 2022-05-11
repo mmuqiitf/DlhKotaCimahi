@@ -61,8 +61,9 @@ $routes->add('/update', 'Home::update', ['filter' => 'auth']);
 // API
 $routes->post('/api/indexPencemaran/', 'Home::IndexPencemaran');
 $routes->post('/api/StatusMutuAir/', 'Home::StatusMutuAir');
-$routes->post('api/bodeksisting', 'Home::bodeksisting');
-$routes->post('api/tsseksisting', 'Home::tsseksisting');
+$routes->post('/api/bodeksisting', 'Home::bodeksisting');
+$routes->post('/api/tsseksisting', 'Home::tsseksisting');
+// $routes->post('/api/jumlahstatusmutuair', 'Home::jumlahstatusmutuair');
 
 /*
  * --------------------------------------------------------------------

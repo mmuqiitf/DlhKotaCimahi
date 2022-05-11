@@ -11,6 +11,7 @@ class Statusmutuair extends Model
     protected $allowedFields = [
         'katagori',
         'jumlah',
+        'warna',
     ];
     protected $useTimestamps = false;
 }

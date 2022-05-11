@@ -658,7 +658,7 @@
 
     // START TSS EKSISTING
     function getDataTssEksisting() {
-        $("#BODEKSISTING").html('');
+        $("#TSSEKSISTING").html('');
         $.ajax({
             type: "POST",
             url: "api/tsseksisting",
@@ -700,13 +700,19 @@
     });
     // END TSS EKSISTING
 
+
     // JUMLAH MUTU SEMENTARA
     <?php
     $Dataaa = [];
     foreach ($jumlahMUTU->getResult() as $key => $value) : {
             $Dataaa[] = [
                 'label' => $value->katagori,
-                'value' => $value->jumlah
+
+                // 'color' => '#e44a00', '#e44fff',
+                'color' => $value->warna,
+
+                'value' => $value->jumlah,
+                // 'color' => ["#e44a00", "#e44a00", "#e44a00"],
             ];
         };
     endforeach ?>

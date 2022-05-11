@@ -57,9 +57,11 @@ class Home extends BaseController
         // ===END START IKA===
 
         // JUMLAH MUTU
-        $jumlahMUTU =  $modelStatusmutuair->select('COUNT(statusmutuair.id_mutuair) AS jumlah, statusmutuair.katagori AS katagori ,statusmutuair.jumlah AS jumlah')
+        $jumlahMUTU =  $modelStatusmutuair->select('COUNT(statusmutuair.id_mutuair) AS jumlah, statusmutuair.katagori AS katagori ,statusmutuair.jumlah AS jumlah,statusmutuair.warna AS warna')
+            ->groupBy('statusmutuair.warna')
             ->groupBy('statusmutuair.katagori')
             ->groupBy('statusmutuair.jumlah')
+
             ->get();
         // END 
 
@@ -232,6 +234,7 @@ class Home extends BaseController
                 "data" => $this->checkNilaiPi($value, $bulan),
             ];
         }
+
         $respon = [
             'category' => $resultCategory,
             "dataset" => $resultDataSet,
@@ -334,6 +337,7 @@ class Home extends BaseController
         ];
         echo json_encode($respon);
     }
+
     public function checkNilaiTssek($titik_pantau, $bulan)
     {
         $db = \Config\Database::connect();
@@ -350,9 +354,10 @@ class Home extends BaseController
     }
     // END EKSISTING
 
+    // START JUMLAH STATUS MUTU AIR
 
 
-
+    // END JUMLAH STATUS MUTU AIR
 
 
 
