@@ -28,6 +28,13 @@
                 </div>
             </div>
         </div>
+        <?php if (session()->getFlashdata('pesan')) : ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('pesan') ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+
 
         <!-- ENd Header -->
 
@@ -35,30 +42,30 @@
         <div class="custom__wrapper">
 
             <!-- small card -->
-                <!-- end of small card -->
+            <!-- end of small card -->
 
 
 
-                <div class="custom__card__large">
-                    <div class="custom__header__card__large">
-                        <button type="button" class="btn btn-primary" onclick="document.location.href='/TSSAktual/createTSS'">Create TSS</button>
-                        <button type="button" class="btn btn-primary">Input Excel</button>
-                    </div>
+            <div class="custom__card__large">
+                <div class="custom__header__card__large">
+                    <button type="button" class="btn btn-primary" onclick="document.location.href='/TSSAktual/createTSS'">Create TSS</button>
+                    <a href="/TSSAktual/export_excel" class="btn btn-primary">Export Excel</a>
+                </div>
 
-                    <div class="table__wrapper">
-                        <table class="custom__table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No.id</th>
-                                    <th scope="col">Nama Sungai</th>
-                                    <th scope="col">Titik Pantau</th>
-                                    <th scope="col">Tanggal Sampling</th>
-                                    <th scope="col">Hasil Beban Pencemar</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php 
+                <div class="table__wrapper">
+                    <table class="custom__table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.id</th>
+                                <th scope="col">Nama Sungai</th>
+                                <th scope="col">Titik Pantau</th>
+                                <th scope="col">Tanggal Sampling</th>
+                                <th scope="col">Hasil Beban Pencemar</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
                             foreach ($tss_eksisting as $post) : ?>
                                 <tr>
                                     <td><?php echo $post['ID']; ?></td>
@@ -66,23 +73,28 @@
                                     <td><?php echo $post['titik_pantau']; ?></td>
                                     <td><?php echo $post['waktu_sampling']; ?></td>
                                     <td><?php echo $post['beban_pencemar']; ?></td>
-                                    <td><div class="button__action__container">
-                                            <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
-                                    </div></td>
+                                    <td>
+                                        <form action="/TSSAktual/deleteTSS/<?= $post['ID']; ?>" method="POST">
+                                            <?= csrf_field() ?>
+                                            <div class="button__action__container">
+                                                <button type="submit" class="btn btn-danger custom__button__delete">Delete</button>
+                                            </div>
+                                        </form>
+                                    </td>
                                 </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-
-                    </div>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
 
                 </div>
 
-
-
-
             </div>
-</div>
+
+
+
+
+        </div>
+    </div>
 
 
 

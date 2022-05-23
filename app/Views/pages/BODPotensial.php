@@ -38,11 +38,7 @@
                                         </select>
                                     </div>
                                 </div>
-<<<<<<< HEAD
-                                <div class="col-12 col-lg-3">
-=======
                                 <div class="col-12 col-lg-3 me-2">
->>>>>>> d2f05f65dc48bc43c592a010975b6371422875d7
                                     <div class="tahun">
                                         <h5>Tahun</h5>
                                         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
@@ -108,10 +104,6 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
-
-=======
->>>>>>> d2f05f65dc48bc43c592a010975b6371422875d7
     <section class="section">
         <div class="hasil">
             <div class="row">
@@ -160,9 +152,5 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
-
-=======
->>>>>>> d2f05f65dc48bc43c592a010975b6371422875d7
 </main><!-- End #main -->
 <?= $this->endSection();  ?>

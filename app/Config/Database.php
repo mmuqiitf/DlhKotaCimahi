@@ -33,13 +33,9 @@ class Database extends Config
     public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
-        'username' => '',
+        'username' => 'root',
         'password' => '',
-<<<<<<< Updated upstream
-        'database' => '',
-=======
-        'database' => 'dlh_cimahi_baru',
->>>>>>> Stashed changes
+        'database' => 'dlh_cimahi',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
