@@ -32,10 +32,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => 'dlh_cimahi',
+        'hostname' => (ENVIRONMENT !== 'production') ? 'localhost' : parse_url(getenv("mysql://bbde3fe68b6494:0900e565@us-cdbr-east-05.cleardb.net/heroku_c4c73da92a26ae7?reconnect=true"))['host'],
+        'username' => (ENVIRONMENT !== 'production') ? 'root' : parse_url(getenv("mysql://bbde3fe68b6494:0900e565@us-cdbr-east-05.cleardb.net/heroku_c4c73da92a26ae7?reconnect=true"))['user'],
+        'password' => (ENVIRONMENT !== 'production') ? '' : parse_url(getenv("mysql://bbde3fe68b6494:0900e565@us-cdbr-east-05.cleardb.net/heroku_c4c73da92a26ae7?reconnect=true"))['pass'],
+        'database' => (ENVIRONMENT !== 'production') ? 'dlh_cimahi' : substr(parse_url(getenv("mysql://bbde3fe68b6494:0900e565@us-cdbr-east-05.cleardb.net/heroku_c4c73da92a26ae7?reconnect=true"))['path'], 1),
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
