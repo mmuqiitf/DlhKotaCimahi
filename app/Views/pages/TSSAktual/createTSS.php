@@ -24,10 +24,10 @@
         <div class="row">
             <div class="col">
                 <div class="d-flex flex-column custom__header">
-                    <h1>Hi, mrayyandika</h1>
-                    <h4>Create BOD Eksisting</h4>
+                    <h1>Hi, Kelompok7</h1>
+                    <h4>Create TSS Eksisting</h4>
                 </div>
-
+                
             </div>
             <div class="col">
                 <div class="container__search">
@@ -82,26 +82,25 @@
                     <div class="custom__header__create">
                         <h3>Perhitungan</h3>
                     </div>
-
+                    <form action="/TSSAktual/add" method="post">
                     <div class="custom__card__large">
                         <div class="container">
                             <div class="row">
                                 <div class="col d-flex flex-column gap-4">
                                     <div class="d-flex justify-content-between align-items-center container__create">
-                                        <h3>BOD (mg/L)</h3>
-                                        <input type="text">
+                                        <h3>TSS (mg/L)</h3>
+                                        <input id="tss" type="text" name="angka1">
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center container__create">
                                         <h3>Debit (m3/s)</h3>
-                                        <input type="text">
+                                        <input id="debit" type="text" name="angka2">
                                     </div>
-
-                                    <div class="btn btn-primary custom__btn__result">Cek Hasil</div>
-
+                                    <button class="btn btn-primary custom__btn__result" id="cek">Cek Hasil</button>
+                                    
 
                                     <div class="d-flex justify-content-between align-items-center container__create">
                                         <h3>Beban Pencemar (Kg/Hari)</h3>
-                                        <input type="text">
+                                        <input id="hasil" type="text">
                                     </div>
 
 
@@ -145,7 +144,8 @@
 
 
                             <div class="row row__result">
-                                <div class="btn btn-primary custom__btn__result">Simpan Hasil</div>
+                                <button type="submit" div class="btn btn-primary custom__btn__result">Simpan Hasil</div>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -161,6 +161,15 @@
 
 
 <script type="text/javascript">
+$('#cek').click(function (e) { 
+        e.preventDefault();
+        // alert('tes');
+        t=$('#tss').val();
+        d=$('#debit').val();
+        hasil=t*d*86.4;
+        // alert(hasil);
+        $("#hasil").val(hasil);
+    });
     $(function () {
         $('#datepicker').datepicker();
     });

@@ -43,6 +43,9 @@ $routes->get('/BODEksisting', 'Home::BODEksisting',['filter' => 'auth']);
 $routes->get('/BODPotensial', 'Home::BODPotensial',['filter' => 'auth']);
 $routes->get('/BODEksisting', 'BODEksisting::index',['filter' => 'auth']);
 $routes->get('/BODEksisting/create', 'BODEksisting::create',['filter' => 'auth']);
+$routes->get('/TSSAktual/indexTSS', 'TSSAktual::indexTSS',['filter' => 'auth']);
+$routes->get('/TSSAktual/createTSS', 'TSSAktual::createTSS',['filter' => 'auth']);
+$routes->get('/indexTSS', 'TSScrud::indexTSS',['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

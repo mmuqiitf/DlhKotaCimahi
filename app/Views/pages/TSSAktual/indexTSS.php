@@ -14,8 +14,8 @@
         <div class="row">
             <div class="col">
                 <div class="d-flex flex-column custom__header">
-                    <h1>Hi, mrayyandika</h1>
-                    <h4>Data BOD Eksisting</h4>
+                    <h1>Hi, Kelompok7</h1>
+                    <h4>Data TSS Eksisting</h4>
                 </div>
 
             </div>
@@ -35,28 +35,13 @@
         <div class="custom__wrapper">
 
             <!-- small card -->
-            <div class="custom__container">
-                <div class="custom__card">
-                    <h3>Nama Sungai</h3>
-                    <div class="select__custom__container">
-                        <select class="form-select">
-                            <option>Sungai Cisangkan</option>
-                            <option>Sungai Cibaligo</option>
-                            <option>Sungai Cibereum</option>
-                            <option>Sungai Cilember</option>
-                            <option>Sungai Cimahi</option>
-
-                        </select>
-                    </div>
-                </div>
-
                 <!-- end of small card -->
 
 
 
                 <div class="custom__card__large">
                     <div class="custom__header__card__large">
-                        <button type="button" class="btn btn-primary" onclick="document.location.href='/BODEksisting/create'">Create BOD</button>
+                        <button type="button" class="btn btn-primary" onclick="document.location.href='/TSSAktual/createTSS'">Create TSS</button>
                         <button type="button" class="btn btn-primary">Input Excel</button>
                     </div>
 
@@ -65,21 +50,27 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No.id</th>
+                                    <th scope="col">Nama Sungai</th>
                                     <th scope="col">Titik Pantau</th>
                                     <th scope="col">Tanggal Sampling</th>
+                                    <th scope="col">Hasil Beban Pencemar</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php 
+                            foreach ($tss_eksisting as $post) : ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Hulu</td>
-                                    <td>20/12/2020</td>
+                                    <td><?php echo $post['ID']; ?></td>
+                                    <td><?php echo $post['nama_sungai']; ?></td>
+                                    <td><?php echo $post['titik_pantau']; ?></td>
+                                    <td><?php echo $post['waktu_sampling']; ?></td>
+                                    <td><?php echo $post['beban_pencemar']; ?></td>
                                     <td><div class="button__action__container">
-                                            <button type="button" class="btn btn-primary custom__button__edit">Update</button>
                                             <button type="button" class="btn btn-danger custom__button__delete">Delete</button>
                                     </div></td>
                                 </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
 
@@ -91,6 +82,7 @@
 
 
             </div>
+</div>
 
 
 
@@ -100,7 +92,6 @@
 
 
 </main>
-
 
 
 
