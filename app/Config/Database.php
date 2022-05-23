@@ -32,10 +32,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => (ENVIRONMENT !== 'production') ? 'localhost' : parse_url(getenv("mysql://bbde3fe68b6494:0900e565@us-cdbr-east-05.cleardb.net/heroku_c4c73da92a26ae7?reconnect=true"))['host'],
-        'username' => (ENVIRONMENT !== 'production') ? 'root' : parse_url(getenv("mysql://bbde3fe68b6494:0900e565@us-cdbr-east-05.cleardb.net/heroku_c4c73da92a26ae7?reconnect=true"))['user'],
-        'password' => (ENVIRONMENT !== 'production') ? '' : parse_url(getenv("mysql://bbde3fe68b6494:0900e565@us-cdbr-east-05.cleardb.net/heroku_c4c73da92a26ae7?reconnect=true"))['pass'],
-        'database' => (ENVIRONMENT !== 'production') ? 'dlh_cimahi' : substr(parse_url(getenv("mysql://bbde3fe68b6494:0900e565@us-cdbr-east-05.cleardb.net/heroku_c4c73da92a26ae7?reconnect=true"))['path'], 1),
+        'hostname' => (ENVIRONMENT !== 'production') ? 'localhost' : "us-cdbr-east-05.cleardb.net",
+        'username' => (ENVIRONMENT !== 'production') ? 'root' : "bbde3fe68b6494",
+        'password' => (ENVIRONMENT !== 'production') ? '' : "0900e565",
+        'database' => (ENVIRONMENT !== 'production') ? 'dlh_cimahi' : "heroku_c4c73da92a26ae7",
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
